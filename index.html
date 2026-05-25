@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Modular Makers — Premium Modular Furniture in Jaipur</title>
+<meta name="description" content="The Modular Makers — Jaipur's trusted modular furniture manufacturer. Custom modular kitchens, wardrobes, TV units, office furniture & full home interiors. 5+ years, 100+ projects. Call +91 8302366262.">
+<meta name="keywords" content="modular furniture Jaipur, modular kitchen Jaipur, modular wardrobe Jaipur, home interior Jaipur, furniture manufacturer Jaipur, modular office furniture Jaipur">
+<meta property="og:title" content="The Modular Makers — Premium Modular Furniture in Jaipur">
+<meta property="og:description" content="Custom modular kitchens, wardrobes, TV units & home interiors. 5+ years experience, 100+ projects. Free consultation available.">
+<meta property="og:url" content="https://www.themodularmakers.com">
+<link rel="canonical" href="https://www.themodularmakers.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --warm-white: #FDFAF5;
+    --charcoal: #1C1C1A;
+    --charcoal-light: #2E2E2B;
+    --gold: #C8973A;
+    --gold-light: #E8B85A;
+    --sage: #6B7B5E;
+    --text-muted: #7A7A72;
+    --border: rgba(28,28,26,0.1);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--warm-white);
+    color: var(--charcoal);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+    background: rgba(253,250,245,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 20px rgba(28,28,26,0.08); }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--charcoal); }
+  .nav-cta {
+    background: var(--charcoal);
+    color: var(--cream) !important;
+    padding: 0.5rem 1.25rem;
+    border-radius: 2px;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.08em !important;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--charcoal) !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { width: 24px; height: 1.5px; background: var(--charcoal); transition: all 0.3s; display: block; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    padding: 68px 5% 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    background: var(--warm-white);
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: var(--cream);
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+    z-index: 0;
+  }
+  .hero-text { position: relative; z-index: 1; animation: fadeUp 0.8s ease both; }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+  .hero-title em { font-style: italic; color: var(--gold); }
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 440px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 0.875rem 2rem;
+    border-radius: 2px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: background 0.25s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--gold); color: var(--charcoal); transform: translateY(-2px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    border: 1px solid var(--charcoal);
+    color: var(--charcoal);
+    padding: 0.875rem 2rem;
+    border-radius: 2px;
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: all 0.25s;
+  }
+  .btn-outline:hover { background: var(--charcoal); color: var(--cream); }
+  .hero-visual {
+    position: relative; z-index: 1;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-image-box {
+    background: var(--charcoal);
+    border-radius: 4px;
+    aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-image-box img {
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0.85;
+    transition: transform 0.6s ease;
+  }
+  .hero-image-box:hover img { transform: scale(1.03); }
+  .hero-image-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #2E2E2B 0%, #1C1C1A 50%, #3A3630 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1rem;
+    min-height: 320px;
+  }
+  .placeholder-icon {
+    width: 64px; height: 64px;
+    border: 1.5px solid rgba(200,151,58,0.4);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .placeholder-icon svg { width: 32px; height: 32px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .placeholder-label { color: rgba(245,240,232,0.5); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; }
+  .hero-stats {
+    display: flex; gap: 0; margin-top: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 2px; overflow: hidden;
+    background: var(--warm-white);
+  }
+  .stat {
+    flex: 1; padding: 1rem 1.25rem;
+    text-align: center; border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .stat-num span { color: var(--gold); }
+  .stat-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 5%; }
+  .section-tag {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 500;
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .section-tag::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-sub { font-size: 1rem; color: var(--text-muted); max-width: 520px; font-weight: 300; line-height: 1.8; margin-bottom: 3rem; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--cream); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .service-card {
+    background: var(--cream);
+    padding: 2.5rem 2rem;
+    transition: background 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    transition: width 0.4s ease;
+  }
+  .service-card:hover { background: var(--warm-white); }
+  .service-card:hover::after { width: 100%; }
+  .service-icon {
+    width: 48px; height: 48px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.5rem;
+    background: var(--warm-white);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .service-card:hover .service-icon { border-color: var(--gold); background: var(--cream); }
+  .service-icon svg { width: 22px; height: 22px; stroke: var(--charcoal); fill: none; stroke-width: 1.5; }
+  .service-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem; font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 0.5rem;
+  }
+  .service-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+
+  /* ── WHY US ── */
+  #why { background: var(--charcoal); color: var(--cream); }
+  #why .section-title { color: var(--cream); }
+  #why .section-sub { color: rgba(245,240,232,0.6); }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+  .why-item { border-top: 1px solid rgba(200,151,58,0.3); padding-top: 1.5rem; }
+  .why-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem; font-weight: 700;
+    color: rgba(200,151,58,0.25);
+    line-height: 1; margin-bottom: 0.75rem;
+  }
+  .why-title { font-size: 1rem; font-weight: 500; color: var(--cream); margin-bottom: 0.5rem; }
+  .why-desc { font-size: 0.875rem; color: rgba(245,240,232,0.55); font-weight: 300; line-height: 1.7; }
+
+  /* ── PROCESS ── */
+  #process { background: var(--warm-white); }
+  .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; position: relative; }
+  .process-step {
+    padding: 2rem 1.5rem;
+    border-left: 1px solid var(--border);
+    position: relative;
+  }
+  .process-step:first-child { border-left: none; }
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 3.5rem; font-weight: 700;
+    color: var(--cream);
+    line-height: 1;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .step-title { font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+  .step-desc { font-size: 0.8rem; color: var(--text-muted); font-weight: 300; line-height: 1.7; }
+
+  /* ── GALLERY ── */
+  #gallery { background: var(--cream); }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 1rem;
+  }
+  .gallery-item {
+    background: var(--charcoal-light);
+    border-radius: 3px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    cursor: pointer;
+  }
+  .gallery-item.large { grid-column: span 2; aspect-ratio: 16/9; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-placeholder {
+    width: 100%; height: 100%; min-height: 200px;
+    background: linear-gradient(135deg, #2E2E2B, #1C1C1A);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem;
+  }
+  .gallery-placeholder svg { width: 28px; height: 28px; stroke: rgba(200,151,58,0.4); fill: none; stroke-width: 1.5; }
+  .gallery-placeholder span { font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(245,240,232,0.3); text-transform: uppercase; }
+  .gallery-overlay {
+    position: absolute; inset: 0;
+    background: rgba(28,28,26,0);
+    display: flex; align-items: flex-end;
+    padding: 1.25rem;
+    transition: background 0.3s;
+  }
+  .gallery-item:hover .gallery-overlay { background: rgba(28,28,26,0.55); }
+  .gallery-label {
+    color: var(--cream);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: all 0.3s;
+  }
+  .gallery-item:hover .gallery-label { opacity: 1; transform: translateY(0); }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--warm-white); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .testimonial {
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 2rem;
+    position: relative;
+    background: var(--warm-white);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .testimonial:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .quote-mark {
+    font-family: var(--font-display);
+    font-size: 4rem; line-height: 1;
+    color: var(--gold);
+    opacity: 0.3;
+    position: absolute; top: 1rem; right: 1.5rem;
+    font-weight: 700;
+  }
+  .testimonial-text { font-size: 0.9rem; color: var(--charcoal); line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+  .author-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.9rem; font-weight: 700;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .author-name { font-size: 0.875rem; font-weight: 500; }
+  .author-location { font-size: 0.75rem; color: var(--text-muted); }
+  .stars { color: var(--gold); font-size: 0.75rem; margin-bottom: 0.75rem; letter-spacing: 2px; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--cream); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-info { display: grid; gap: 1.5rem; }
+  .contact-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .contact-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--warm-white);
+  }
+  .contact-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+  .contact-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.25rem; }
+  .contact-value { font-size: 0.9rem; font-weight: 400; color: var(--charcoal); }
+  .contact-value a { color: var(--charcoal); text-decoration: none; transition: color 0.2s; }
+  .contact-value a:hover { color: var(--gold); }
+  .contact-form { display: grid; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 500; }
+  .form-group input, .form-group textarea, .form-group select {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: var(--warm-white);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--charcoal);
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    outline: none; border-color: var(--gold);
+  }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  /* ── MAP ── */
+  .map-wrapper {
+    margin-top: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    height: 200px;
+  }
+  .map-wrapper iframe { width: 100%; height: 100%; border: none; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    color: rgba(245,240,232,0.6);
+    padding: 3rem 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  .footer-brand .nav-logo { color: var(--cream); margin-bottom: 0.75rem; display: block; }
+  .footer-desc { font-size: 0.8rem; line-height: 1.7; color: rgba(245,240,232,0.45); font-weight: 300; }
+  .footer-col h4 { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; font-weight: 500; }
+  .footer-links { list-style: none; display: grid; gap: 0.5rem; }
+  .footer-links a { font-size: 0.8rem; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--cream); }
+  .footer-bottom {
+    background: var(--charcoal);
+    padding: 1.25rem 5%;
+    border-top: 1px solid rgba(245,240,232,0.08);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 0.75rem;
+  }
+  .footer-bottom p { font-size: 0.75rem; color: rgba(245,240,232,0.3); }
+  .social-links { display: flex; gap: 1rem; }
+  .social-links a {
+    width: 34px; height: 34px;
+    border: 1px solid rgba(245,240,232,0.15);
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s, background 0.2s;
+    text-decoration: none;
+  }
+  .social-links a:hover { border-color: var(--gold); background: rgba(200,151,58,0.1); }
+  .social-links svg { width: 16px; height: 16px; stroke: rgba(245,240,232,0.5); fill: none; stroke-width: 1.5; }
+  .social-links a:hover svg { stroke: var(--gold); }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
+    width: 56px; height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: waFloat 3s ease-in-out infinite;
+  }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); animation: none; }
+  .wa-float svg { width: 28px; height: 28px; fill: white; }
+  @keyframes waFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    #hero { grid-template-columns: 1fr; padding-top: calc(68px + 2rem); gap: 2.5rem; }
+    #hero::before { display: none; }
+    .hero-title { font-size: 2.25rem; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column; gap: 0;
+      position: fixed; top: 68px; left: 0; right: 0;
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 5%;
+    }
+    .nav-links.open a { padding: 0.75rem 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+    .hamburger { display: flex; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item.large { grid-column: span 2; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-step { border-left: none; border-top: 1px solid var(--border); }
+    .process-step:nth-child(1), .process-step:nth-child(2) { border-top: none; }
+    section { padding: 4rem 5%; }
+  }
+  @media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item.large { grid-column: span 1; }
+    .hero-actions { flex-direction: column; }
+    .btn-primary, .btn-outline { justify-content: center; }
+    .hero-stats { flex-wrap: wrap; }
+    .stat { min-width: 33%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">The Modular <span>Makers</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#gallery">Projects</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact" class="nav-cta">Get Quote</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Jaipur's Trusted Furniture Maker</p>
+    <h1 class="hero-title">Spaces Crafted<br>with <em>Precision</em><br>& Purpose</h1>
+    <p class="hero-desc">Premium modular furniture designed for your life. From kitchens to wardrobes — we craft every detail to fit your space, your style, and your budget.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/918302366262?text=Hi%2C%20I%20am%20interested%20in%20modular%20furniture.%20Please%20share%20details." class="btn-primary" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.852L0 24l6.347-1.504A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.376l-.36-.213-3.728.883.935-3.618-.234-.371A9.818 9.818 0 1112 21.818z"/></svg>
+        WhatsApp Us
+      </a>
+      <a href="#gallery" class="btn-outline">View Projects</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-image-box">
+      <div class="hero-image-placeholder">
+        <div class="placeholder-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <span>Add your best project photo here</span>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">5<span>+</span></div>
+        <div class="stat-label">Years</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100<span>+</span></div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Designs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="reveal">
+    <p class="section-tag">What We Build</p>
+    <h2 class="section-title">Every Space,<br><em>Perfectly Modular</em></h2>
+    <p class="section-sub">From your kitchen to your home office — we design and manufacture modular furniture that transforms how you live and work.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M2 19h20M4 19V7a1 1 0 011-1h14a1 1 0 011 1v12M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2"/><rect x="8" y="10" width="3" height="4"/></svg>
+      </div>
+      <h3 class="service-name">Modular Kitchen</h3>
+      <p class="service-desc">Elegant, space-smart kitchens designed around your cooking style. Custom cabinets, shutters, countertops and smart storage in every configuration.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="2" width="18" height="20" rx="1"/><path d="M7 2v20M12 6h5M12 10h5M12 14h5"/></svg>
+      </div>
+      <h3 class="service-name">Wardrobe & Closet</h3>
+      <p class="service-desc">Floor-to-ceiling wardrobes, walk-in closets, and sliding systems — tailored to your room dimensions and storage needs.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="12" rx="1"/><path d="M7 7V5a1 1 0 011-1h8a1 1 0 011 1v2M2 14h20"/></svg>
+      </div>
+      <h3 class="service-name">TV Unit & Living Room</h3>
+      <p class="service-desc">Statement wall units, entertainment consoles, and display shelves that become the focal point of your living space.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <h3 class="service-name">Office Furniture</h3>
+      <p class="service-desc">Modular workstations, ergonomic desks, storage cabinets, and conference setups designed for productivity and professionalism.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3 class="service-name">Kids Room</h3>
+      <p class="service-desc">Fun, safe, and smart kids' furniture — study tables, bunk beds, toy storage, and playful wardrobes that grow with your child.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h3 class="service-name">Full Home Interior</h3>
+      <p class="service-desc">End-to-end home interior solutions — one team, one vision, seamless execution across every room of your home.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="reveal">
+    <p class="section-tag" style="color:var(--gold-light)">Why Choose Us</p>
+    <h2 class="section-title">Built on Trust,<br><em>Delivered with Care</em></h2>
+    <p class="section-sub">5 years of crafting homes across Jaipur and beyond — here's what sets us apart.</p>
+  </div>
+  <div class="why-grid reveal">
+    <div class="why-item">
+      <div class="why-num">01</div>
+      <h3 class="why-title">Free 3D Design Preview</h3>
+      <p class="why-desc">See your furniture before it's built. We create detailed 3D renders so you approve every detail before production starts.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">02</div>
+      <h3 class="why-title">In-House Manufacturing</h3>
+      <p class="why-desc">We design and manufacture everything ourselves — no middlemen, tighter quality control, and faster delivery timelines.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">03</div>
+      <h3 class="why-title">Premium Materials</h3>
+      <p class="why-desc">BWP-grade plywood, PU finishes, soft-close hardware, and brand-name fittings — quality you can feel every single day.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">04</div>
+      <h3 class="why-title">On-Time Delivery</h3>
+      <p class="why-desc">We respect your schedule. Clear timelines, regular progress updates, and professional on-site installation — no surprises.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">05</div>
+      <h3 class="why-title">Serving All of Jaipur</h3>
+      <p class="why-desc">From Vaishali Nagar to Mansarovar, Malviya Nagar to C-Scheme — and beyond Jaipur too. We come to you.</p>
+    </div>
+    <div class="why-item">
+      <div class="why-num">06</div>
+      <h3 class="why-title">Post-Installation Support</h3>
+      <p class="why-desc">Our relationship doesn't end at delivery. We offer warranty support and after-service for every project we complete.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="reveal">
+    <p class="section-tag">How It Works</p>
+    <h2 class="section-title">From <em>Idea</em> to<br>Your Dream Space</h2>
+    <p class="section-sub">A simple, transparent process — from your first call to the final nail.</p>
+  </div>
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <h3 class="step-title">Free Consultation</h3>
+      <p class="step-desc">WhatsApp or call us. We visit your space, understand your needs, and discuss your vision — no cost, no obligation.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <h3 class="step-title">Design & 3D Preview</h3>
+      <p class="step-desc">Our designers create a detailed layout and 3D render for your approval. Revisions until you're 100% happy.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <h3 class="step-title">Manufacturing</h3>
+      <p class="step-desc">Once approved, our factory gets to work. Premium materials, precision cuts, and rigorous quality checks at every step.</p>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <h3 class="step-title">Installation & Handover</h3>
+      <p class="step-desc">Our trained team installs everything at your site — clean, efficient, and right on schedule. You walk in and it's ready.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="reveal">
+    <p class="section-tag">Our Work</p>
+    <h2 class="section-title">100+ Homes,<br><em>Every One Unique</em></h2>
+    <p class="section-sub">A glimpse of the spaces we've transformed. Replace placeholders with your actual project photos.</p>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="gallery-item large">
+      <div class="gallery-placeholder">
+        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <span>Featured kitchen project</span>
+      </div>
+      <div class="gallery-overlay"><span class="gallery-label">Modular Kitchen</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <svg viewBox="0 0 24 24"><rect x="3" y="2" width="18" height="20" rx="1"/><path d="M7 2v20"/></svg>
+        <span>Wardrobe project</span>
+      </div>
+      <div class="gallery-overlay"><span class="gallery-label">Wardrobe</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="12" rx="1"/><path d="M2 14h20"/></svg>
+        <span>TV unit project</span>
+      </div>
+      <div class="gallery-overlay"><span class="gallery-label">TV Unit</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        <span>Full home interior</span>
+      </div>
+      <div class="gallery-overlay"><span class="gallery-label">Full Home Interior</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="1"/></svg>
+        <span>Office furniture</span>
+      </div>
+      <div class="gallery-overlay"><span class="gallery-label">Office Furniture</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-placeholder">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
+        <span>Kids room</span>
+      </div>
+      <div class="gallery-overlay"><span class="gallery-label">Kids Room</span></div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:2.5rem" class="reveal">
+    <a href="https://www.instagram.com/themodularmakers/" target="_blank" rel="noopener" class="btn-outline">
+      See More on Instagram →
+    </a>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="reveal">
+    <p class="section-tag">Client Reviews</p>
+    <h2 class="section-title">Words from<br><em>Happy Homes</em></h2>
+    <p class="section-sub">Real feedback from real clients. Replace these with your actual Google reviews.</p>
+  </div>
+  <div class="testimonials-grid reveal">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">Walking into my new kitchen still feels unreal, I had a very specific vision for my home, but I wasn’t sure if I could afford a premium look. The modular makers made it happen beautifully. If you want a stree free kitchen installation, these are the people to call!</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">RK</div>
+        <div>
+          <div class="author-name">Surabhi Diwakar</div>
+          <div class="author-location">Vaishali Nagar, Jaipur</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">Got our entire home interior done — kitchen, wardrobes, TV unit and study. Seamless experience from design to installation. Very happy with the finish and the price. Highly recommend!</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">PS</div>
+        <div>
+          <div class="author-name">Priya Sharma</div>
+          <div class="author-location">Mansarovar, Jaipur</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <div class="quote-mark">"</div>
+      <p class="testimonial-text">​I recently got my home kitchen installed by The Modular Makers, and I genuinely believe they are the best in Jaipur. The experience was seamless from start to finish.
+​It started with a free consultation that was incredibly helpful—they didn't just push products; they guided me on what would actually work for my space. The clarity in design was impressive; they showed me exactly how the final outcome would look, so there were no surprises.
+​What I appreciated most was that they respected my finances. They delivered a premium look strictly within my budget. The installation was completed on time (a rare find these days!), and their support didn't end there. Their after-sales service has been prompt and helpful. Highly recommended for anyone looking for hassle-free interiors.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">AM</div>
+        <div>
+          <div class="author-name">Usha Gupta</div>
+          <div class="author-location">Malviya Nagar, Jaipur</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <p class="section-tag">Get In Touch</p>
+    <h2 class="section-title">Let's Build<br><em>Your Space</em></h2>
+    <p class="section-sub">Free consultation, free home visit, free 3D design. Just reach out — we'll take it from there.</p>
+  </div>
+  <div class="contact-grid reveal">
+    <div>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.86 9.11 19.79 19.79 0 01.77 .5 2 2 0 012.77 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.16 6.16l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Phone & WhatsApp</div>
+            <div class="contact-value"><a href="tel:+918302366262">+91 83023 66262</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:themodularmakers@gmail.com">themodularmakers@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">Jaipur, Rajasthan — serving pan-Jaipur & beyond</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Working Hours</div>
+            <div class="contact-value">Mon–Sat: 9 AM – 7 PM &nbsp;|&nbsp; Sun: By Appointment</div>
+          </div>
+        </div>
+      </div>
+      <div class="map-wrapper">
+        <iframe src="https://maps.google.com/maps?q=Sanganer,Jaipur,Rajasthan&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="The Modular Makers location"></iframe>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Rahul Sharma">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+91 98765 43210">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="service">Service Interested In</label>
+          <select id="service">
+            <option value="">Select a service...</option>
+            <option>Modular Kitchen</option>
+            <option>Wardrobe / Closet</option>
+            <option>TV Unit / Living Room</option>
+            <option>Office Furniture</option>
+            <option>Kids Room</option>
+            <option>Full Home Interior</option>
+            <option>Multiple / Not Sure</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" placeholder="Tell us about your space, requirements or any questions..."></textarea>
+        </div>
+        <div class="form-submit">
+          <a id="sendWhatsApp" href="#" class="btn-primary" style="flex:1;justify-content:center" onclick="sendToWhatsApp(event)">
+            Send via WhatsApp
+          </a>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.5rem">We typically respond within 30 minutes during working hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="#hero" class="nav-logo">The Modular <span style="color:var(--gold)">Makers</span></a>
+    <p class="footer-desc">Premium modular furniture for homes and offices across Jaipur and Rajasthan. 5+ years of craftsmanship, 100+ happy projects.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Services</h4>
+    <ul class="footer-links">
+      <li><a href="#services">Modular Kitchen</a></li>
+      <li><a href="#services">Wardrobe & Closet</a></li>
+      <li><a href="#services">TV Unit</a></li>
+      <li><a href="#services">Office Furniture</a></li>
+      <li><a href="#services">Kids Room</a></li>
+      <li><a href="#services">Full Home Interior</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Contact</h4>
+    <ul class="footer-links">
+      <li><a href="tel:+918302366262">+91 83023 66262</a></li>
+      <li><a href="mailto:themodularmakers@gmail.com">themodularmakers@gmail.com</a></li>
+      <li><a href="https://www.instagram.com/themodularmakers/" target="_blank" rel="noopener">@themodularmakers</a></li>
+      <li><a href="https://wa.me/918302366262" target="_blank" rel="noopener">WhatsApp Chat</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2024 The Modular Makers. All rights reserved. &nbsp;|&nbsp; Jaipur, Rajasthan</p>
+  <div class="social-links">
+    <a href="https://www.instagram.com/themodularmakers/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a href="https://wa.me/918302366262" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" stroke="none" fill="currentColor"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.852L0 24l6.347-1.504A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.376l-.36-.213-3.728.883.935-3.618-.234-.371A9.818 9.818 0 1112 21.818z" stroke="none" fill="currentColor"/></svg>
+    </a>
+    <a href="mailto:themodularmakers@gmail.com" aria-label="Email">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa-float" href="https://wa.me/918302366262?text=Hi%2C%20I%20am%20interested%20in%20modular%20furniture.%20Please%20share%20details." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.852L0 24l6.347-1.504A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.376l-.36-.213-3.728.883.935-3.618-.234-.371A9.818 9.818 0 1112 21.818z"/></svg>
+</a>
+
+<script>
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Hamburger
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navLinks a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // WhatsApp form
+  function sendToWhatsApp(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value || 'Not provided';
+    const phone = document.getElementById('phone').value || 'Not provided';
+    const service = document.getElementById('service').value || 'Not specified';
+    const message = document.getElementById('message').value || '';
+    const text = `Hello The Modular Makers!%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AService: ${encodeURIComponent(service)}%0AMessage: ${encodeURIComponent(message)}`;
+    window.open(`https://wa.me/918302366262?text=${text}`, '_blank');
+  }
+</script>
+</body>
+</html>
