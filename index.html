@@ -740,6 +740,203 @@
   </div>
 </section>
 
+  <!-- ================= PHASE 2: FACTORY VS CARPENTER ================= -->
+<style>
+  .comparison-section {
+    padding: 5rem 1.5rem;
+    background-color: var(--warm-white, #FDFAF5);
+  }
+  .comparison-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .comparison-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    background: #ffffff;
+    margin-bottom: 3.5rem;
+    border: 1px solid var(--border, rgba(28,28,26,0.1));
+  }
+  .compare-table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.95rem;
+  }
+  .compare-table th {
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+    font-family: var(--font-body, sans-serif);
+    letter-spacing: 0.5px;
+  }
+  .compare-table th.col-feature {
+    width: 25%;
+    background: #f8f6f0;
+    color: var(--charcoal, #1C1C1A);
+  }
+  .compare-table th.col-factory {
+    width: 40%;
+    background: var(--charcoal, #1C1C1A);
+    color: #ffffff;
+    border-top: 3px solid var(--gold, #C8973A);
+  }
+  .compare-table th.col-carpenter {
+    width: 35%;
+    background: #f1eee7;
+    color: var(--text-muted, #7A7A72);
+  }
+  .compare-table td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(28,28,26,0.06);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .compare-table tr:last-child td {
+    border-bottom: none;
+  }
+  .compare-table td.feature-title {
+    font-weight: 600;
+    color: var(--charcoal, #1C1C1A);
+    background: #faf8f5;
+  }
+  .compare-table td.factory-cell {
+    background: #ffffff;
+    color: var(--charcoal, #1C1C1A);
+    font-weight: 500;
+  }
+  .compare-table td.factory-cell span.badge-yes {
+    display: inline-block;
+    color: #27ae60;
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .compare-table td.carpenter-cell {
+    background: #faf9f6;
+    color: var(--text-muted, #7A7A72);
+  }
+  .compare-table td.carpenter-cell span.badge-no {
+    display: inline-block;
+    color: #c0392b;
+    font-weight: 700;
+    margin-right: 6px;
+  }
+
+  /* 3 Factory Pillars */
+  .factory-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .pillar-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border, rgba(28,28,26,0.1));
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .pillar-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+  .pillar-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+  .pillar-title {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.25rem;
+    color: var(--charcoal, #1C1C1A);
+    margin-bottom: 0.6rem;
+  }
+  .pillar-desc {
+    color: var(--text-muted, #7A7A72);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+</style>
+
+<section id="factory-advantage" class="comparison-section">
+  <div class="comparison-container">
+    
+    <div class="comparison-header reveal">
+      <p class="section-tag">Factory-Direct Advantage</p>
+      <h2 class="section-title">Factory Precision vs.<br><em>Traditional Carpenter</em></h2>
+      <p class="section-sub">Why discerning homeowners in Jaipur choose machine-crafted modular systems over messy on-site woodwork.</p>
+    </div>
+
+    <!-- Responsive Comparison Table -->
+    <div class="table-responsive reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="col-feature">Key Parameter</th>
+            <th class="col-factory">⭐ The Modular Makers (Factory-Made)</th>
+            <th class="col-carpenter">Traditional Carpenter (On-Site)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature-title">Edge Banding</td>
+            <td class="factory-cell"><span class="badge-yes">✓</span> High-temperature hot-melt machine edge banding. Seamless, zero glue lines, and 100% moisture-sealed.</td>
+            <td class="carpenter-cell"><span class="badge-no">✕</span> Manual glue pasting & razor trimming. Edges frequently peel off in heat and humidity.</td>
+          </tr>
+          <tr>
+            <td class="feature-title">Joinery & Hardware</td>
+            <td class="factory-cell"><span class="badge-yes">✓</span> Engineered minifix & dowel fittings. Sturdy, demountable, and zero ugly exposed screw heads.</td>
+            <td class="carpenter-cell"><span class="badge-no">✕</span> Hand-hammered nails and screws that damage the board core and cannot be disassembled.</td>
+          </tr>
+          <tr>
+            <td class="feature-title">Home Cleanliness</td>
+            <td class="factory-cell"><span class="badge-yes">✓</span> 80% manufactured in our factory. Clean, dust-free installation completed in just 2–3 days.</td>
+            <td class="carpenter-cell"><span class="badge-no">✕</span> 3 to 6 weeks of loud noise, choking sawdust, and noxious adhesive smells inside your home.</td>
+          </tr>
+          <tr>
+            <td class="feature-title">Cutting Precision</td>
+            <td class="factory-cell"><span class="badge-yes">✓</span> Industrial panel saws with 0.1 mm precision. Flawless 90° right angles and zero chipped laminates.</td>
+            <td class="carpenter-cell"><span class="badge-no">✕</span> Manual handheld saws leading to wavy cut lines, uneven gaps, and misaligned shutters.</td>
+          </tr>
+          <tr>
+            <td class="feature-title">Pricing & Timeline</td>
+            <td class="factory-cell"><span class="badge-yes">✓</span> Fixed, transparent quotation upfront with committed handover date.</td>
+            <td class="carpenter-cell"><span class="badge-no">✕</span> Frequent surprise costs, unexpected material wastage, and indefinite timeline delays.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 3 Factory Pillars -->
+    <div class="factory-pillars reveal">
+      <div class="pillar-card">
+        <span class="pillar-icon">⚙️</span>
+        <h3 class="pillar-title">Automated Precision</h3>
+        <p class="pillar-desc">Panel saws and automated edge-banders ensure micron-level accuracy that handheld carpenter tools cannot match.</p>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-icon">🛡️</span>
+        <h3 class="pillar-title">Calibrated Core Boards</h3>
+        <p class="pillar-desc">We use high-density HDHMR boards and BWP marine plywood engineered specifically to withstand Jaipur’s climate.</p>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-icon">🏷️</span>
+        <h3 class="pillar-title">Direct-From-Factory Value</h3>
+        <p class="pillar-desc">No interior aggregator commissions or contractor markups. You get genuine workshop pricing directly from the makers.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ================= END PHASE 2 ================= -->
+
 <!-- PROCESS -->
 <section id="process">
   <div class="reveal">
