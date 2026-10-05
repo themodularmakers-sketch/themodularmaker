@@ -57,6 +57,55 @@
   ]
 }
 </script>
+  <!-- Google FAQ Rich Snippet Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can we visit your manufacturing factory in Jaipur before placing an order?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, absolutely! We encourage homeowners and interior designers to visit our Jaipur workshop to inspect our raw materials, machine edge-banding quality, and ongoing production firsthand. Contact us on WhatsApp to schedule a convenient factory visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the typical delivery and installation timeline for modular furniture?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because 80% of the manufacturing is done on precision machinery inside our factory, complete production typically takes 15 to 25 days from 3D design approval. On-site installation takes only 2 to 3 days, ensuring a clean, dust-free handover."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What core materials and hardware brands do you use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We strictly use high-density HDHMR boards and BWP (Boiling Water Proof) marine-grade plywood calibrated for Jaipur's climate. All cabinetry features branded soft-close hinges, heavy-duty channels, and certified hardware from top manufacturers like Hettich, Hafele, and Ebco."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which areas in Jaipur do you service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We provide end-to-end design and installation across all of Jaipur, including Vaishali Nagar, Mansarovar, Malviya Nagar, C-Scheme, Jagatpura, Raja Park, Tonk Road, Ajmer Road, and surrounding cities across Rajasthan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does your pricing compare to hiring a local carpenter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our rates start transparently at ₹1,200/sq.ft for laminate and ₹1,650/sq.ft for acrylic. Unlike traditional carpenters who quote a low base rate but later bill extra for glue, edging, and transport, our factory-direct quotations are 100% all-inclusive with zero hidden costs."
+      }
+    }
+  ]
+}
+</script>
 <style>
   :root {
     --cream: #F5F0E8;
@@ -1445,6 +1494,157 @@
   }
 </script>
 <!-- ================= END PHASE 3 ================= -->
+  <!-- ================= PHASE 4: JAIPUR HOMEOWNERS FAQ ================= -->
+<style>
+  .faq-section {
+    padding: 5rem 1.5rem;
+    background-color: var(--warm-white, #FDFAF5);
+  }
+  .faq-container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .faq-item {
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid var(--border, rgba(28,28,26,0.1));
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .faq-item[open] {
+    border-color: var(--gold, #C8973A);
+    box-shadow: 0 4px 18px rgba(200, 151, 58, 0.12);
+  }
+  .faq-question {
+    padding: 1.3rem 1.6rem;
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--charcoal, #1C1C1A);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+  .faq-icon {
+    font-size: 1.25rem;
+    color: var(--gold, #C8973A);
+    font-weight: 400;
+    transition: transform 0.25s ease;
+  }
+  .faq-item[open] .faq-icon {
+    transform: rotate(45deg);
+  }
+  .faq-answer {
+    padding: 0 1.6rem 1.4rem 1.6rem;
+    color: var(--text-muted, #7A7A72);
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+  .faq-cta {
+    text-align: center;
+    margin-top: 2.8rem;
+    font-size: 0.95rem;
+    color: var(--charcoal, #1C1C1A);
+  }
+  .faq-cta a {
+    color: var(--gold, #C8973A);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+</style>
+
+<section id="faq" class="faq-section">
+  <div class="faq-container">
+    
+    <div class="faq-header reveal">
+      <p class="section-tag">Common Questions</p>
+      <h2 class="section-title">Everything You Need to Know<br><em>Before You Build</em></h2>
+      <p class="section-sub">Clear answers on materials, factory visits, warranties, and timelines for Jaipur homeowners.</p>
+    </div>
+
+    <div class="faq-list reveal">
+      
+      <!-- FAQ 1 -->
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Can we visit your manufacturing factory before placing an order?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes, absolutely! We welcome homeowners and interior designers to visit our Jaipur workshop. You can inspect raw materials, high-temperature edge-banding finishes, and ongoing projects firsthand. Reach out via WhatsApp or call us to set up a convenient visit.
+        </div>
+      </details>
+
+      <!-- FAQ 2 -->
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What is the typical delivery and installation timeline?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Because 80% of cutting and assembly is handled on precision machinery inside our factory, complete production usually takes <strong>15 to 25 days</strong> following final 3D design approval. On-site installation at your home takes just <strong>2 to 3 days</strong> with minimal dust and noise.
+        </div>
+      </details>
+
+      <!-- FAQ 3 -->
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What core boards and hardware fittings do you use?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          We use high-density HDHMR boards and BWP (Boiling Water Proof) marine-grade plywood engineered to resist moisture and termites. For moving components, we install certified soft-close hinges, tandem boxes, and heavy-duty drawer channels from top brands including Hettich, Hafele, and Ebco.
+        </div>
+      </details>
+
+      <!-- FAQ 4 -->
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Which areas in Jaipur do you service?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          We service all residential and commercial localities across Jaipur — including Vaishali Nagar, Mansarovar, Malviya Nagar, C-Scheme, Jagatpura, Raja Park, Tonk Road, Ajmer Road, and surrounding districts across Rajasthan.
+        </div>
+      </details>
+
+      <!-- FAQ 5 -->
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>How does your pricing compare to local carpenters?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Our rates start transparently at <strong>₹1,200/sq.ft</strong> for durable matte/textured laminate and <strong>₹1,650/sq.ft</strong> for high-gloss acrylic. Unlike traditional carpenters who quote low initial rates and subsequently bill extra for adhesive, edge strips, transport, and hardware, our quotes are comprehensive with zero hidden surprises.
+        </div>
+      </details>
+
+    </div>
+
+    <div class="faq-cta reveal">
+      Have a specific question about your floor plan? 
+      <a href="https://wa.me/918302366262?text=Hi%2C%20I%20have%20a%20question%20about%20my%20modular%20furniture%20project." target="_blank" rel="noopener">Chat with our designers on WhatsApp →</a>
+    </div>
+
+  </div>
+</section>
+<!-- ================= END PHASE 4 ================= -->
 <!-- CONTACT -->
 <section id="contact">
   <div class="reveal">
