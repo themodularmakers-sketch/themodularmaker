@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Modular Kitchen & Wardrobe Cost Estimator | The Modular Makers, Jaipur</title>
+  <meta name="description" content="Calculate an honest factory-direct estimate for your modular kitchen or wardrobe in Jaipur. Explore Action Tesa HDHMR, Merino Marine, IS:710 BWP ply, and soft-close hardware options." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MGK6LRZ4');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Brand Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --charcoal: #1C1C1A;
+      --charcoal-soft: #2B2B28;
+      --cream: #FAF8F5;
+      --cream-dark: #F1ECE3;
+      --card-bg: #FFFFFF;
+      --gold: #C8973A;
+      --gold-dark: #A97B24;
+      --gold-tint: #FBF6EC;
+      --text-main: #1C1C1A;
+      --text-muted: #5E5D58;
+      --border: #E2DBD0;
+      --green: #1E6B45;
+      --green-bg: #ECF7F1;
+      --radius: 12px;
+      --shadow: 0 10px 30px rgba(28, 28, 26, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--cream);
+      color: var(--text-main);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .serif {
+      font-family: 'Playfair Display', Georgia, serif;
+      letter-spacing: -0.01em;
+    }
+
+    /* Header */
+    header {
+      background: var(--charcoal);
+      color: #fff;
+      padding: 14px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(200, 151, 58, 0.3);
+    }
+    .nav-wrap {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      background: #fff;
+      padding: 2px;
+    }
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-size: 0.72rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: block;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .nav-link {
+      color: #E5E2DC;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .nav-link:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold);
+      color: var(--charcoal);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #d9a748; }
+
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(180deg, var(--charcoal) 0%, #262623 100%);
+      color: #fff;
+      padding: 36px 20px 44px;
+      text-align: center;
+      border-bottom: 3px solid var(--gold);
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(200, 151, 58, 0.16);
+      border: 1px solid rgba(200, 151, 58, 0.45);
+      color: var(--gold);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 99px;
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #D4D0C8;
+      font-size: 0.98rem;
+    }
+
+    /* Main Split Layout */
+    .container {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 28px 20px 60px;
+    }
+    .config-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: start;
+    }
+    @media (max-width: 960px) {
+      .config-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Cards & Steps */
+    .step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--charcoal);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    /* Pill / Segment Controls */
+    .mode-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      background: var(--cream-dark);
+      padding: 6px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+    .mode-btn {
+      border: none;
+      background: transparent;
+      padding: 10px 8px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .mode-btn.active {
+      background: var(--charcoal);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .pill-btn {
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .pill-btn:hover { border-color: var(--gold); }
+    .pill-btn.active {
+      background: var(--gold-tint);
+      border-color: var(--gold);
+      color: var(--charcoal);
+      box-shadow: inset 0 0 0 1px var(--gold);
+    }
+
+    /* Sliders */
+    .slider-group {
+      margin-bottom: 14px;
+    }
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .slider-val {
+      color: var(--gold-dark);
+      font-weight: 700;
+    }
+    input[type="range"] {
+      width: 100%;
+      accent-color: var(--gold);
+      cursor: pointer;
+      height: 6px;
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    .checkbox-row input {
+      width: 17px;
+      height: 17px;
+      accent-color: var(--charcoal);
+    }
+
+    /* Option Radio Cards */
+    .option-stack {
+      display: grid;
+      gap: 10px;
+    }
+    .option-card {
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 13px 15px;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      background: #fff;
+    }
+    .option-card:hover { border-color: var(--gold); }
+    .option-card.active {
+      border-color: var(--gold);
+      background: var(--gold-tint);
+    }
+    .opt-title {
+      font-weight: 700;
+      font-size: 0.94rem;
+      color: var(--charcoal);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .opt-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+    .opt-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: var(--cream-dark);
+      color: var(--charcoal);
+      white-space: nowrap;
+    }
+    .option-card.active .opt-tag {
+      background: var(--charcoal);
+      color: var(--gold);
+    }
+
+    /* Inclusion Banner */
+    .inclusion-box {
+      background: var(--green-bg);
+      border: 1px solid #B7DEC9;
+      color: #154E32;
+      border-radius: 9px;
+      padding: 11px 14px;
+      font-size: 0.84rem;
+      margin-bottom: 14px;
+    }
+    .inclusion-box strong { display: block; margin-bottom: 2px; font-size: 0.86rem; }
+
+    /* Stepper */
+    .stepper-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      margin-top: 12px;
+      gap: 10px;
+    }
+    .stepper-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .step-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--charcoal);
+    }
+    .step-btn:hover { background: var(--charcoal); color: #fff; }
+    .step-count {
+      font-weight: 700;
+      font-size: 1rem;
+      min-width: 24px;
+      text-align: center;
+    }
+
+    /* File Upload & Select */
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    @media (max-width: 600px) {
+      .form-grid-2 { grid-template-columns: 1fr; }
+    }
+    .field-label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    select, input[type="text"] {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: #fff;
+    }
+    .upload-box {
+      border: 1.5px dashed #C7BEB0;
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .upload-box:hover { border-color: var(--gold); }
+    .upload-note {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .file-status {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    /* Sticky Right Panel */
+    .sticky-panel {
+      position: sticky;
+      top: 76px;
+    }
+    .visual-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+    .vis-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--cream-dark);
+      border-bottom: 1px solid var(--border);
+    }
+    .vis-tab {
+      border: none;
+      background: transparent;
+      padding: 11px 10px;
+      font-family: inherit;
+      font-size: 0.83rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .vis-tab.active {
+      background: #fff;
+      color: var(--charcoal);
+      border-bottom: 2.5px solid var(--gold);
+    }
+    .svg-stage {
+      padding: 16px;
+      background: #FCFBF9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 235px;
+    }
+    .svg-stage svg {
+      width: 100%;
+      max-width: 440px;
+      height: auto;
+    }
+
+    /* Advisor Box */
+    .advisor-box {
+      background: var(--gold-tint);
+      border-left: 4px solid var(--gold);
+      border-radius: 8px;
+      padding: 13px 15px;
+      margin-bottom: 18px;
+      font-size: 0.86rem;
+    }
+    .advisor-title {
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Quote Summary Card */
+    .quote-card {
+      background: var(--charcoal);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 14px 34px rgba(28, 28, 26, 0.18);
+      border: 1px solid rgba(200, 151, 58, 0.35);
+    }
+    .quote-kicker {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .quote-range {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 700;
+      color: #fff;
+      margin: 6px 0 4px;
+    }
+    .quote-sub {
+      font-size: 0.8rem;
+      color: #CFCBC2;
+      margin-bottom: 14px;
+    }
+    .savings-pill {
+      display: inline-block;
+      background: rgba(30, 107, 69, 0.28);
+      border: 1px solid #3D996B;
+      color: #8CE0B5;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 7px;
+      margin-bottom: 16px;
+    }
+    .spec-breakdown {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      padding: 12px 0;
+      margin-bottom: 16px;
+      font-size: 0.83rem;
+      display: grid;
+      gap: 7px;
+    }
+    .spec-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .spec-line span:first-child { color: #B8B3A8; }
+    .spec-line span:last-child { font-weight: 600; text-align: right; }
+
+    .wa-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: #25D366;
+      color: #0F2918;
+      font-weight: 700;
+      font-size: 0.96rem;
+      padding: 14px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, background 0.15s;
+    }
+    .wa-btn:hover { background: #20BD5A; transform: translateY(-1px); }
+
+    .warranty-strip {
+      margin-top: 14px;
+      font-size: 0.77rem;
+      color: #D4D0C8;
+      text-align: center;
+      line-height: 1.45;
+    }
+    .disclaimer-note {
+      margin-top: 10px;
+      font-size: 0.74rem;
+      color: #9E998E;
+      line-height: 1.4;
+    }
+
+    /* Below-the-Fold Educational Section */
+    .edu-section {
+      margin-top: 48px;
+      padding-top: 36px;
+      border-top: 1px solid var(--border);
+    }
+    .edu-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 28px;
+    }
+    .edu-header h2 { font-size: 1.8rem; margin-bottom: 8px; }
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) {
+      .edu-grid { grid-template-columns: 1fr; }
+    }
+    .edu-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    .edu-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: var(--charcoal);
+    }
+    .edu-list {
+      list-style: none;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      display: grid;
+      gap: 9px;
+    }
+    .edu-list li strong { color: var(--charcoal); }
+
+    footer {
+      background: var(--charcoal);
+      color: #B8B3A8;
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 0.84rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MGK6LRZ4"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <header>
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">
+        <img src="favicon.png" alt="The Modular Makers Logo" />
+        <div>
+          <span class="brand-title">The Modular Makers</span>
+          <span class="brand-sub">Sanganer Factory • Jaipur</span>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#pricing" class="nav-link">Rates</a>
+        <a href="https://wa.me/918302366262?text=Hi%20The%20Modular%20Makers%2C%20I%20would%20like%20to%20book%20a%20Sanganer%20factory%20visit." target="_blank" rel="noopener" class="nav-cta">Book Factory Visit</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-badge">Factory-Direct Transparent Configurator</div>
+    <h1>Build Your Spec. Understand Every Material.</h1>
+    <p>Configure your modular kitchen or wardrobe with honest inclusions—wet-zone BWP marine ply, soft-close hardware, and machine edge-banding—at direct Sanganer workshop prices.</p>
+  </section>
+
+  <main class="container">
+    <div class="config-grid">
+      <!-- LEFT COLUMN: INTERACTIVE INPUTS -->
+      <div>
+        <!-- STEP 1: SPACE & DIMENSIONS -->
+        <div class="step-card">
+          <div class="step-header">
+            <span class="step-num">1</span>
+            <h2 class="step-title">Choose Space &amp; Dimensions</h2>
+          </div>
+
+          <div class="mode-tabs" role="tablist">
+            <button type="button" class="mode-btn active" data-mode="kitchen" onclick="setMode('kitchen')">Modular Kitchen</button>
+            <button type="button" class="mode-btn" data-mode="wardrobe" onclick="setMode('wardrobe')">Modular Wardrobe</button>
+            <button type="button" class="mode-btn" data-mode="both" onclick="setMode('both')">Kitchen + Wardrobe</button>
+          </div>
+
+          <!-- KITCHEN DIMENSIONS -->
+          <div id="kitchen-dim-section">
+            <label class="field-label">Kitchen Layout</label>
+            <div class="pill-row" id="k-layout-pills">
+              <button type="button" class="pill-btn" data-layout="straight" onclick="setKitchenLayout('straight')">Straight</button>
+              <button type="button" class="pill-btn active" data-layout="lshape" onclick="setKitchenLayout('lshape')">L-Shape</button>
+              <button type="button" class="pill-btn" data-layout="parallel" onclick="setKitchenLayout('parallel')">Parallel</button>
+              <button type="button" class="pill-btn" data-layout="ushape" onclick="setKitchenLayout('ushape')">U-Shape</button>
+            </div>
+
+            <label class="field-label">Quick Size Presets</label>
+            <div class="pill-row" id="k-preset-pills">
+              <button type="button" class="pill-btn" onclick="applyKitchenPreset('compact')">Compact (~65 sq.ft)</button>
+              <button type="button" class="pill-btn active" onclick="applyKitchenPreset('standard')">Standard 10×8 ft (~85 sq.ft)</button>
+              <button type="button" class="pill-btn" onclick="applyKitchenPreset('spacious')">Spacious 12×10 ft (~110 sq.ft)</button>
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-label">
+                <span>Main Wall A Length (Sink &amp; Hob Run)</span>
+                <span class="slider-val" id="k-wallA-val">10 ft</span>
+              </div>
+              <input type="range" id="k-wallA" min="6" max="18" step="1" value="10" oninput="updateAll()" />
+            </div>
+
+            <div class="slider-group" id="k-wallB-wrap">
+              <div class="slider-label">
+                <span>Second Wall B Length</span>
+                <span class="slider-val" id="k-wallB-val">8 ft</span>
+              </div>
+              <input type="range" id="k-wallB" min="5" max="16" step="1" value="8" oninput="updateAll()" />
+            </div>
+
+            <div class="slider-group hidden" id="k-wallC-wrap">
+              <div class="slider-label">
+                <span>Third Wall C Length (U-Shape Return)</span>
+                <span class="slider-val" id="k-wallC-val">8 ft</span>
+              </div>
+              <input type="range" id="k-wallC" min="5" max="14" step="1" value="8" oninput="updateAll()" />
+            </div>
+
+            <label class="checkbox-row">
+              <input type="checkbox" id="k-loft" checked onchange="updateAll()" />
+              <span>Include Overhead Loft Cabinets (up to ceiling height)</span>
+            </label>
+          </div>
+
+          <!-- WARDROBE DIMENSIONS -->
+          <div id="wardrobe-dim-section" class="hidden" style="margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border);">
+            <label class="field-label">Wardrobe Shutter Style &amp; Size</label>
+            <div class="pill-row">
+              <button type="button" class="pill-btn active" id="w-style-hinged" onclick="setWardrobeStyle('hinged')">Hinged Shutters</button>
+              <button type="button" class="pill-btn" id="w-style-sliding" onclick="setWardrobeStyle('sliding')">Sliding Shutters</button>
+            </div>
+
+            <div class="pill-row">
+              <button type="button" class="pill-btn" onclick="applyWardrobePreset(5, 7)">Compact (5×7 ft = 35 sq.ft)</button>
+              <button type="button" class="pill-btn active" onclick="applyWardrobePreset(7, 8)">Standard (7×8 ft = 56 sq.ft)</button>
+              <button type="button" class="pill-btn" onclick="applyWardrobePreset(9, 9)">Full Height (9×9 ft = 81 sq.ft)</button>
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-label">
+                <span>Wardrobe Width</span>
+                <span class="slider-val" id="w-width-val">7 ft</span>
+              </div>
+              <input type="range" id="w-width" min="4" max="14" step="1" value="7" oninput="updateAll()" />
+            </div>
+
+            <div class="slider-group">
+              <div class="slider-label">
+                <span>Wardrobe Height (Including Loft if Floor-to-Ceiling)</span>
+                <span class="slider-val" id="w-height-val">8 ft</span>
+              </div>
+              <input type="range" id="w-height" min="7" max="10" step="1" value="8" oninput="updateAll()" />
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: SHUTTER FINISH -->
+        <div class="step-card">
+          <div class="step-header">
+            <span class="step-num">2</span>
+            <h2 class="step-title">Select Exterior Shutter Finish</h2>
+          </div>
+
+          <div class="option-stack" id="finish-options">
+            <div class="option-card active" data-finish="laminate" onclick="setFinish('laminate')">
+              <div>
+                <div class="opt-title">Matte / Textured Laminate (1mm Branded)</div>
+                <div class="opt-desc">Scratch-resistant, easy-to-clean everyday durability with machine hot-melt PVC edge-banding.</div>
+              </div>
+              <span class="opt-tag">₹1,200 / sq.ft</span>
+            </div>
+
+            <div class="option-card" data-finish="acrylic" onclick="setFinish('acrylic')">
+              <div>
+                <div class="opt-title">High-Gloss / Anti-Fingerprint Matte Acrylic</div>
+                <div class="opt-desc">Mirror-like contemporary sheen pressed on calibrated HDHMR/marine core with seamless edges.</div>
+              </div>
+              <span class="opt-tag">₹1,650 / sq.ft</span>
+            </div>
+
+            <div class="option-card" data-finish="pu" onclick="setFinish('pu')">
+              <div>
+                <div class="opt-title">Italian PU Paint / Fluted Profile Glass</div>
+                <div class="opt-desc">Multi-coat spray-finished luxury shutters, CNC-grooved profiles, and anodized aluminium glass frames.</div>
+              </div>
+              <span class="opt-tag">₹2,400 / sq.ft</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: CARCASS CORE MATERIAL -->
+        <div class="step-card">
+          <div class="step-header">
+            <span class="step-num">3</span>
+            <h2 class="step-title">Select Carcass Core Board</h2>
+          </div>
+
+          <div class="option-stack" id="board-options">
+            <div class="option-card active" data-board="hybrid" onclick="setBoard('hybrid')">
+              <div>
+                <div class="opt-title">Smart Hybrid Core (Wet-Zone BWP Included)</div>
+                <div class="opt-desc">Action Tesa HDHMR &amp; BWR Ply for dry cabinets, paired with <strong>IS:710 BWP Marine Ply in wet sink areas</strong>.</div>
+              </div>
+              <span class="opt-tag">Included</span>
+            </div>
+
+            <div class="option-card" data-board="merino" onclick="setBoard('merino')">
+              <div>
+                <div class="opt-title">Full Merino Marine Board</div>
+                <div class="opt-desc">High-density, moisture-resistant Merino Marine structural board used uniformly across all cabinets.</div>
+              </div>
+              <span class="opt-tag">+₹100 / sq.ft</span>
+            </div>
+
+            <div class="option-card" data-board="bwp" onclick="setBoard('bwp')">
+              <div>
+                <div class="opt-title">Full IS:710 BWP Marine Plywood</div>
+                <div class="opt-desc">100% boiling-waterproof calibrated marine hardwood plywood throughout every upper and base box.</div>
+              </div>
+              <span class="opt-tag">+₹200 / sq.ft</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4: HARDWARE BRAND & DRAWERS (NO PER-UNIT RATES SHOWN) -->
+        <div class="step-card">
+          <div class="step-header">
+            <span class="step-num">4</span>
+            <h2 class="step-title">Hardware Brand &amp; Drawer Count</h2>
+          </div>
+
+          <div class="inclusion-box" id="hw-inclusion-banner">
+            <strong>Already Included in Your Base Kitchen Price:</strong>
+            Soft-close hinges on all shutters + <strong>5 Tandem Drawers</strong> + <strong>1 Bottle Pull-Out (BPO)</strong> + <strong>1 Cutlery Tray</strong>.
+          </div>
+
+          <div class="option-stack" id="hw-options">
+            <div class="option-card active" data-hw="ozone" onclick="setHardware('ozone')">
+              <div>
+                <div class="opt-title">Factory-Certified Soft-Close (Ozone / TMM OEM Spec)</div>
+                <div class="opt-desc">Smooth soft-close runners &amp; hinges backed by our 1-Year Free On-Site Service Warranty.</div>
+              </div>
+              <span class="opt-tag">Included</span>
+            </div>
+
+            <div class="option-card" data-hw="hafele" onclick="setHardware('hafele')">
+              <div>
+                <div class="opt-title">German / European Mid-Premium (Hafele / Hettich / Ebco)</div>
+                <div class="opt-desc">Full upgrade of hinges &amp; tandem drawer systems to Hafele, Hettich, or Ebco branded hardware.</div>
+              </div>
+              <span class="opt-tag">Brand Upgrade</span>
+            </div>
+
+            <div class="option-card" data-hw="blum" onclick="setHardware('blum')">
+              <div>
+                <div class="opt-title">Flagship Austrian Luxury (Blum)</div>
+                <div class="opt-desc">Heavy-duty Blum Tandembox runners &amp; Clip-Top Blumotion hinges engineered for lifetime glide.</div>
+              </div>
+              <span class="opt-tag">Flagship Upgrade</span>
+            </div>
+          </div>
+
+          <div class="stepper-row" id="k-drawer-stepper">
+            <div>
+              <div style="font-weight: 700; font-size: 0.9rem;">Total Kitchen Tandem Drawers</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">5 tandem drawers included in base; add more if needed</div>
+            </div>
+            <div class="stepper-controls">
+              <button type="button" class="step-btn" onclick="changeKitchenDrawers(-1)">−</button>
+              <span class="step-count" id="k-drawer-count">5</span>
+              <button type="button" class="step-btn" onclick="changeKitchenDrawers(1)">+</button>
+            </div>
+          </div>
+
+          <div class="stepper-row hidden" id="w-drawer-stepper">
+            <div>
+              <div style="font-weight: 700; font-size: 0.9rem;">Total Wardrobe Soft-Close Drawers</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">2 drawers + 1 hanging rod included in base</div>
+            </div>
+            <div class="stepper-controls">
+              <button type="button" class="step-btn" onclick="changeWardrobeDrawers(-1)">−</button>
+              <span class="step-count" id="w-drawer-count">2</span>
+              <button type="button" class="step-btn" onclick="changeWardrobeDrawers(1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 5: LOCALITY & CLIENT-SIDE FLOOR PLAN -->
+        <div class="step-card">
+          <div class="step-header">
+            <span class="step-num">5</span>
+            <h2 class="step-title">Jaipur Locality &amp; Optional Floor Plan</h2>
+          </div>
+
+          <div class="form-grid-2">
+            <div>
+              <label class="field-label" for="locality">Project Locality in Jaipur</label>
+              <select id="locality" onchange="updateAll()">
+                <option value="Vaishali Nagar">Vaishali Nagar</option>
+                <option value="Mansarovar / New Atish Market">Mansarovar / New Atish Market</option>
+                <option value="Jagatpura">Jagatpura</option>
+                <option value="Malviya Nagar">Malviya Nagar</option>
+                <option value="Tonk Road / Sitapura">Tonk Road / Sitapura</option>
+                <option value="C-Scheme / Civil Lines">C-Scheme / Civil Lines</option>
+                <option value="Ajmer Road / Mahapura">Ajmer Road / Mahapura</option>
+                <option value="Sanganer / Pratap Nagar">Sanganer / Pratap Nagar</option>
+                <option value="Other Jaipur Locality">Other Jaipur Locality</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label" for="cust-name">Your Name / Flat Type (Optional)</label>
+              <input type="text" id="cust-name" placeholder="e.g., Rahul — 3BHK Flat" oninput="updateAll()" />
+            </div>
+          </div>
+
+          <label class="field-label">Have a Builder Floor Plan or Rough Sketch? (Optional)</label>
+          <div class="upload-box" onclick="document.getElementById('plan-file').click()">
+            <input type="file" id="plan-file" accept=".pdf,.jpg,.jpeg,.png" class="hidden" onchange="handlePlanSelect(event)" />
+            <div style="font-weight: 700; font-size: 0.9rem; color: var(--charcoal);">+ Select Floor Plan or Sketch (JPG, PNG, or PDF)</div>
+            <div class="upload-note">100% Private: Validated locally in your browser (never uploaded to any server). Attach directly inside WhatsApp on the next step.</div>
+            <div id="file-status" class="file-status"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: STICKY VISUALS & QUOTE SUMMARY -->
+      <div class="sticky-panel">
+        <!-- Interactive SVG Blueprint & Material Cutaway -->
+        <div class="visual-card">
+          <div class="vis-tabs">
+            <button type="button" class="vis-tab active" id="tab-blueprint" onclick="setVisualTab('blueprint')">Live Layout Blueprint</button>
+            <button type="button" class="vis-tab" id="tab-cutaway" onclick="setVisualTab('cutaway')">Material &amp; Edge Cutaway</button>
+          </div>
+          <div class="svg-stage" id="svg-stage"></div>
+        </div>
+
+        <!-- Rule-Based Smart Factory Advisor -->
+        <div class="advisor-box">
+          <div class="advisor-title">Smart Factory Advisor</div>
+          <div id="advisor-text">Your base quote includes IS:710 BWP Marine Ply in wet sink areas and Action Tesa HDHMR/BWR for dry cabinets—preventing water swelling while keeping costs lean.</div>
+        </div>
+
+        <!-- Final Estimate Range Card -->
+        <div class="quote-card">
+          <div class="quote-kicker">Estimated Factory-Direct Investment</div>
+          <div class="quote-range" id="quote-range">₹97,000 – ₹1,07,000</div>
+          <div class="quote-sub" id="quote-area-summary">Approx. 85 sq.ft Modular Kitchen • Incl. GST &amp; Installation</div>
+
+          <div class="savings-pill" id="savings-pill">Estimated ₹58,000 (36%) lower than Jaipur retail showrooms</div>
+
+          <div class="spec-breakdown" id="spec-breakdown"></div>
+
+          <a id="wa-share-btn" href="#" target="_blank" rel="noopener" class="wa-btn">
+            <span>Send Spec Sheet on WhatsApp →</span>
+          </a>
+
+          <div class="warranty-strip">
+            Protected by our <strong>3-Tier Written Warranty</strong>: 1-Yr Free On-Site Service • 10-Yr Structural Carcass • Up to 15-Yr/Lifetime OEM Hardware
+          </div>
+          <div class="disclaimer-note">
+            *Indicative factory-direct range based on your selected dimensions &amp; specs. Excludes specialty tall pantry units &amp; corner carousels. Final rupee-to-rupee BOQ is locked after free laser site measurement.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BELOW THE FOLD: VISUAL MATERIAL EDUCATION -->
+    <section class="edu-section">
+      <div class="edu-header">
+        <h2>Inspect Every Layer Before You Decide</h2>
+        <p style="color: var(--text-muted); font-size: 0.94rem;">Visit our Sanganer manufacturing unit to examine physical cut-sections of our boards, edge-banding, and hardware side by side.</p>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <h3>1. Core Boards Explained</h3>
+          <ul class="edu-list">
+            <li><strong>Smart Hybrid (Included):</strong> Combines high-density Action Tesa HDHMR / BWR plywood in dry zones with IS:710 BWP Marine Ply in wet sink cabinets.</li>
+            <li><strong>Merino Marine Board:</strong> Uniform high-density moisture-resistant structural board across the entire kitchen or wardrobe.</li>
+            <li><strong>IS:710 BWP Marine Ply:</strong> Full boiling-waterproof hardwood core engineered for maximum multi-decade durability.</li>
+          </ul>
+        </div>
+
+        <div class="edu-card">
+          <h3>2. Factory Machine vs. Carpenter</h3>
+          <ul class="edu-list">
+            <li><strong>Hot-Melt PVC Edge-Banding:</strong> Industrial 200°C PUR/EVA bonding seals all 4 board edges—steam and water cannot seep in near sinks or hobs.</li>
+            <li><strong>Precision Panel Saw &amp; CNC:</strong> Exact millimeter squareness with concealed minifix/dowel joinery and zero exposed screw heads.</li>
+            <li><strong>Clean 3-Day Installation:</strong> Manufactured at Sanganer; assembled quietly at your flat without weeks of dust.</li>
+          </ul>
+        </div>
+
+        <div class="edu-card">
+          <h3>3. What Is Included in Base Rate</h3>
+          <ul class="edu-list">
+            <li><strong>Modular Kitchen Base:</strong> Soft-close hinges on all shutters, 5 soft-close tandem drawers, 1 Bottle Pull-Out (BPO), and 1 cutlery tray.</li>
+            <li><strong>Modular Wardrobe Base:</strong> Soft-close hinges, 2 smooth-glide drawers, 1 heavy-duty hanging rod, and adjustable internal shelves.</li>
+            <li><strong>Zero Showroom Markup:</strong> Direct factory billing from Sanganer, Jaipur.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>The Modular Makers</strong> • Chairman Road, near Tejaji Ka Bada, Maal Ki Dhani, Gulabpura, Sanganer, Jaipur 302029<br />
+    Direct / WhatsApp: <a href="https://wa.me/918302366262">+91 83023 66262</a> • <a href="index.html">Back to Main Website</a>
+  </footer>
+
+  <script>
+    // Silent Backend Pricing Configuration (Never display per-unit hardware numbers in UI)
+    const BASE_RATES = { laminate: 1200, acrylic: 1650, pu: 2400 };
+    const BOARD_UPLIFTS = { hybrid: 0, merino: 100, bwp: 200 };
+    const HW_CONFIG = {
+      ozone: {
+        hingeSqft: 0,
+        upgIncluded: 0,
+        extraDrawer: 2250,
+        shortName: 'Factory-Certified Soft-Close (Ozone / TMM OEM)'
+      },
+      hafele: {
+        hingeSqft: 25,
+        upgIncluded: 1700,
+        extraDrawer: 3950,
+        shortName: 'Hafele / Hettich / Ebco (Upgraded Hinges & Drawers)'
+      },
+      blum: {
+        hingeSqft: 35,
+        upgIncluded: 2700,
+        extraDrawer: 5000,
+        shortName: 'Blum Austrian Luxury (Upgraded Hinges & Drawers)'
+      }
+    };
+
+    const FINISH_LABELS = {
+      laminate: 'Matte / Textured Laminate',
+      acrylic: 'High-Gloss / Matte Acrylic',
+      pu: 'Italian PU Paint / Profile Glass'
+    };
+
+    const BOARD_LABELS = {
+      hybrid: 'Smart Hybrid (HDHMR/BWR + Wet-Zone BWP)',
+      merino: 'Full Merino Marine Board',
+      bwp: 'Full IS:710 BWP Marine Ply'
+    };
+
+    let state = {
+      mode: 'kitchen', // 'kitchen' | 'wardrobe' | 'both'
+      kLayout: 'lshape',
+      wStyle: 'hinged',
+      finish: 'laminate',
+      board: 'hybrid',
+      hw: 'ozone',
+      kDrawers: 5,
+      wDrawers: 2,
+      visTab: 'blueprint',
+      attachedPlanName: ''
+    };
+
+    function formatINR(num) {
+      return '₹' + Math.round(num).toLocaleString('en-IN');
+    }
+
+    function setMode(mode) {
+      state.mode = mode;
+      document.querySelectorAll('.mode-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.mode === mode);
+      });
+
+      const kDim = document.getElementById('kitchen-dim-section');
+      const wDim = document.getElementById('wardrobe-dim-section');
+      const kStep = document.getElementById('k-drawer-stepper');
+      const wStep = document.getElementById('w-drawer-stepper');
+      const banner = document.getElementById('hw-inclusion-banner');
+
+      if (mode === 'kitchen') {
+        kDim.classList.remove('hidden');
+        wDim.classList.add('hidden');
+        wDim.style.borderTop = 'none';
+        wDim.style.paddingTop = '0';
+        kStep.classList.remove('hidden');
+        wStep.classList.add('hidden');
+        banner.innerHTML = '<strong>Already Included in Your Base Kitchen Price:</strong> Soft-close hinges on all shutters + <strong>5 Tandem Drawers</strong> + <strong>1 Bottle Pull-Out (BPO)</strong> + <strong>1 Cutlery Tray</strong>.';
+      } else if (mode === 'wardrobe') {
+        kDim.classList.add('hidden');
+        wDim.classList.remove('hidden');
+        wDim.style.borderTop = 'none';
+        wDim.style.paddingTop = '0';
+        kStep.classList.add('hidden');
+        wStep.classList.remove('hidden');
+        banner.innerHTML = '<strong>Already Included in Your Base Wardrobe Price:</strong> Soft-close hinges + <strong>2 Smooth-Glide Drawers</strong> + <strong>1 Heavy-Duty Hanging Rod</strong>.';
+      } else {
+        kDim.classList.remove('hidden');
+        wDim.classList.remove('hidden');
+        wDim.style.borderTop = '1px dashed var(--border)';
+        wDim.style.paddingTop = '14px';
+        kStep.classList.remove('hidden');
+        wStep.classList.remove('hidden');
+        banner.innerHTML = '<strong>Included in Package Base:</strong> Kitchen (5 Tandem Drawers + 1 BPO + 1 Cutlery Tray + Soft-Close Hinges) &amp; Wardrobe (2 Drawers + 1 Hanging Rod).';
+      }
+      updateAll();
+    }
+
+    function setKitchenLayout(layout) {
+      state.kLayout = layout;
+      document.querySelectorAll('#k-layout-pills .pill-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.layout === layout);
+      });
+      document.getElementById('k-wallB-wrap').classList.toggle('hidden', layout === 'straight');
+      document.getElementById('k-wallC-wrap').classList.toggle('hidden', layout !== 'ushape');
+      updateAll();
+    }
+
+    function applyKitchenPreset(preset) {
+      const wA = document.getElementById('k-wallA');
+      const wB = document.getElementById('k-wallB');
+      const wC = document.getElementById('k-wallC');
+      const loft = document.getElementById('k-loft');
+      loft.checked = true;
+
+      if (preset === 'compact') {
+        setKitchenLayout('lshape');
+        wA.value = 8; wB.value = 6;
+      } else if (preset === 'standard') {
+        setKitchenLayout('lshape');
+        wA.value = 10; wB.value = 8;
+      } else {
+        setKitchenLayout('lshape');
+        wA.value = 12; wB.value = 10;
+      }
+      updateAll();
+    }
+
+    function setWardrobeStyle(style) {
+      state.wStyle = style;
+      document.getElementById('w-style-hinged').classList.toggle('active', style === 'hinged');
+      document.getElementById('w-style-sliding').classList.toggle('active', style === 'sliding');
+      updateAll();
+    }
+
+    function applyWardrobePreset(w, h) {
+      document.getElementById('w-width').value = w;
+      document.getElementById('w-height').value = h;
+      updateAll();
+    }
+
+    function setFinish(fin) {
+      state.finish = fin;
+      document.querySelectorAll('#finish-options .option-card').forEach(c => {
+        c.classList.toggle('active', c.dataset.finish === fin);
+      });
+      updateAll();
+    }
+
+    function setBoard(brd) {
+      state.board = brd;
+      document.querySelectorAll('#board-options .option-card').forEach(c => {
+        c.classList.toggle('active', c.dataset.board === brd);
+      });
+      updateAll();
+    }
+
+    function setHardware(hw) {
+      state.hw = hw;
+      document.querySelectorAll('#hw-options .option-card').forEach(c => {
+        c.classList.toggle('active', c.dataset.hw === hw);
+      });
+      updateAll();
+    }
+
+    function changeKitchenDrawers(delta) {
+      state.kDrawers = Math.min(12, Math.max(5, state.kDrawers + delta));
+      document.getElementById('k-drawer-count').textContent = state.kDrawers;
+      updateAll();
+    }
+
+    function changeWardrobeDrawers(delta) {
+      state.wDrawers = Math.min(8, Math.max(2, state.wDrawers + delta));
+      document.getElementById('w-drawer-count').textContent = state.wDrawers;
+      updateAll();
+    }
+
+    function setVisualTab(tab) {
+      state.visTab = tab;
+      document.getElementById('tab-blueprint').classList.toggle('active', tab === 'blueprint');
+      document.getElementById('tab-cutaway').classList.toggle('active', tab === 'cutaway');
+      renderVisuals();
+    }
+
+    function handlePlanSelect(e) {
+      const file = e.target.files[0];
+      const status = document.getElementById('file-status');
+      if (!file) {
+        state.attachedPlanName = '';
+        status.textContent = '';
+        updateAll();
+        return;
+      }
+      const allowed = ['image/jpeg', 'image/png', 'application/pdf'];
+      if (!allowed.includes(file.type)) {
+        state.attachedPlanName = '';
+        e.target.value = '';
+        status.style.color = '#B91C1C';
+        status.textContent = 'Please select only a JPG, PNG, or PDF floor plan.';
+        updateAll();
+        return;
+      }
+      if (file.size > 10 * 1024 * 1024) {
+        state.attachedPlanName = '';
+        e.target.value = '';
+        status.style.color = '#B91C1C';
+        status.textContent = 'File exceeds 10 MB limit. Please pick a smaller image or PDF.';
+        updateAll();
+        return;
+      }
+      state.attachedPlanName = file.name;
+      status.style.color = '#1E6B45';
+      status.textContent = '✓ Ready to attach in WhatsApp: ' + file.name;
+      updateAll();
+    }
+
+    function computeKitchenMetrics() {
+      const wA = parseInt(document.getElementById('k-wallA').value, 10);
+      const wB = parseInt(document.getElementById('k-wallB').value, 10);
+      const wC = parseInt(document.getElementById('k-wallC').value, 10);
+      const hasLoft = document.getElementById('k-loft').checked;
+
+      document.getElementById('k-wallA-val').textContent = wA + ' ft';
+      document.getElementById('k-wallB-val').textContent = wB + ' ft';
+      document.getElementById('k-wallC-val').textContent = wC + ' ft';
+
+      let sqft = 85;
+      if (state.kLayout === 'straight') {
+        sqft = Math.round(wA * (hasLoft ? 6.5 : 5.0));
+      } else if (state.kLayout === 'lshape') {
+        const effRun = Math.max(8, wA + wB - 2);
+        sqft = Math.round(effRun * (hasLoft ? 5.3125 : 4.0));
+      } else if (state.kLayout === 'parallel') {
+        const effRun = wA + wB;
+        sqft = Math.round(effRun * (hasLoft ? 5.5 : 4.2));
+      } else {
+        const effRun = Math.max(12, wA + wB + wC - 4);
+        sqft = Math.round(effRun * (hasLoft ? 5.2 : 4.0));
+      }
+
+      const hw = HW_CONFIG[state.hw];
+      const effSqftRate = BASE_RATES[state.finish] + BOARD_UPLIFTS[state.board] + hw.hingeSqft;
+      const cabAndHinge = sqft * effSqftRate;
+      const extraDrawers = Math.max(0, state.kDrawers - 5);
+      const drawerAddon = (5 * hw.upgIncluded) + (extraDrawers * hw.extraDrawer);
+      const total = cabAndHinge + drawerAddon;
+
+      return { wA, wB, wC, hasLoft, sqft, total };
+    }
+
+    function computeWardrobeMetrics() {
+      const width = parseInt(document.getElementById('w-width').value, 10);
+      const height = parseInt(document.getElementById('w-height').value, 10);
+      document.getElementById('w-width-val').textContent = width + ' ft';
+      document.getElementById('w-height-val').textContent = height + ' ft';
+
+      const sqft = width * height;
+      const hw = HW_CONFIG[state.hw];
+      const effSqftRate = BASE_RATES[state.finish] + BOARD_UPLIFTS[state.board] + hw.hingeSqft;
+      const cabAndHinge = sqft * effSqftRate;
+      const extraDrawers = Math.max(0, state.wDrawers - 2);
+      const drawerAddon = (2 * hw.upgIncluded) + (extraDrawers * hw.extraDrawer);
+      const total = cabAndHinge + drawerAddon;
+
+      return { width, height, sqft, total };
+    }
+
+    function updateAdvisor(kData, wData) {
+      const adv = document.getElementById('advisor-text');
+      if (state.mode === 'wardrobe' && state.board === 'bwp') {
+        adv.textContent = 'Honest factory tip: For dry bedroom wardrobes, our included Action Tesa HDHMR / BWR core gives superior screw-holding strength. You only need Full BWP Marine Ply if this wardrobe shares a damp bathroom wall.';
+      } else if (state.mode === 'wardrobe' && state.wStyle === 'sliding') {
+        adv.textContent = 'Sliding wardrobes save aisle space in compact bedrooms. Heavy-duty soft-close sliding track channels will be matched to your exact shutter weight during free laser site measurement.';
+      } else if (state.finish !== 'laminate' && state.hw === 'ozone') {
+        adv.textContent = 'Good to know: High-gloss Acrylic and Italian PU shutters are denser than laminates—upgrading to Hafele/Hettich or Blum hinges gives extra long-term alignment stability.';
+      } else if (state.board === 'hybrid') {
+        adv.textContent = 'Smart value: Your base quote already builds wet sink & base zones in IS:710 BWP Marine Ply while using calibrated HDHMR/BWR for dry upper cabinets—protecting against water swelling without overpaying.';
+      } else if (state.board === 'merino') {
+        adv.textContent = 'Merino Marine Board upgrades every cabinet box uniformly to high-density moisture-resistant structural board—our most popular choice among Jaipur homeowners.';
+      } else {
+        adv.textContent = 'Full IS:710 BWP Marine Plywood gives 100% boiling-waterproof hardwood construction across every cabinet, backed by our 10-Year Structural Carcass Warranty.';
+      }
+    }
+
+    function renderVisuals() {
+      const stage = document.getElementById('svg-stage');
+      if (state.visTab === 'cutaway') {
+        stage.innerHTML = `
+          <svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="428" height="208" rx="10" fill="#FFFFFF" stroke="#E2DBD0"/>
+            <text x="20" y="28" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1C1C1A">WHY MACHINE EDGE-BANDING &amp; CORE SELECTION MATTER</text>
+            
+            <!-- Left Box: Factory Machine -->
+            <rect x="20" y="42" width="192" height="156" rx="8" fill="#ECF7F1" stroke="#B7DEC9"/>
+            <text x="32" y="62" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1E6B45">✓ THE MODULAR MAKERS</text>
+            <rect x="34" y="76" width="164" height="34" rx="4" fill="#C8973A" opacity="0.25" stroke="#C8973A" stroke-width="1.5"/>
+            <line x1="34" y1="76" x2="198" y2="76" stroke="#1C1C1A" stroke-width="3"/>
+            <line x1="34" y1="110" x2="198" y2="110" stroke="#1C1C1A" stroke-width="3"/>
+            <text x="42" y="97" font-family="DM Sans, sans-serif" font-size="9.5" font-weight="700" fill="#1C1C1A">200°C Hot-Melt 2mm PVC Seal</text>
+            <text x="32" y="130" font-family="DM Sans, sans-serif" font-size="9.5" fill="#154E32">• 100% steam &amp; water-tight edge</text>
+            <text x="32" y="147" font-family="DM Sans, sans-serif" font-size="9.5" fill="#154E32">• BWP Marine Ply in wet sink zone</text>
+            <text x="32" y="164" font-family="DM Sans, sans-serif" font-size="9.5" fill="#154E32">• CNC dowel/minifix joinery</text>
+            <text x="32" y="181" font-family="DM Sans, sans-serif" font-size="9.5" fill="#154E32">• 10-Yr Structural Warranty</text>
+
+            <!-- Right Box: Local Carpenter -->
+            <rect x="228" y="42" width="192" height="156" rx="8" fill="#FEF2F2" stroke="#FECACA"/>
+            <text x="240" y="62" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#991B1B">✕ SITE CARPENTER WORK</text>
+            <rect x="242" y="76" width="164" height="34" rx="4" fill="#E5E7EB" stroke="#9CA3AF" stroke-dasharray="4 2"/>
+            <path d="M242 76 Q290 71 340 77 T406 74" fill="none" stroke="#DC2626" stroke-width="2"/>
+            <text x="250" y="97" font-family="DM Sans, sans-serif" font-size="9.5" font-weight="700" fill="#7F1D1D">Hand-Pasted Fevicol Edge</text>
+            <text x="240" y="130" font-family="DM Sans, sans-serif" font-size="9.5" fill="#7F1D1D">• Edges peel near sink &amp; kettle</text>
+            <text x="240" y="147" font-family="DM Sans, sans-serif" font-size="9.5" fill="#7F1D1D">• Raw ply absorbs moisture</text>
+            <text x="240" y="164" font-family="DM Sans, sans-serif" font-size="9.5" fill="#7F1D1D">• Exposed nails &amp; wavy cuts</text>
+            <text x="240" y="181" font-family="DM Sans, sans-serif" font-size="9.5" fill="#7F1D1D">• No written after-sales cover</text>
+          </svg>
+        `;
+        return;
+      }
+
+      const k = computeKitchenMetrics();
+      const w = computeWardrobeMetrics();
+
+      if (state.mode === 'wardrobe') {
+        const drawerCount = state.wDrawers;
+        let drawerRects = '';
+        const rows = Math.min(4, Math.ceil(drawerCount / 2));
+        for (let i = 0; i < drawerCount; i++) {
+          const col = i % 2;
+          const row = Math.floor(i / 2);
+          const x = 135 + col * 85;
+          const y = 138 + row * 12;
+          if (y < 185) {
+            drawerRects += `<rect x="${x}" y="${y}" width="80" height="10" rx="2" fill="#C8973A" opacity="0.35" stroke="#1C1C1A" stroke-width="1"/>`;
+          }
+        }
+        stage.innerHTML = `
+          <svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="428" height="208" rx="10" fill="#FFFFFF" stroke="#E2DBD0"/>
+            <text x="20" y="26" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1C1C1A">WARDROBE ELEVATION (${state.wStyle.toUpperCase()}) • ${w.sqft} SQ.FT</text>
+            
+            <!-- Wardrobe Frame -->
+            <rect x="125" y="42" width="190" height="148" rx="4" fill="#FAF8F5" stroke="#1C1C1A" stroke-width="2"/>
+            <line x1="220" y1="42" x2="220" y2="190" stroke="#1C1C1A" stroke-width="1.5"/>
+            <!-- Hanging Rod Left -->
+            <line x1="135" y1="64" x2="210" y2="64" stroke="#C8973A" stroke-width="3"/>
+            <text x="142" y="82" font-family="DM Sans, sans-serif" font-size="9" fill="#5E5D58">Hanging Zone</text>
+            <!-- Shelves Right -->
+            <line x1="228" y1="74" x2="306" y2="74" stroke="#1C1C1A" stroke-width="1.2"/>
+            <line x1="228" y1="104" x2="306" y2="104" stroke="#1C1C1A" stroke-width="1.2"/>
+            <text x="236" y="92" font-family="DM Sans, sans-serif" font-size="9" fill="#5E5D58">Shelves</text>
+            <!-- Dynamic Drawers -->
+            ${drawerRects}
+            <text x="145" y="132" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#1C1C1A">${drawerCount} Soft-Close Drawers</text>
+            
+            <!-- Dimension Labels -->
+            <text x="220" y="206" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1C1C1A">Width: ${w.width} ft</text>
+            <text x="330" y="120" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#A97B24">Height: ${w.height} ft</text>
+          </svg>
+        `;
+        return;
+      }
+
+      // Kitchen Blueprint SVG (also shown as primary visual in 'both' mode)
+      let layoutSVG = '';
+      if (state.kLayout === 'straight') {
+        layoutSVG = `
+          <rect x="70" y="68" width="300" height="54" rx="4" fill="#FBF6EC" stroke="#1C1C1A" stroke-width="2"/>
+          <rect x="82" y="76" width="76" height="38" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
+          <text x="120" y="98" text-anchor="middle" font-size="9" font-weight="700" fill="#0369A1">SINK (BWP)</text>
+          <rect x="275" y="76" width="82" height="38" rx="3" fill="#FEF3C7" stroke="#D97706"/>
+          <text x="316" y="98" text-anchor="middle" font-size="9" font-weight="700" fill="#92400E">HOB ZONE</text>
+          <text x="220" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#1C1C1A">Wall A: ${k.wA} ft</text>
+        `;
+      } else if (state.kLayout === 'lshape') {
+        layoutSVG = `
+          <path d="M90 56 H340 V104 H142 V176 H90 Z" fill="#FBF6EC" stroke="#1C1C1A" stroke-width="2"/>
+          <rect x="155" y="64" width="76" height="32" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
+          <text x="193" y="83" text-anchor="middle" font-size="9" font-weight="700" fill="#0369A1">SINK (BWP)</text>
+          <rect x="255" y="64" width="74" height="32" rx="3" fill="#FEF3C7" stroke="#D97706"/>
+          <text x="292" y="83" text-anchor="middle" font-size="9" font-weight="700" fill="#92400E">HOB ZONE</text>
+          <text x="215" y="46" text-anchor="middle" font-size="11" font-weight="700" fill="#1C1C1A">Wall A: ${k.wA} ft</text>
+          <text x="48" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#A97B24">Wall B: ${k.wB} ft</text>
+        `;
+      } else if (state.kLayout === 'parallel') {
+        layoutSVG = `
+          <rect x="90" y="54" width="260" height="42" rx="4" fill="#FBF6EC" stroke="#1C1C1A" stroke-width="2"/>
+          <rect x="110" y="60" width="80" height="30" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
+          <text x="150" y="78" text-anchor="middle" font-size="9" font-weight="700" fill="#0369A1">SINK (BWP)</text>
+          <rect x="90" y="132" width="260" height="42" rx="4" fill="#FBF6EC" stroke="#1C1C1A" stroke-width="2"/>
+          <rect x="240" y="138" width="86" height="30" rx="3" fill="#FEF3C7" stroke="#D97706"/>
+          <text x="283" y="156" text-anchor="middle" font-size="9" font-weight="700" fill="#92400E">HOB ZONE</text>
+          <text x="220" y="45" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1C1C1A">Wall A: ${k.wA} ft</text>
+          <text x="220" y="190" text-anchor="middle" font-size="10.5" font-weight="700" fill="#A97B24">Wall B: ${k.wB} ft</text>
+        `;
+      } else {
+        layoutSVG = `
+          <path d="M95 56 H345 V172 H295 V100 H145 V172 H95 Z" fill="#FBF6EC" stroke="#1C1C1A" stroke-width="2"/>
+          <rect x="180" y="63" width="80" height="30" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
+          <text x="220" y="81" text-anchor="middle" font-size="9" font-weight="700" fill="#0369A1">SINK (BWP)</text>
+          <text x="220" y="46" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1C1C1A">Main Wall A: ${k.wA} ft</text>
+          <text x="50" y="120" text-anchor="middle" font-size="10" font-weight="700" fill="#A97B24">B: ${k.wB} ft</text>
+          <text x="388" y="120" text-anchor="middle" font-size="10" font-weight="700" fill="#A97B24">C: ${k.wC} ft</text>
+        `;
+      }
+
+      const totalDisplaySqft = state.mode === 'both' ? `${k.sqft} + ${w.sqft} sq.ft` : `${k.sqft} sq.ft`;
+      stage.innerHTML = `
+        <svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="6" width="428" height="208" rx="10" fill="#FFFFFF" stroke="#E2DBD0"/>
+          <text x="20" y="25" font-family="DM Sans, sans-serif" font-size="10.5" font-weight="700" fill="#1C1C1A">TOP-DOWN BLUEPRINT • EST. AREA: ${totalDisplaySqft}</text>
+          ${layoutSVG}
+          <text x="220" y="205" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9.5" fill="#5E5D58">
+            ${k.hasLoft ? 'Base + Wall + Overhead Loft Cabinets' : 'Base + Wall Cabinets (No Loft)'} • ${state.kDrawers} Tandem Drawers + 1 BPO + 1 Cutlery
+          </text>
+        </svg>
+      `;
+    }
+
+    function updateAll() {
+      const k = computeKitchenMetrics();
+      const w = computeWardrobeMetrics();
+      updateAdvisor(k, w);
+      renderVisuals();
+
+      let totalExact = 0;
+      let areaSummary = '';
+      let breakdownHTML = '';
+      let waLines = [];
+
+      const custName = document.getElementById('cust-name').value.trim();
+      const locality = document.getElementById('locality').value;
+
+      if (custName) waLines.push(`*Name / Project:* ${custName}`);
+      waLines.push(`*Locality:* ${locality}, Jaipur`);
+
+      if (state.mode === 'kitchen') {
+        totalExact = k.total;
+        areaSummary = `Approx. ${k.sqft} sq.ft Modular Kitchen • Incl. GST & Installation`;
+        breakdownHTML = `
+          <div class="spec-line"><span>Layout &amp; Area</span><span>${state.kLayout.toUpperCase()} (~${k.sqft} sq.ft${k.hasLoft ? ' + Loft' : ''})</span></div>
+          <div class="spec-line"><span>Shutter Finish</span><span>${FINISH_LABELS[state.finish]}</span></div>
+          <div class="spec-line"><span>Carcass Core</span><span>${BOARD_LABELS[state.board]}</span></div>
+          <div class="spec-line"><span>Hardware &amp; Drawers</span><span>${HW_CONFIG[state.hw].shortName} (${state.kDrawers} Tandems + 1 BPO + 1 Cutlery)</span></div>
+        `;
+        waLines.push(`*Scope:* Modular Kitchen (${state.kLayout.toUpperCase()}, ~${k.sqft} sq.ft${k.hasLoft ? ' with Loft' : ''})`);
+        waLines.push(`*Drawers & Inclusions:* ${state.kDrawers} Tandem Drawers + 1 BPO + 1 Cutlery Tray`);
+      } else if (state.mode === 'wardrobe') {
+        totalExact = w.total;
+        areaSummary = `Approx. ${w.sqft} sq.ft Modular Wardrobe (${w.width}×${w.height} ft) • Incl. GST`;
+        breakdownHTML = `
+          <div class="spec-line"><span>Wardrobe Size</span><span>${w.width} ft × ${w.height} ft (${w.sqft} sq.ft, ${state.wStyle})</span></div>
+          <div class="spec-line"><span>Shutter Finish</span><span>${FINISH_LABELS[state.finish]}</span></div>
+          <div class="spec-line"><span>Carcass Core</span><span>${BOARD_LABELS[state.board]}</span></div>
+          <div class="spec-line"><span>Hardware &amp; Drawers</span><span>${HW_CONFIG[state.hw].shortName} (${state.wDrawers} Drawers + 1 Hanging Rod)</span></div>
+        `;
+        waLines.push(`*Scope:* Modular Wardrobe (${state.wStyle}, ${w.width}×${w.height} ft = ${w.sqft} sq.ft)`);
+        waLines.push(`*Inclusions:* ${state.wDrawers} Soft-Close Drawers + 1 Hanging Rod`);
+      } else {
+        totalExact = k.total + w.total;
+        areaSummary = `Kitchen (~${k.sqft} sq.ft) + Wardrobe (${w.sqft} sq.ft) Package`;
+        breakdownHTML = `
+          <div class="spec-line"><span>Kitchen (${state.kLayout.toUpperCase()})</span><span>~${k.sqft} sq.ft • ${state.kDrawers} Tandems + 1 BPO + 1 Cutlery</span></div>
+          <div class="spec-line"><span>Wardrobe (${state.wStyle})</span><span>${w.width}×${w.height} ft (${w.sqft} sq.ft) • ${state.wDrawers} Drawers + 1 Rod</span></div>
+          <div class="spec-line"><span>Finish &amp; Core</span><span>${FINISH_LABELS[state.finish]} | ${BOARD_LABELS[state.board]}</span></div>
+          <div class="spec-line"><span>Hardware Brand</span><span>${HW_CONFIG[state.hw].shortName}</span></div>
+        `;
+        waLines.push(`*Scope:* Kitchen + Wardrobe Package`);
+        waLines.push(`*Kitchen:* ${state.kLayout.toUpperCase()}, ~${k.sqft} sq.ft, ${state.kDrawers} Tandems + 1 BPO + 1 Cutlery`);
+        waLines.push(`*Wardrobe:* ${state.wStyle}, ${w.width}×${w.height} ft (${w.sqft} sq.ft), ${state.wDrawers} Drawers + 1 Rod`);
+      }
+
+      const lowBand = Math.round((totalExact * 0.95) / 1000) * 1000;
+      const highBand = Math.round((totalExact * 1.05) / 1000) * 1000;
+      const rangeText = `${formatINR(lowBand)} – ${formatINR(highBand)}`;
+
+      // Conservative Jaipur showroom benchmark (~55% higher than factory-direct)
+      const retailBenchmark = Math.round((totalExact * 1.55) / 1000) * 1000;
+      const savingsAmt = retailBenchmark - totalExact;
+      const savingsPct = Math.round((savingsAmt / retailBenchmark) * 100);
+
+      document.getElementById('quote-range').textContent = rangeText;
+      document.getElementById('quote-area-summary').textContent = areaSummary;
+      document.getElementById('savings-pill').textContent = `Estimated ${formatINR(savingsAmt)} (${savingsPct}%) lower than Jaipur retail showrooms`;
+      document.getElementById('spec-breakdown').innerHTML = breakdownHTML;
+
+      waLines.push(`*Shutter Finish:* ${FINISH_LABELS[state.finish]}`);
+      waLines.push(`*Carcass Core:* ${BOARD_LABELS[state.board]}`);
+      waLines.push(`*Hardware Tier:* ${HW_CONFIG[state.hw].shortName}`);
+      waLines.push(`*Configurator Estimate:* ${rangeText}`);
+      if (state.attachedPlanName) {
+        waLines.push(`*Floor Plan:* Ready to attach (${state.attachedPlanName})`);
+      }
+
+      const fullMsg = `Namaste The Modular Makers! I configured an estimate on your website:\n\n${waLines.join('\n')}\n\nPlease share the next steps for a Sanganer factory visit or free laser site measurement.`;
+      document.getElementById('wa-share-btn').href = `https://wa.me/918302366262?text=${encodeURIComponent(fullMsg)}`;
+    }
+
+    // Initialize on load
+    updateAll();
+  </script>
+</body>
+</html>
