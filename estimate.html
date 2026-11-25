@@ -399,24 +399,61 @@
       box-shadow: inset 0 0 0 1px var(--gold);
     }
 
-    /* Sliders */
+    /* Sliders + Custom Width Input */
     .slider-group { margin-bottom: 14px; }
     .slider-label {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      gap: 10px;
       font-size: 0.88rem;
       font-weight: 600;
       margin-bottom: 6px;
     }
-    .slider-val {
-      color: var(--gold-dark);
+    .dim-input-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 2px 8px;
+    }
+    .dim-num-input {
+      width: 52px;
+      border: none;
+      background: transparent;
+      font-family: inherit;
       font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--gold-dark);
+      text-align: right;
+      -moz-appearance: textfield;
+    }
+    .dim-num-input::-webkit-outer-spin-button,
+    .dim-num-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .dim-num-input:focus { outline: none; }
+    .dim-unit {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
     }
     input[type="range"] {
       width: 100%;
       accent-color: var(--gold);
       cursor: pointer;
       height: 6px;
+    }
+
+    .ceiling-box {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 13px 14px;
+      margin-bottom: 10px;
     }
 
     .gap-callout {
@@ -1032,7 +1069,7 @@
               </div>
             </div>
 
-            <label class="field-label">Kitchen Layout</label>
+            <label class="field-label">Kitchen Layout (Select Shape to Adjust Each Wall)</label>
             <div class="pill-row" id="k-layout-pills">
               <button type="button" class="pill-btn" data-layout="straight" onclick="setKitchenLayout('straight')">Straight</button>
               <button type="button" class="pill-btn active" data-layout="lshape" onclick="setKitchenLayout('lshape')">L-Shape</button>
@@ -1040,42 +1077,62 @@
               <button type="button" class="pill-btn" data-layout="ushape" onclick="setKitchenLayout('ushape')">U-Shape</button>
             </div>
 
-            <label class="field-label">Quick Size Presets</label>
-            <div class="pill-row" id="k-preset-pills">
-              <button type="button" class="pill-btn" data-kpreset="compact" onclick="applyKitchenPreset('compact')">Compact (8×6 ft)</button>
-              <button type="button" class="pill-btn active" data-kpreset="standard" onclick="applyKitchenPreset('standard')">Standard (10×8 ft)</button>
-              <button type="button" class="pill-btn" data-kpreset="spacious" onclick="applyKitchenPreset('spacious')">Spacious (12×10 ft)</button>
-            </div>
-
             <div class="slider-group">
               <div class="slider-label">
-                <span>Main Wall A Length (Sink &amp; Hob Run)</span>
-                <span class="slider-val" id="k-wallA-val">10 ft</span>
+                <span id="k-wallA-label">Main Wall A Length (Sink &amp; Hob Run)</span>
+                <span class="dim-input-wrap">
+                  <input type="number" id="k-wallA-num" class="dim-num-input" min="1" max="30" step="0.5" value="10" oninput="onKitchenNumInput('A', this.value)" onblur="normalizeKitchenWall('A')" />
+                  <span class="dim-unit">ft</span>
+                </span>
               </div>
-              <input type="range" id="k-wallA" min="1" max="18" step="1" value="10" oninput="onKitchenSliderInput()" />
+              <input type="range" id="k-wallA" min="1" max="20" step="0.5" value="10" oninput="onKitchenSliderInput('A', this.value)" />
             </div>
 
             <div class="slider-group" id="k-wallB-wrap">
               <div class="slider-label">
-                <span>Second Wall B Length</span>
-                <span class="slider-val" id="k-wallB-val">8 ft</span>
+                <span id="k-wallB-label">Adjacent Wall B Length</span>
+                <span class="dim-input-wrap">
+                  <input type="number" id="k-wallB-num" class="dim-num-input" min="1" max="30" step="0.5" value="8" oninput="onKitchenNumInput('B', this.value)" onblur="normalizeKitchenWall('B')" />
+                  <span class="dim-unit">ft</span>
+                </span>
               </div>
-              <input type="range" id="k-wallB" min="1" max="16" step="1" value="8" oninput="onKitchenSliderInput()" />
+              <input type="range" id="k-wallB" min="1" max="20" step="0.5" value="8" oninput="onKitchenSliderInput('B', this.value)" />
             </div>
 
             <div class="slider-group hidden" id="k-wallC-wrap">
               <div class="slider-label">
-                <span>Third Wall C Length (U-Shape Return)</span>
-                <span class="slider-val" id="k-wallC-val">8 ft</span>
+                <span id="k-wallC-label">Right Side Wall C Length</span>
+                <span class="dim-input-wrap">
+                  <input type="number" id="k-wallC-num" class="dim-num-input" min="1" max="30" step="0.5" value="8" oninput="onKitchenNumInput('C', this.value)" onblur="normalizeKitchenWall('C')" />
+                  <span class="dim-unit">ft</span>
+                </span>
               </div>
-              <input type="range" id="k-wallC" min="1" max="14" step="1" value="8" oninput="onKitchenSliderInput()" />
+              <input type="range" id="k-wallC" min="1" max="20" step="0.5" value="8" oninput="onKitchenSliderInput('C', this.value)" />
             </div>
 
             <label class="field-label" style="margin-top: 8px;">Overhead Cabinet Height</label>
-            <div class="pill-row" style="margin-bottom: 6px;">
-              <button type="button" class="pill-btn active" id="loft-no" onclick="setLoft(false)">Standard 2 ft Overhead (4.75 ft Furniture Ht)</button>
-              <button type="button" class="pill-btn" id="loft-yes" onclick="setLoft(true)">Full Height to Ceiling (+2 ft Loft = 6.75 ft)</button>
+            <div class="pill-row" style="margin-bottom: 10px;">
+              <button type="button" class="pill-btn active" id="loft-no" onclick="setLoft(false)">Standard 2 ft Overhead</button>
+              <button type="button" class="pill-btn" id="loft-yes" onclick="setLoft(true)">Full Height (Up to Ceiling)</button>
             </div>
+
+            <!-- Conditional Room Wall / Ceiling Height Input (Appears only when Full Height is selected) -->
+            <div class="ceiling-box hidden" id="ceiling-height-box">
+              <div class="slider-label" style="margin-bottom: 8px;">
+                <span>Total Room Wall / Ceiling Height (Floor to Ceiling)</span>
+                <span class="dim-input-wrap" style="background:#fff;">
+                  <input type="number" id="k-ceiling-num" class="dim-num-input" min="8" max="14" step="0.5" value="10" oninput="onCeilingNumInput(this.value)" onblur="normalizeCeilingHeight()" />
+                  <span class="dim-unit">ft</span>
+                </span>
+              </div>
+              <div class="pill-row" id="ceiling-pills" style="margin-bottom: 8px;">
+                <button type="button" class="pill-btn" data-ceil="9" onclick="setCeilingPreset(9)">9 ft Ceiling</button>
+                <button type="button" class="pill-btn active" data-ceil="10" onclick="setCeilingPreset(10)">10 ft Ceiling</button>
+                <button type="button" class="pill-btn" data-ceil="11" onclick="setCeilingPreset(11)">11 ft Ceiling</button>
+              </div>
+              <input type="range" id="k-ceiling" min="8" max="13" step="0.5" value="10" oninput="onCeilingSliderInput(this.value)" />
+            </div>
+
             <div class="gap-callout">
               <strong>Fair Measurement Promise:</strong> The 2 ft empty wall/backsplash space between your counter and overhead cabinets is <strong>excluded (0 sq.ft charged)</strong>.
             </div>
@@ -1111,17 +1168,23 @@
             <div class="slider-group">
               <div class="slider-label">
                 <span>Wardrobe Width (Per Unit — +1 Drawer Included per 1.5 ft)</span>
-                <span class="slider-val" id="w-width-val">3 ft</span>
+                <span class="dim-input-wrap">
+                  <input type="number" id="w-width-num" class="dim-num-input" min="1" max="25" step="0.5" value="3" oninput="onWardrobeNumInput('W', this.value)" onblur="normalizeWardrobeDim('W')" />
+                  <span class="dim-unit">ft</span>
+                </span>
               </div>
-              <input type="range" id="w-width" min="1" max="15" step="0.5" value="3" oninput="onWardrobeSliderInput()" />
+              <input type="range" id="w-width" min="1" max="15" step="0.5" value="3" oninput="onWardrobeSliderInput('W', this.value)" />
             </div>
 
             <div class="slider-group">
               <div class="slider-label">
                 <span>Wardrobe Height</span>
-                <span class="slider-val" id="w-height-val">7 ft</span>
+                <span class="dim-input-wrap">
+                  <input type="number" id="w-height-num" class="dim-num-input" min="1" max="14" step="0.5" value="7" oninput="onWardrobeNumInput('H', this.value)" onblur="normalizeWardrobeDim('H')" />
+                  <span class="dim-unit">ft</span>
+                </span>
               </div>
-              <input type="range" id="w-height" min="1" max="11" step="1" value="7" oninput="onWardrobeSliderInput()" />
+              <input type="range" id="w-height" min="1" max="11" step="0.5" value="7" oninput="onWardrobeSliderInput('H', this.value)" />
             </div>
           </div>
         </div>
@@ -1470,11 +1533,19 @@
       bwp: 'Full IS:710 BWP Marine Ply'
     };
 
+    const LAYOUT_DEFAULTS = {
+      straight: { A: 10, B: 8, C: 8 },
+      lshape:   { A: 10, B: 8, C: 8 },
+      parallel: { A: 10, B: 10, C: 8 },
+      ushape:   { A: 8, B: 10, C: 8 }
+    };
+
     let state = {
       mode: 'kitchen',      // 'kitchen' | 'wardrobe' | 'both'
       kType: 'semi',        // 'semi' | 'fully'
       kLayout: 'lshape',
-      hasLoft: false,       // false = 4.75 ft (2.75 base + 2.0 overhead); true = 6.75 ft (+2.0 loft)
+      hasLoft: false,       // false = Standard 2 ft overhead (4.75 ft silent); true = Full Height (ceilingHeight - 2.0 ft)
+      ceilingHeight: 10,    // used when hasLoft === true
       wStyle: 'hinged',
       wQty: 1,
       finish: 'laminate',
@@ -1569,7 +1640,7 @@
       const kStep = document.getElementById('k-drawer-stepper');
       const wStep = document.getElementById('w-drawer-stepper');
       const banner = document.getElementById('hw-inclusion-banner');
-      const wWidth = parseFloat(document.getElementById('w-width').value);
+      const wWidth = parseFloat(document.getElementById('w-width-num').value) || 3;
       const wInc = getWardrobeIncludedDrawers(wWidth);
 
       if (mode === 'kitchen') {
@@ -1607,39 +1678,64 @@
       updateAll();
     }
 
+    function setKitchenWallValues(wA, wB, wC) {
+      document.getElementById('k-wallA-num').value = wA;
+      document.getElementById('k-wallA').value = Math.min(20, Math.max(1, wA));
+      document.getElementById('k-wallB-num').value = wB;
+      document.getElementById('k-wallB').value = Math.min(20, Math.max(1, wB));
+      document.getElementById('k-wallC-num').value = wC;
+      document.getElementById('k-wallC').value = Math.min(20, Math.max(1, wC));
+    }
+
     function setKitchenLayout(layout) {
       state.kLayout = layout;
       document.querySelectorAll('#k-layout-pills .pill-btn').forEach(b => {
         b.classList.toggle('active', b.dataset.layout === layout);
       });
+
+      if (layout === 'straight') {
+        document.getElementById('k-wallA-label').textContent = 'Main Wall Length (Sink & Hob Run)';
+      } else if (layout === 'lshape') {
+        document.getElementById('k-wallA-label').textContent = 'Main Wall A Length (Sink & Hob Run)';
+        document.getElementById('k-wallB-label').textContent = 'Adjacent Wall B Length';
+      } else if (layout === 'parallel') {
+        document.getElementById('k-wallA-label').textContent = 'Counter Wall A Length (Sink Run)';
+        document.getElementById('k-wallB-label').textContent = 'Opposite Wall B Length (Hob Run)';
+      } else {
+        document.getElementById('k-wallA-label').textContent = 'Left Side Wall A Length';
+        document.getElementById('k-wallB-label').textContent = 'Center / Back Wall B Length';
+        document.getElementById('k-wallC-label').textContent = 'Right Side Wall C Length';
+      }
+
       document.getElementById('k-wallB-wrap').classList.toggle('hidden', layout === 'straight');
       document.getElementById('k-wallC-wrap').classList.toggle('hidden', layout !== 'ushape');
+
+      const dims = LAYOUT_DEFAULTS[layout];
+      setKitchenWallValues(dims.A, dims.B, dims.C);
       updateAll();
     }
 
-    function highlightKitchenPreset(presetKey) {
-      document.querySelectorAll('#k-preset-pills .pill-btn').forEach(b => {
-        b.classList.toggle('active', b.dataset.kpreset === presetKey);
-      });
+    function onKitchenSliderInput(wall, val) {
+      const numVal = parseFloat(val) || 1;
+      document.getElementById(`k-wall${wall}-num`).value = numVal;
+      updateAll();
     }
 
-    function applyKitchenPreset(preset) {
-      const wA = document.getElementById('k-wallA');
-      const wB = document.getElementById('k-wallB');
-      setKitchenLayout('lshape');
-      if (preset === 'compact') {
-        wA.value = 8; wB.value = 6;
-      } else if (preset === 'standard') {
-        wA.value = 10; wB.value = 8;
-      } else {
-        wA.value = 12; wB.value = 10;
+    function onKitchenNumInput(wall, rawVal) {
+      const parsed = parseFloat(rawVal);
+      if (!isNaN(parsed) && parsed >= 1) {
+        document.getElementById(`k-wall${wall}`).value = Math.min(20, parsed);
       }
-      highlightKitchenPreset(preset);
       updateAll();
     }
 
-    function onKitchenSliderInput() {
-      highlightKitchenPreset(null);
+    function normalizeKitchenWall(wall) {
+      const inp = document.getElementById(`k-wall${wall}-num`);
+      let parsed = parseFloat(inp.value);
+      if (isNaN(parsed) || parsed < 1) parsed = 1;
+      if (parsed > 30) parsed = 30;
+      inp.value = parsed;
+      document.getElementById(`k-wall${wall}`).value = Math.min(20, parsed);
       updateAll();
     }
 
@@ -1647,6 +1743,51 @@
       state.hasLoft = hasLoft;
       document.getElementById('loft-no').classList.toggle('active', !hasLoft);
       document.getElementById('loft-yes').classList.toggle('active', hasLoft);
+      document.getElementById('ceiling-height-box').classList.toggle('hidden', !hasLoft);
+      updateAll();
+    }
+
+    function syncCeilingPills(h) {
+      document.querySelectorAll('#ceiling-pills .pill-btn').forEach(b => {
+        b.classList.toggle('active', parseFloat(b.dataset.ceil) === h);
+      });
+    }
+
+    function setCeilingPreset(h) {
+      state.ceilingHeight = h;
+      document.getElementById('k-ceiling').value = h;
+      document.getElementById('k-ceiling-num').value = h;
+      syncCeilingPills(h);
+      updateAll();
+    }
+
+    function onCeilingSliderInput(val) {
+      const h = parseFloat(val) || 10;
+      state.ceilingHeight = h;
+      document.getElementById('k-ceiling-num').value = h;
+      syncCeilingPills(h);
+      updateAll();
+    }
+
+    function onCeilingNumInput(rawVal) {
+      const parsed = parseFloat(rawVal);
+      if (!isNaN(parsed) && parsed >= 8 && parsed <= 14) {
+        state.ceilingHeight = parsed;
+        document.getElementById('k-ceiling').value = Math.min(13, Math.max(8, parsed));
+        syncCeilingPills(parsed);
+        updateAll();
+      }
+    }
+
+    function normalizeCeilingHeight() {
+      const inp = document.getElementById('k-ceiling-num');
+      let parsed = parseFloat(inp.value);
+      if (isNaN(parsed) || parsed < 8) parsed = 8;
+      if (parsed > 14) parsed = 14;
+      state.ceilingHeight = parsed;
+      inp.value = parsed;
+      document.getElementById('k-ceiling').value = Math.min(13, parsed);
+      syncCeilingPills(parsed);
       updateAll();
     }
 
@@ -1673,19 +1814,61 @@
 
     function applyWardrobePreset(presetKey, w, h) {
       document.getElementById('w-width').value = w;
+      document.getElementById('w-width-num').value = w;
       document.getElementById('w-height').value = h;
+      document.getElementById('w-height-num').value = h;
       syncWardrobeDrawersForWidth(w);
       highlightWardrobePreset(presetKey);
       if (state.mode !== 'kitchen') setMode(state.mode);
       else updateAll();
     }
 
-    function onWardrobeSliderInput() {
-      const w = parseFloat(document.getElementById('w-width').value);
-      syncWardrobeDrawersForWidth(w);
+    function onWardrobeSliderInput(axis, val) {
+      const numVal = parseFloat(val) || 1;
+      if (axis === 'W') {
+        document.getElementById('w-width-num').value = numVal;
+        syncWardrobeDrawersForWidth(numVal);
+      } else {
+        document.getElementById('w-height-num').value = numVal;
+      }
       highlightWardrobePreset(null);
       if (state.mode !== 'kitchen') setMode(state.mode);
       else updateAll();
+    }
+
+    function onWardrobeNumInput(axis, rawVal) {
+      const parsed = parseFloat(rawVal);
+      if (!isNaN(parsed) && parsed >= 1) {
+        if (axis === 'W') {
+          document.getElementById('w-width').value = Math.min(15, parsed);
+          syncWardrobeDrawersForWidth(parsed);
+        } else {
+          document.getElementById('w-height').value = Math.min(11, parsed);
+        }
+      }
+      highlightWardrobePreset(null);
+      if (state.mode !== 'kitchen') setMode(state.mode);
+      else updateAll();
+    }
+
+    function normalizeWardrobeDim(axis) {
+      if (axis === 'W') {
+        const inp = document.getElementById('w-width-num');
+        let parsed = parseFloat(inp.value);
+        if (isNaN(parsed) || parsed < 1) parsed = 1;
+        if (parsed > 25) parsed = 25;
+        inp.value = parsed;
+        document.getElementById('w-width').value = Math.min(15, parsed);
+        syncWardrobeDrawersForWidth(parsed);
+      } else {
+        const inp = document.getElementById('w-height-num');
+        let parsed = parseFloat(inp.value);
+        if (isNaN(parsed) || parsed < 1) parsed = 1;
+        if (parsed > 14) parsed = 14;
+        inp.value = parsed;
+        document.getElementById('w-height').value = Math.min(11, parsed);
+      }
+      updateAll();
     }
 
     function setFinish(fin) {
@@ -1734,7 +1917,7 @@
     }
 
     function changeWardrobeDrawers(delta) {
-      const w = parseFloat(document.getElementById('w-width').value);
+      const w = parseFloat(document.getElementById('w-width-num').value) || 3;
       const minInc = getWardrobeIncludedDrawers(w);
       state.wDrawers = Math.max(minInc, state.wDrawers + delta);
       document.getElementById('w-drawer-input').value = state.wDrawers;
@@ -1742,7 +1925,7 @@
     }
 
     function onWardrobeDrawerTyped(rawVal) {
-      const w = parseFloat(document.getElementById('w-width').value);
+      const w = parseFloat(document.getElementById('w-width-num').value) || 3;
       const minInc = getWardrobeIncludedDrawers(w);
       const parsed = parseInt(rawVal, 10);
       state.wDrawers = isNaN(parsed) ? minInc : Math.max(minInc, parsed);
@@ -1750,7 +1933,7 @@
     }
 
     function normalizeWardrobeDrawers() {
-      const w = parseFloat(document.getElementById('w-width').value);
+      const w = parseFloat(document.getElementById('w-width-num').value) || 3;
       const minInc = getWardrobeIncludedDrawers(w);
       const inp = document.getElementById('w-drawer-input');
       const parsed = parseInt(inp.value, 10);
@@ -1778,29 +1961,27 @@
     }
 
     function computeKitchenMetrics() {
-      const wA = parseInt(document.getElementById('k-wallA').value, 10);
-      const wB = parseInt(document.getElementById('k-wallB').value, 10);
-      const wC = parseInt(document.getElementById('k-wallC').value, 10);
+      const wA = Math.max(1, parseFloat(document.getElementById('k-wallA-num').value) || 1);
+      const wB = Math.max(1, parseFloat(document.getElementById('k-wallB-num').value) || 1);
+      const wC = Math.max(1, parseFloat(document.getElementById('k-wallC-num').value) || 1);
 
-      document.getElementById('k-wallA-val').textContent = wA + ' ft';
-      document.getElementById('k-wallB-val').textContent = wB + ' ft';
-      document.getElementById('k-wallC-val').textContent = wC + ' ft';
-
-      let effRun = 16;
+      let effRun = wA;
       if (state.kLayout === 'straight') {
         effRun = wA;
       } else if (state.kLayout === 'lshape') {
-        effRun = (wA + wB > 3) ? (wA + wB - 2) : Math.max(1, wA + wB - 1);
+        const rawSum = wA + wB;
+        effRun = rawSum > 3 ? (rawSum - 2) : Math.max(1, rawSum - 1);
       } else if (state.kLayout === 'parallel') {
         effRun = wA + wB;
       } else {
-        effRun = (wA + wB + wC > 6) ? (wA + wB + wC - 4) : Math.max(2, wA + wB + wC - 2);
+        const rawSum = wA + wB + wC;
+        effRun = rawSum > 6 ? (rawSum - 4) : Math.max(2, rawSum - 2);
       }
 
-      // Indian kitchen vertical geometry: 2.75 ft base + 2.0 ft overhead = 4.75 ft (2.0 ft backsplash excluded)
-      // Adding ceiling loft adds +2.0 ft = 6.75 ft
-      const verticalHt = state.hasLoft ? 6.75 : 4.75;
-      const sqft = Math.max(5, Math.round(effRun * verticalHt));
+      // Standard 2 ft Overhead = 4.75 ft active furniture height (2.75 base + 2.0 overhead; 2.0 ft gap excluded)
+      // Full Height (Up to Ceiling) = Total Room Ceiling Height - 2.0 ft empty backsplash gap
+      const verticalFactor = state.hasLoft ? Math.max(5.5, state.ceilingHeight - 2.0) : 4.75;
+      const sqft = Math.max(5, Math.round(effRun * verticalFactor));
 
       const hw = HW_CONFIG[state.hw];
       const effSqftRate = BASE_RATES[state.finish] + TYPE_UPLIFT[state.kType] + BOARD_UPLIFTS[state.board] + hw.hingeSqft;
@@ -1809,14 +1990,12 @@
       const drawerAddon = (5 * hw.upgIncluded) + (extraDrawers * hw.extraDrawer);
       const total = cabAndHinge + drawerAddon;
 
-      return { wA, wB, wC, effRun, verticalHt, sqft, total };
+      return { wA, wB, wC, effRun, sqft, total };
     }
 
     function computeWardrobeMetrics() {
-      const width = parseFloat(document.getElementById('w-width').value);
-      const height = parseInt(document.getElementById('w-height').value, 10);
-      document.getElementById('w-width-val').textContent = width + ' ft';
-      document.getElementById('w-height-val').textContent = height + ' ft';
+      const width = Math.max(1, parseFloat(document.getElementById('w-width-num').value) || 1);
+      const height = Math.max(1, parseFloat(document.getElementById('w-height-num').value) || 1);
 
       const singleSqft = Math.round(width * height * 10) / 10;
       const totalSqft = Math.round(singleSqft * state.wQty * 10) / 10;
@@ -1879,36 +2058,50 @@
       const actualW = Math.round(boxW * scaleFactor);
       const x = startX + Math.round((boxW - actualW) / 2);
 
-      const baseTopY = state.hasLoft ? 56 : 44;
-      const overheadH = 32;
-      const gapH = 28;
+      const loftH = state.hasLoft ? Math.min(26, Math.max(16, Math.round((state.ceilingHeight - 7) * 5))) : 0;
+      const baseTopY = state.hasLoft ? (36 + loftH) : 44;
+      const overheadH = 30;
+      const gapH = 26;
       const counterY = baseTopY + overheadH + gapH;
       const baseH = 54;
 
       const loftSVG = state.hasLoft
-        ? `<rect x="${x}" y="${baseTopY - 22}" width="${actualW}" height="20" rx="2" fill="${state.swatchUpper}" stroke="#1C1C1A" stroke-width="1.2"/>
-           <line x1="${x + actualW * 0.33}" y1="${baseTopY - 22}" x2="${x + actualW * 0.33}" y2="${baseTopY - 2}" stroke="#1C1C1A" stroke-width="0.9"/>
-           <line x1="${x + actualW * 0.66}" y1="${baseTopY - 22}" x2="${x + actualW * 0.66}" y2="${baseTopY - 2}" stroke="#1C1C1A" stroke-width="0.9"/>`
+        ? `<rect x="${x}" y="${baseTopY - loftH - 2}" width="${actualW}" height="${loftH}" rx="2" fill="${state.swatchUpper}" stroke="#1C1C1A" stroke-width="1.2"/>
+           <line x1="${x + actualW * 0.33}" y1="${baseTopY - loftH - 2}" x2="${x + actualW * 0.33}" y2="${baseTopY - 2}" stroke="#1C1C1A" stroke-width="0.9"/>
+           <line x1="${x + actualW * 0.66}" y1="${baseTopY - loftH - 2}" x2="${x + actualW * 0.66}" y2="${baseTopY - 2}" stroke="#1C1C1A" stroke-width="0.9"/>`
         : '';
 
-      const stack1W = Math.round(actualW * 0.34);
-      const stack2W = Math.round(actualW * 0.34);
-      const leftSlots = Math.min(5, Math.ceil(state.kDrawers / 2));
-      const midSlots = Math.min(5, Math.floor(state.kDrawers / 2));
+      // Distribute drawers across base boxes with a strict maximum of 3 drawers per box
+      const neededDrawerBoxes = Math.ceil(state.kDrawers / 3);
+      const totalCols = Math.max(3, Math.min(6, neededDrawerBoxes + 1)); // +1 keeps at least one shutter/sink cabinet
+      const colW = actualW / totalCols;
 
+      let colDividers = '';
       let drawerLines = '';
-      for (let i = 1; i < leftSlots; i++) {
-        const ly = counterY + 5 + Math.round((baseH / leftSlots) * i);
-        drawerLines += `<line x1="${x}" y1="${ly}" x2="${x + stack1W}" y2="${ly}" stroke="#1C1C1A" stroke-width="1"/>`;
-      }
-      for (let j = 1; j < midSlots; j++) {
-        const my = counterY + 5 + Math.round((baseH / midSlots) * j);
-        drawerLines += `<line x1="${x + stack1W}" y1="${my}" x2="${x + stack1W + stack2W}" y2="${my}" stroke="#1C1C1A" stroke-width="1"/>`;
+      let remainingDrawers = state.kDrawers;
+
+      for (let c = 0; c < totalCols; c++) {
+        const cx = x + c * colW;
+        if (c > 0) {
+          colDividers += `<line x1="${cx}" y1="${counterY + 5}" x2="${cx}" y2="${counterY + 5 + baseH}" stroke="#1C1C1A" stroke-width="1.1"/>`;
+        }
+        const drawersInThisBox = Math.min(3, remainingDrawers);
+        if (drawersInThisBox > 1) {
+          for (let d = 1; d < drawersInThisBox; d++) {
+            const dy = counterY + 5 + (baseH / drawersInThisBox) * d;
+            drawerLines += `<line x1="${cx}" y1="${dy}" x2="${cx + colW}" y2="${dy}" stroke="#1C1C1A" stroke-width="1"/>`;
+          }
+        }
+        remainingDrawers -= drawersInThisBox;
       }
 
       const glossLine = state.finish !== 'laminate'
         ? `<line x1="${x + 8}" y1="${baseTopY + 5}" x2="${x + 28}" y2="${baseTopY + overheadH - 5}" stroke="#FFFFFF" stroke-width="2" opacity="0.55"/>`
         : '';
+
+      const footerLabel = compact
+        ? `${state.kDrawers} Tandems • ${k.sqft} sq.ft`
+        : `${state.kDrawers} Tandems • ${k.effRun} ft Run (${k.sqft} sq.ft)`;
 
       return `
         ${loftSVG}
@@ -1920,26 +2113,24 @@
 
         <!-- 2.0 ft Excluded Gap -->
         <rect x="${x}" y="${baseTopY + overheadH}" width="${actualW}" height="${gapH}" fill="#ECF7F1" stroke="#B7DEC9" stroke-dasharray="3 2"/>
-        <text x="${x + actualW / 2}" y="${baseTopY + overheadH + 17}" text-anchor="middle" font-size="${compact ? '7.2' : '8.5'}" font-weight="700" fill="#1E6B45">
+        <text x="${x + actualW / 2}" y="${baseTopY + overheadH + 16}" text-anchor="middle" font-size="${compact ? '7.2' : '8.5'}" font-weight="700" fill="#1E6B45">
           ${compact ? '2ft Gap = 0 sq.ft' : '2.0 ft Empty Wall Gap = 0 sq.ft Charged'}
         </text>
 
         <!-- Countertop -->
         <rect x="${x - 3}" y="${counterY}" width="${actualW + 6}" height="5" fill="#1C1C1A"/>
 
-        <!-- 2.75 ft Base with 5+ Tandem Drawers -->
+        <!-- 2.75 ft Base with Max 3 Drawers Per Box -->
         <rect x="${x}" y="${counterY + 5}" width="${actualW}" height="${baseH}" rx="2" fill="${state.swatchLower}" stroke="#1C1C1A" stroke-width="1.4"/>
-        <line x1="${x + stack1W}" y1="${counterY + 5}" x2="${x + stack1W}" y2="${counterY + 5 + baseH}" stroke="#1C1C1A" stroke-width="1.1"/>
-        <line x1="${x + stack1W + stack2W}" y1="${counterY + 5}" x2="${x + stack1W + stack2W}" y2="${counterY + 5 + baseH}" stroke="#1C1C1A" stroke-width="1.1"/>
+        ${colDividers}
         ${drawerLines}
         <text x="${x + actualW / 2}" y="${counterY + 5 + baseH + 13}" text-anchor="middle" font-size="8" font-weight="700" fill="#1C1C1A">
-          ${state.kDrawers} Tandems • ${k.effRun}×${k.verticalHt}ft (${k.sqft} sq.ft)
+          ${footerLabel}
         </text>
       `;
     }
 
     function buildWardrobeElevationGroup(w, startX, boxW, compact) {
-      // Proportional width (1..15 ft) and height (1..11 ft) scaling
       const wScale = Math.min(1, Math.max(0.54, w.width / 10));
       const hScale = Math.min(1, Math.max(0.72, w.height / 10));
       const actualW = Math.round(boxW * wScale);
@@ -1947,10 +2138,8 @@
       const x = startX + Math.round((boxW - actualW) / 2);
       const y = 42 + (134 - actualH);
 
-      // Upper Hanger Zone (top 54%) vs Lower Side-by-Side Drawer Zone (bottom 46%)
       const splitY = y + Math.round(actualH * 0.52);
 
-      // Door panels scale with wardrobe width
       const panels = w.width <= 3.5 ? 2 : (w.width <= 6.5 ? 3 : 4);
       let doorLines = '';
       for (let p = 1; p < panels; p++) {
@@ -1958,7 +2147,7 @@
         doorLines += `<line x1="${px}" y1="${y}" x2="${px}" y2="${splitY}" stroke="#1C1C1A" stroke-width="1.1"/>`;
       }
 
-      // Side-by-side drawer boxes positioned cleanly right below the complete hanger section
+      // Side-by-side drawers directly below the complete hanger section (max 3 rows per column)
       const dCount = w.activeDrawers;
       const cols = Math.min(4, Math.max(1, dCount));
       const rows = Math.min(3, Math.ceil(dCount / cols));
@@ -1992,12 +2181,9 @@
         ${qtyBadge}
         <rect x="${x}" y="${y}" width="${actualW}" height="${actualH}" rx="3" fill="${state.swatchUpper}" opacity="0.32" stroke="#1C1C1A" stroke-width="1.6"/>
         ${doorLines}
-        <!-- Full-width Hanger Rod Section -->
         <line x1="${x + 7}" y1="${y + 15}" x2="${x + actualW - 7}" y2="${y + 15}" stroke="#C8973A" stroke-width="2.6"/>
         <text x="${x + actualW / 2}" y="${y + 27}" text-anchor="middle" font-size="7.5" font-weight="700" fill="#1C1C1A">Full Hanger Zone</text>
-        <!-- Divider Shelf Below Hanger Section -->
         <line x1="${x}" y1="${splitY}" x2="${x + actualW}" y2="${splitY}" stroke="#1C1C1A" stroke-width="1.3"/>
-        <!-- Side-by-Side Drawers Directly Below Hanger Section -->
         ${drawerBoxes}
         <text x="${x + actualW / 2}" y="${y + actualH + 13}" text-anchor="middle" font-size="8" font-weight="700" fill="#1C1C1A">
           ${w.width}×${w.height}ft (${w.singleSqft} sq.ft${w.qty > 1 ? ' ×' + w.qty : ''}) • ${w.activeDrawers} Drawer${w.activeDrawers === 1 ? '' : 's'}
@@ -2056,7 +2242,7 @@
               ${kGroup}
               ${miniMap}
               <text x="369" y="154" text-anchor="middle" font-size="8" font-weight="600" fill="#5E5D58">
-                ${state.hasLoft ? '6.75 ft w/ Loft' : '4.75 ft Std Ht'}
+                ${state.hasLoft ? `Full Ceiling (${state.ceilingHeight} ft)` : 'Std 2 ft Overhead'}
               </text>
             </svg>
           `;
@@ -2072,7 +2258,6 @@
             </svg>
           `;
         } else {
-          // Combined Kitchen + Wardrobe Composite Elevation
           const kGroup = buildKitchenElevationGroup(k, 16, 215, true);
           const wGroup = buildWardrobeElevationGroup(w, 245, 180, true);
           stage.innerHTML = `
@@ -2125,18 +2310,16 @@
           <text x="${sx + 38}" y="97" text-anchor="middle" font-size="8" font-weight="700" fill="#0369A1">SINK (BWP)</text>
           <rect x="${sx + lenA - 68}" y="75" width="60" height="38" rx="3" fill="#FEF3C7" stroke="#D97706"/>
           <text x="${sx + lenA - 38}" y="97" text-anchor="middle" font-size="8" font-weight="700" fill="#92400E">HOB ZONE</text>
-          <text x="220" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#1C1C1A">Wall A: ${k.wA} ft</text>
+          <text x="220" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#1C1C1A">Wall Length: ${k.wA} ft</text>
         `;
       } else if (state.kLayout === 'lshape') {
         const lenA = Math.min(270, Math.max(180, k.wA * 15));
         const lenB = Math.min(126, Math.max(88, k.wB * 9));
         layoutSVG = `
           <path d="M90 54 H${90 + lenA} V100 H142 V${54 + lenB} H90 Z" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
-          <!-- Sink positioned cleanly in the L-Shape Corner -->
           <rect x="94" y="58" width="48" height="38" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
           <text x="118" y="75" text-anchor="middle" font-size="7.5" font-weight="700" fill="#0369A1">SINK</text>
           <text x="118" y="85" text-anchor="middle" font-size="7" font-weight="700" fill="#0369A1">(BWP)</text>
-          <!-- Hob separated at far right end of Wall A -->
           <rect x="${90 + lenA - 64}" y="61" width="58" height="32" rx="3" fill="#FEF3C7" stroke="#D97706"/>
           <text x="${90 + lenA - 35}" y="80" text-anchor="middle" font-size="8" font-weight="700" fill="#92400E">HOB ZONE</text>
           <text x="${90 + lenA / 2}" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#1C1C1A">Wall A: ${k.wA} ft</text>
@@ -2156,22 +2339,20 @@
           <text x="220" y="186" text-anchor="middle" font-size="10.5" font-weight="700" fill="#A97B24">Wall B: ${k.wB} ft</text>
         `;
       } else {
-        const lenA = Math.min(270, Math.max(195, k.wA * 15));
-        const lenB = Math.min(118, Math.max(84, k.wB * 8.5));
+        const lenB = Math.min(270, Math.max(195, k.wB * 15));
+        const lenA = Math.min(118, Math.max(84, k.wA * 8.5));
         const lenC = Math.min(118, Math.max(84, k.wC * 8.5));
-        const x0 = Math.round((440 - lenA) / 2);
+        const x0 = Math.round((440 - lenB) / 2);
         layoutSVG = `
-          <path d="M${x0} 54 H${x0 + lenA} V${54 + lenC} H${x0 + lenA - 48} V98 H${x0 + 48} V${54 + lenB} H${x0} Z" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
-          <!-- Sink tucked into Top-Left U-Shape Corner -->
+          <path d="M${x0} 54 H${x0 + lenB} V${54 + lenC} H${x0 + lenB - 48} V98 H${x0 + 48} V${54 + lenA} H${x0} Z" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
           <rect x="${x0 + 4}" y="58" width="46" height="36" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
           <text x="${x0 + 27}" y="74" text-anchor="middle" font-size="7.5" font-weight="700" fill="#0369A1">SINK</text>
           <text x="${x0 + 27}" y="84" text-anchor="middle" font-size="7" font-weight="700" fill="#0369A1">(BWP)</text>
-          <!-- Hob tucked into Top-Right U-Shape Corner -->
-          <rect x="${x0 + lenA - 52}" y="58" width="48" height="36" rx="3" fill="#FEF3C7" stroke="#D97706"/>
-          <text x="${x0 + lenA - 28}" y="79" text-anchor="middle" font-size="8" font-weight="700" fill="#92400E">HOB</text>
-          <text x="220" y="44" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1C1C1A">Main Wall A: ${k.wA} ft</text>
-          <text x="${x0 - 26}" y="${54 + lenB / 2}" text-anchor="middle" font-size="10" font-weight="700" fill="#A97B24">B: ${k.wB}ft</text>
-          <text x="${x0 + lenA + 26}" y="${54 + lenC / 2}" text-anchor="middle" font-size="10" font-weight="700" fill="#A97B24">C: ${k.wC}ft</text>
+          <rect x="${x0 + lenB - 52}" y="58" width="48" height="36" rx="3" fill="#FEF3C7" stroke="#D97706"/>
+          <text x="${x0 + lenB - 28}" y="79" text-anchor="middle" font-size="8" font-weight="700" fill="#92400E">HOB</text>
+          <text x="220" y="44" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1C1C1A">Center Wall B: ${k.wB} ft</text>
+          <text x="${x0 - 26}" y="${54 + lenA / 2}" text-anchor="middle" font-size="10" font-weight="700" fill="#A97B24">A: ${k.wA}ft</text>
+          <text x="${x0 + lenB + 26}" y="${54 + lenC / 2}" text-anchor="middle" font-size="10" font-weight="700" fill="#A97B24">C: ${k.wC}ft</text>
         `;
       }
 
@@ -2187,7 +2368,7 @@
           </text>
           ${layoutSVG}
           <text x="220" y="205" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9.5" fill="#5E5D58">
-            ${k.verticalHt} ft Furniture Height (2 ft Backsplash Excluded) • ${state.kDrawers} Tandems + 1 BPO + 1 Cutlery
+            Net Running Length: ${k.effRun} ft (2 ft Backsplash Gap Excluded) • ${state.kDrawers} Tandems + 1 BPO + 1 Cutlery
           </text>
         </svg>
       `;
@@ -2229,7 +2410,6 @@
         return;
       }
 
-      // Push conversion event to Google Tag Manager
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'estimator_whatsapp_submit',
@@ -2272,6 +2452,7 @@
       const locality = document.getElementById('locality').value.trim() || 'Not specified';
       const hasPlan = document.getElementById('has-plan-check').checked;
       const kTypeLabel = state.kType === 'fully' ? 'Fully Modular' : 'Semi-Modular';
+      const overheadLabel = state.hasLoft ? `Full Height (${state.ceilingHeight} ft Ceiling)` : 'Standard 2 ft Overhead';
 
       if (custName) waLines.push(`*Name:* ${custName}`);
       if (validPhone) waLines.push(`*Mobile:* +91 ${validPhone}`);
@@ -2284,12 +2465,12 @@
         areaSummary = `Approx. ${k.sqft} sq.ft ${kTypeLabel} Kitchen • 2 ft Backsplash Gap Excluded`;
         breakdownHTML = `
           <div class="spec-line"><span>Structure &amp; Layout</span><span>${kTypeLabel} • ${state.kLayout.toUpperCase()} (~${k.sqft} sq.ft)</span></div>
-          <div class="spec-line"><span>Vertical Height</span><span>${k.verticalHt} ft (${state.hasLoft ? 'With +2 ft Loft' : 'Standard 2 ft Overhead'})</span></div>
+          <div class="spec-line"><span>Overhead Style</span><span>${overheadLabel}</span></div>
           <div class="spec-line"><span>Shutter Finish</span><span>${FINISH_LABELS[state.finish]}</span></div>
           <div class="spec-line"><span>Carcass Core</span><span>${BOARD_LABELS[state.board]}</span></div>
           <div class="spec-line"><span>Hardware &amp; Drawers</span><span>${HW_CONFIG[state.hw].shortName} (${state.kDrawers} Tandems + 1 BPO + 1 Cutlery)</span></div>
         `;
-        waLines.push(`*Scope:* ${kTypeLabel} Kitchen (${state.kLayout.toUpperCase()}, ~${k.sqft} sq.ft, ${k.verticalHt} ft height)`);
+        waLines.push(`*Scope:* ${kTypeLabel} Kitchen (${state.kLayout.toUpperCase()}, ~${k.sqft} sq.ft, ${overheadLabel})`);
         waLines.push(`*Inclusions:* ${state.kDrawers} Tandem Drawers + 1 BPO + 1 Cutlery Tray`);
       } else if (state.mode === 'wardrobe') {
         totalExact = w.total;
@@ -2314,7 +2495,7 @@
           <div class="spec-line"><span>Hardware Brand</span><span>${HW_CONFIG[state.hw].shortName}</span></div>
         `;
         waLines.push(`*Scope:* ${kTypeLabel} Kitchen + ${w.qty} Wardrobe${w.qty > 1 ? 's' : ''} Package`);
-        waLines.push(`*Kitchen:* ${state.kLayout.toUpperCase()}, ~${k.sqft} sq.ft (${k.verticalHt} ft ht), ${state.kDrawers} Tandems + 1 BPO + 1 Cutlery`);
+        waLines.push(`*Kitchen:* ${state.kLayout.toUpperCase()}, ~${k.sqft} sq.ft (${overheadLabel}), ${state.kDrawers} Tandems + 1 BPO + 1 Cutlery`);
         waLines.push(`*Wardrobe:* ${w.qty} Unit${w.qty > 1 ? 's' : ''}, ${state.wStyle}, ${w.width}×${w.height} ft (${w.totalSqft} sq.ft total), ${w.activeDrawers} Drawers + 1 Rod each`);
       }
 
@@ -2357,7 +2538,7 @@
 
     // Initialize on load
     syncWardrobeDrawersForWidth(3);
-    updateAll();
+    setKitchenLayout('lshape');
   </script>
 </body>
 </html>
