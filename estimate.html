@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Interactive Modular Kitchen & Wardrobe Studio | The Modular Makers</title>
-  <meta name="description" content="Design your modular kitchen or wardrobe, explore live color & elevation previews, understand core materials, and get an honest factory-direct estimate." />
+  <meta name="description" content="Design your modular kitchen or wardrobe, preview live colors & elevations, understand core materials, and get an honest factory-direct estimate." />
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <!-- Google Tag Manager -->
@@ -35,6 +35,7 @@
       --border: #E2DBD0;
       --green: #1E6B45;
       --green-bg: #ECF7F1;
+      --red: #B91C1C;
       --radius: 12px;
       --shadow: 0 10px 30px rgba(28, 28, 26, 0.06);
     }
@@ -484,7 +485,7 @@
     }
     .inclusion-box strong { display: block; margin-bottom: 2px; font-size: 0.86rem; }
 
-    /* Stepper */
+    /* Hybrid Stepper + Free Integer Input */
     .stepper-row {
       display: flex;
       align-items: center;
@@ -499,11 +500,11 @@
     .stepper-controls {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 8px;
     }
     .step-btn {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 8px;
       border: 1px solid var(--border);
       background: #fff;
@@ -513,14 +514,30 @@
       color: var(--charcoal);
     }
     .step-btn:hover { background: var(--charcoal); color: #fff; }
-    .step-count {
-      font-weight: 700;
-      font-size: 1rem;
-      min-width: 24px;
+    .drawer-num-input {
+      width: 58px;
+      height: 34px;
       text-align: center;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.98rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--charcoal);
+      -moz-appearance: textfield;
+    }
+    .drawer-num-input::-webkit-outer-spin-button,
+    .drawer-num-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    .drawer-num-input:focus {
+      outline: none;
+      border-color: var(--gold);
     }
 
-    /* File Upload & Inputs */
+    /* Lead Inputs */
     .form-grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -536,7 +553,7 @@
       font-weight: 600;
       margin-bottom: 5px;
     }
-    input[type="text"] {
+    input[type="text"], input[type="tel"], select {
       width: 100%;
       padding: 10px 12px;
       border: 1px solid var(--border);
@@ -544,26 +561,35 @@
       font-family: inherit;
       font-size: 0.9rem;
       background: #fff;
+      color: var(--text-main);
     }
-    .upload-box {
-      border: 1.5px dashed #C7BEB0;
-      background: var(--cream);
-      border-radius: 10px;
-      padding: 14px;
-      text-align: center;
-      cursor: pointer;
-      transition: border-color 0.2s;
+    input.input-error {
+      border-color: var(--red) !important;
+      background: #FEF2F2 !important;
     }
-    .upload-box:hover { border-color: var(--gold); }
-    .upload-note {
-      font-size: 0.78rem;
-      color: var(--text-muted);
+    .field-error-msg {
+      color: var(--red);
+      font-size: 0.77rem;
+      font-weight: 600;
       margin-top: 4px;
     }
-    .file-status {
-      margin-top: 8px;
-      font-size: 0.82rem;
-      font-weight: 600;
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.86rem;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+    .checkbox-row input {
+      width: 17px;
+      height: 17px;
+      accent-color: var(--charcoal);
     }
 
     /* Sticky Right Panel */
@@ -606,7 +632,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 230px;
+      min-height: 235px;
     }
     .svg-stage svg {
       width: 100%;
@@ -792,6 +818,10 @@
     .spec-line span:first-child { color: #B8B3A8; }
     .spec-line span:last-child { font-weight: 600; text-align: right; }
 
+    .cta-stack {
+      display: grid;
+      gap: 9px;
+    }
     .wa-btn {
       display: flex;
       align-items: center;
@@ -800,6 +830,7 @@
       width: 100%;
       background: #25D366;
       color: #0F2918;
+      font-family: inherit;
       font-weight: 700;
       font-size: 0.96rem;
       padding: 14px 18px;
@@ -810,6 +841,21 @@
       transition: transform 0.15s, background 0.15s;
     }
     .wa-btn:hover { background: #20BD5A; transform: translateY(-1px); }
+
+    .copy-btn {
+      width: 100%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: #F5EFE6;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.84rem;
+      padding: 10px 14px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .copy-btn:hover { background: rgba(255,255,255,0.15); }
 
     .warranty-strip {
       margin-top: 13px;
@@ -995,10 +1041,10 @@
             </div>
 
             <label class="field-label">Quick Size Presets</label>
-            <div class="pill-row">
-              <button type="button" class="pill-btn" onclick="applyKitchenPreset('compact')">Compact (8×6 ft)</button>
-              <button type="button" class="pill-btn active" onclick="applyKitchenPreset('standard')">Standard (10×8 ft)</button>
-              <button type="button" class="pill-btn" onclick="applyKitchenPreset('spacious')">Spacious (12×10 ft)</button>
+            <div class="pill-row" id="k-preset-pills">
+              <button type="button" class="pill-btn" data-kpreset="compact" onclick="applyKitchenPreset('compact')">Compact (8×6 ft)</button>
+              <button type="button" class="pill-btn active" data-kpreset="standard" onclick="applyKitchenPreset('standard')">Standard (10×8 ft)</button>
+              <button type="button" class="pill-btn" data-kpreset="spacious" onclick="applyKitchenPreset('spacious')">Spacious (12×10 ft)</button>
             </div>
 
             <div class="slider-group">
@@ -1006,7 +1052,7 @@
                 <span>Main Wall A Length (Sink &amp; Hob Run)</span>
                 <span class="slider-val" id="k-wallA-val">10 ft</span>
               </div>
-              <input type="range" id="k-wallA" min="6" max="18" step="1" value="10" oninput="updateAll()" />
+              <input type="range" id="k-wallA" min="6" max="18" step="1" value="10" oninput="onKitchenSliderInput()" />
             </div>
 
             <div class="slider-group" id="k-wallB-wrap">
@@ -1014,7 +1060,7 @@
                 <span>Second Wall B Length</span>
                 <span class="slider-val" id="k-wallB-val">8 ft</span>
               </div>
-              <input type="range" id="k-wallB" min="5" max="16" step="1" value="8" oninput="updateAll()" />
+              <input type="range" id="k-wallB" min="5" max="16" step="1" value="8" oninput="onKitchenSliderInput()" />
             </div>
 
             <div class="slider-group hidden" id="k-wallC-wrap">
@@ -1022,7 +1068,7 @@
                 <span>Third Wall C Length (U-Shape Return)</span>
                 <span class="slider-val" id="k-wallC-val">8 ft</span>
               </div>
-              <input type="range" id="k-wallC" min="5" max="14" step="1" value="8" oninput="updateAll()" />
+              <input type="range" id="k-wallC" min="5" max="14" step="1" value="8" oninput="onKitchenSliderInput()" />
             </div>
 
             <label class="field-label" style="margin-top: 8px;">Overhead Cabinet Height</label>
@@ -1037,24 +1083,37 @@
 
           <!-- WARDROBE SECTION -->
           <div id="wardrobe-dim-section" class="hidden" style="margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border);">
-            <label class="field-label">Wardrobe Shutter Style &amp; Size</label>
-            <div class="pill-row">
-              <button type="button" class="pill-btn active" id="w-style-hinged" onclick="setWardrobeStyle('hinged')">Hinged Shutters</button>
-              <button type="button" class="pill-btn" id="w-style-sliding" onclick="setWardrobeStyle('sliding')">Sliding Shutters</button>
+            <div class="form-grid-2" style="margin-bottom: 8px;">
+              <div>
+                <label class="field-label">Wardrobe Shutter Style</label>
+                <div class="pill-row" style="margin-bottom: 4px;">
+                  <button type="button" class="pill-btn active" id="w-style-hinged" onclick="setWardrobeStyle('hinged')">Hinged</button>
+                  <button type="button" class="pill-btn" id="w-style-sliding" onclick="setWardrobeStyle('sliding')">Sliding</button>
+                </div>
+              </div>
+              <div>
+                <label class="field-label">Number of Wardrobes</label>
+                <div class="pill-row" id="w-qty-pills" style="margin-bottom: 4px;">
+                  <button type="button" class="pill-btn active" data-wqty="1" onclick="setWardrobeCount(1)">1 Unit</button>
+                  <button type="button" class="pill-btn" data-wqty="2" onclick="setWardrobeCount(2)">2 Units</button>
+                  <button type="button" class="pill-btn" data-wqty="3" onclick="setWardrobeCount(3)">3 Units</button>
+                </div>
+              </div>
             </div>
 
-            <div class="pill-row">
-              <button type="button" class="pill-btn" onclick="applyWardrobePreset(5, 7)">Compact (5×7 ft = 35 sq.ft)</button>
-              <button type="button" class="pill-btn active" onclick="applyWardrobePreset(7, 8)">Standard (7×8 ft = 56 sq.ft)</button>
-              <button type="button" class="pill-btn" onclick="applyWardrobePreset(9, 9)">Full Height (9×9 ft = 81 sq.ft)</button>
+            <label class="field-label">Wardrobe Quick Size Presets (Per Unit)</label>
+            <div class="pill-row" id="w-preset-pills">
+              <button type="button" class="pill-btn" data-wpreset="compact" onclick="applyWardrobePreset('compact', 5, 7)">Compact (5×7 ft)</button>
+              <button type="button" class="pill-btn active" data-wpreset="standard" onclick="applyWardrobePreset('standard', 7, 8)">Standard (7×8 ft)</button>
+              <button type="button" class="pill-btn" data-wpreset="full" onclick="applyWardrobePreset('full', 9, 9)">Full Height (9×9 ft)</button>
             </div>
 
             <div class="slider-group">
               <div class="slider-label">
-                <span>Wardrobe Width</span>
+                <span>Wardrobe Width (Per Unit)</span>
                 <span class="slider-val" id="w-width-val">7 ft</span>
               </div>
-              <input type="range" id="w-width" min="4" max="14" step="1" value="7" oninput="updateAll()" />
+              <input type="range" id="w-width" min="4" max="14" step="1" value="7" oninput="onWardrobeSliderInput()" />
             </div>
 
             <div class="slider-group">
@@ -1062,12 +1121,12 @@
                 <span>Wardrobe Height</span>
                 <span class="slider-val" id="w-height-val">8 ft</span>
               </div>
-              <input type="range" id="w-height" min="7" max="10" step="1" value="8" oninput="updateAll()" />
+              <input type="range" id="w-height" min="7" max="10" step="1" value="8" oninput="onWardrobeSliderInput()" />
             </div>
           </div>
         </div>
 
-        <!-- STEP 2: SHUTTER FINISH -->
+        <!-- STEP 2: SHUTTER FINISH (NO PER-SQ.FT MARKUPS DISPLAYED) -->
         <div class="step-card">
           <div class="step-header">
             <span class="step-num">2</span>
@@ -1080,7 +1139,7 @@
                 <div class="opt-title">Matte / Textured Laminate (1mm Branded)</div>
                 <div class="opt-desc">Scratch-resistant everyday durability sealed with machine hot-melt PVC edge-banding.</div>
               </div>
-              <span class="opt-tag" id="tag-laminate">₹1,200 / sq.ft</span>
+              <span class="opt-tag">Everyday Matte</span>
             </div>
 
             <div class="option-card" data-finish="acrylic" onclick="setFinish('acrylic')">
@@ -1088,7 +1147,7 @@
                 <div class="opt-title">High-Gloss / Anti-Fingerprint Matte Acrylic</div>
                 <div class="opt-desc">Mirror-like contemporary sheen pressed on calibrated core with seamless edges.</div>
               </div>
-              <span class="opt-tag" id="tag-acrylic">₹1,650 / sq.ft</span>
+              <span class="opt-tag">Modern High-Gloss</span>
             </div>
 
             <div class="option-card" data-finish="pu" onclick="setFinish('pu')">
@@ -1096,7 +1155,7 @@
                 <div class="opt-title">Italian PU Paint / Fluted Profile Glass</div>
                 <div class="opt-desc">Multi-coat spray-finished luxury shutters, CNC profiles, and anodized glass frames.</div>
               </div>
-              <span class="opt-tag" id="tag-pu">₹2,400 / sq.ft</span>
+              <span class="opt-tag">Signature Luxury</span>
             </div>
           </div>
         </div>
@@ -1135,7 +1194,7 @@
           </div>
         </div>
 
-        <!-- STEP 4: HARDWARE BRAND & DRAWERS (ZERO PER-UNIT NUMBERS SHOWN) -->
+        <!-- STEP 4: HARDWARE BRAND & FREE INTEGER DRAWERS -->
         <div class="step-card">
           <div class="step-header">
             <span class="step-num">4</span>
@@ -1176,53 +1235,67 @@
           <div class="stepper-row" id="k-drawer-stepper">
             <div>
               <div style="font-weight: 700; font-size: 0.9rem;">Total Kitchen Tandem Drawers</div>
-              <div style="font-size: 0.78rem; color: var(--text-muted);">5 tandem drawers included in base; adjust as needed</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">5 tandem drawers included; tap +/− or enter any number</div>
             </div>
             <div class="stepper-controls">
               <button type="button" class="step-btn" onclick="changeKitchenDrawers(-1)">−</button>
-              <span class="step-count" id="k-drawer-count">5</span>
+              <input type="number" id="k-drawer-input" class="drawer-num-input" min="5" value="5" oninput="onKitchenDrawerTyped(this.value)" onblur="normalizeKitchenDrawers()" />
               <button type="button" class="step-btn" onclick="changeKitchenDrawers(1)">+</button>
             </div>
           </div>
 
           <div class="stepper-row hidden" id="w-drawer-stepper">
             <div>
-              <div style="font-weight: 700; font-size: 0.9rem;">Total Wardrobe Soft-Close Drawers</div>
-              <div style="font-size: 0.78rem; color: var(--text-muted);">2 drawers + 1 hanging rod included in base</div>
+              <div style="font-weight: 700; font-size: 0.9rem;">Soft-Close Drawers (Per Wardrobe)</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">2 drawers + 1 hanging rod included per wardrobe</div>
             </div>
             <div class="stepper-controls">
               <button type="button" class="step-btn" onclick="changeWardrobeDrawers(-1)">−</button>
-              <span class="step-count" id="w-drawer-count">2</span>
+              <input type="number" id="w-drawer-input" class="drawer-num-input" min="2" value="2" oninput="onWardrobeDrawerTyped(this.value)" onblur="normalizeWardrobeDrawers()" />
               <button type="button" class="step-btn" onclick="changeWardrobeDrawers(1)">+</button>
             </div>
           </div>
         </div>
 
-        <!-- STEP 5: CITY/LOCALITY & CLIENT-SIDE FLOOR PLAN -->
+        <!-- STEP 5: SEPARATE NAME, PHONE, HOME TYPE & LOCALITY -->
         <div class="step-card">
           <div class="step-header">
             <span class="step-num">5</span>
-            <h2 class="step-title">Location &amp; Optional Floor Plan</h2>
+            <h2 class="step-title">Your Details &amp; Project Location</h2>
           </div>
 
           <div class="form-grid-2">
             <div>
-              <label class="field-label" for="locality">City &amp; Locality</label>
-              <input type="text" id="locality" value="Jaipur" placeholder="e.g., Vaishali Nagar, Jaipur" oninput="updateAll()" />
+              <label class="field-label" for="cust-name">Your Name</label>
+              <input type="text" id="cust-name" placeholder="e.g., Rahul Sharma" oninput="updateAll()" />
             </div>
             <div>
-              <label class="field-label" for="cust-name">Your Name / Home Type (Optional)</label>
-              <input type="text" id="cust-name" placeholder="e.g., Rahul — 3BHK Flat" oninput="updateAll()" />
+              <label class="field-label" for="cust-phone">Mobile / WhatsApp Number <span style="color:var(--red);">*</span></label>
+              <input type="tel" id="cust-phone" placeholder="e.g., 98290 12345" oninput="clearPhoneError(); updateAll();" />
+              <div id="phone-error" class="field-error-msg hidden">Please enter a valid 10-digit mobile number to send your spec on WhatsApp.</div>
             </div>
           </div>
 
-          <label class="field-label">Have a Builder Floor Plan or Rough Sketch? (Optional)</label>
-          <div class="upload-box" onclick="document.getElementById('plan-file').click()">
-            <input type="file" id="plan-file" accept=".pdf,.jpg,.jpeg,.png" class="hidden" onchange="handlePlanSelect(event)" />
-            <div style="font-weight: 700; font-size: 0.9rem; color: var(--charcoal);">+ Select Floor Plan or Sketch (JPG, PNG, or PDF)</div>
-            <div class="upload-note">100% Private: Validated locally in your browser (never uploaded to any server). Attach directly inside WhatsApp on the next step.</div>
-            <div id="file-status" class="file-status"></div>
+          <div class="form-grid-2">
+            <div>
+              <label class="field-label" for="home-type">Home Type</label>
+              <select id="home-type" onchange="updateAll()">
+                <option value="2BHK Apartment">2BHK Apartment</option>
+                <option value="3BHK Apartment" selected>3BHK Apartment</option>
+                <option value="4BHK / Villa">4BHK / Independent Villa</option>
+                <option value="Kitchen / Wardrobe Renovation">Kitchen / Wardrobe Renovation</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label" for="locality">City &amp; Locality</label>
+              <input type="text" id="locality" value="Jaipur" placeholder="e.g., Vaishali Nagar, Jaipur" oninput="updateAll()" />
+            </div>
           </div>
+
+          <label class="checkbox-row">
+            <input type="checkbox" id="has-plan-check" onchange="updateAll()" />
+            <span>I have a builder floor plan or rough sketch to share directly on WhatsApp</span>
+          </label>
         </div>
       </div>
 
@@ -1295,9 +1368,14 @@
 
           <div class="spec-breakdown" id="spec-breakdown"></div>
 
-          <a id="wa-share-btn" href="#" target="_blank" rel="noopener" class="wa-btn">
-            <span>Send Spec Sheet on WhatsApp →</span>
-          </a>
+          <div class="cta-stack">
+            <button type="button" id="wa-share-btn" class="wa-btn" onclick="submitToWhatsApp()">
+              <span>Send Spec Sheet on WhatsApp →</span>
+            </button>
+            <button type="button" id="copy-family-btn" class="copy-btn" onclick="copyEstimateForFamily()">
+              Copy Estimate Summary to Share with Family
+            </button>
+          </div>
 
           <div class="warranty-strip">
             Protected by our <strong>3-Tier Written Warranty</strong>: 1-Yr Free On-Site Service • 10-Yr Structural Carcass • Up to 15-Yr/Lifetime OEM Hardware
@@ -1353,7 +1431,7 @@
   </footer>
 
   <script>
-    // Silent Backend Pricing Configuration (No per-unit hardware numbers or markup add-ons exposed in UI)
+    // Silent Backend Pricing Configuration (Zero per-unit hardware numbers or markup add-ons exposed in UI)
     const BASE_RATES = { laminate: 1200, acrylic: 1650, pu: 2400 };
     const TYPE_UPLIFT = { semi: 0, fully: 400 };
     const BOARD_UPLIFTS = { hybrid: 0, merino: 100, bwp: 200 };
@@ -1396,6 +1474,7 @@
       kLayout: 'lshape',
       hasLoft: false,       // false = 4.75 ft (2.75 base + 2.0 overhead); true = 6.75 ft (+2.0 loft)
       wStyle: 'hinged',
+      wQty: 1,
       finish: 'laminate',
       board: 'hybrid',
       hw: 'ozone',
@@ -1405,11 +1484,11 @@
       swatchUpper: '#5E716A',
       swatchLower: '#D6B88D',
       swatchName: 'Sage & Warm Oak',
-      attachedPlanName: '',
       pinnedSpec: null
     };
 
     let quizAnswers = { 1: null, 2: null, 3: null };
+    let latestSnapshot = { title: '', range: '', summaryText: '', waMessage: '' };
 
     function formatINR(num) {
       return '₹' + Math.round(num).toLocaleString('en-IN');
@@ -1477,7 +1556,7 @@
         wDim.style.paddingTop = '0';
         kStep.classList.add('hidden');
         wStep.classList.remove('hidden');
-        banner.innerHTML = '<strong>Already Included in Your Base Wardrobe Price:</strong> Soft-close hinges + <strong>2 Smooth-Glide Drawers</strong> + <strong>1 Heavy-Duty Hanging Rod</strong>.';
+        banner.innerHTML = '<strong>Already Included in Your Base Wardrobe Price:</strong> Soft-close hinges + <strong>2 Smooth-Glide Drawers</strong> + <strong>1 Heavy-Duty Hanging Rod</strong> (per wardrobe).';
       } else {
         kDim.classList.remove('hidden');
         wDim.classList.remove('hidden');
@@ -1485,9 +1564,8 @@
         wDim.style.paddingTop = '14px';
         kStep.classList.remove('hidden');
         wStep.classList.remove('hidden');
-        banner.innerHTML = '<strong>Included in Package Base:</strong> Kitchen (5 Tandem Drawers + 1 BPO + 1 Cutlery Tray + Soft-Close Hinges) &amp; Wardrobe (2 Drawers + 1 Hanging Rod).';
+        banner.innerHTML = '<strong>Included in Package Base:</strong> Kitchen (5 Tandem Drawers + 1 BPO + 1 Cutlery Tray + Soft-Close Hinges) &amp; Wardrobe (2 Drawers + 1 Hanging Rod per unit).';
       }
-      updateFinishBadges();
       updateAll();
     }
 
@@ -1495,15 +1573,7 @@
       state.kType = ktype;
       document.getElementById('ktype-semi').classList.toggle('active', ktype === 'semi');
       document.getElementById('ktype-fully').classList.toggle('active', ktype === 'fully');
-      updateFinishBadges();
       updateAll();
-    }
-
-    function updateFinishBadges() {
-      const uplift = state.mode === 'wardrobe' ? 0 : TYPE_UPLIFT[state.kType];
-      document.getElementById('tag-laminate').textContent = `${formatINR(BASE_RATES.laminate + uplift)} / sq.ft`;
-      document.getElementById('tag-acrylic').textContent = `${formatINR(BASE_RATES.acrylic + uplift)} / sq.ft`;
-      document.getElementById('tag-pu').textContent = `${formatINR(BASE_RATES.pu + uplift)} / sq.ft`;
     }
 
     function setKitchenLayout(layout) {
@@ -1514,6 +1584,12 @@
       document.getElementById('k-wallB-wrap').classList.toggle('hidden', layout === 'straight');
       document.getElementById('k-wallC-wrap').classList.toggle('hidden', layout !== 'ushape');
       updateAll();
+    }
+
+    function highlightKitchenPreset(presetKey) {
+      document.querySelectorAll('#k-preset-pills .pill-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.kpreset === presetKey);
+      });
     }
 
     function applyKitchenPreset(preset) {
@@ -1527,6 +1603,12 @@
       } else {
         wA.value = 12; wB.value = 10;
       }
+      highlightKitchenPreset(preset);
+      updateAll();
+    }
+
+    function onKitchenSliderInput() {
+      highlightKitchenPreset(null);
       updateAll();
     }
 
@@ -1544,9 +1626,29 @@
       updateAll();
     }
 
-    function applyWardrobePreset(w, h) {
+    function setWardrobeCount(qty) {
+      state.wQty = qty;
+      document.querySelectorAll('#w-qty-pills .pill-btn').forEach(b => {
+        b.classList.toggle('active', parseInt(b.dataset.wqty, 10) === qty);
+      });
+      updateAll();
+    }
+
+    function highlightWardrobePreset(presetKey) {
+      document.querySelectorAll('#w-preset-pills .pill-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.wpreset === presetKey);
+      });
+    }
+
+    function applyWardrobePreset(presetKey, w, h) {
       document.getElementById('w-width').value = w;
       document.getElementById('w-height').value = h;
+      highlightWardrobePreset(presetKey);
+      updateAll();
+    }
+
+    function onWardrobeSliderInput() {
+      highlightWardrobePreset(null);
       updateAll();
     }
 
@@ -1574,15 +1676,44 @@
       updateAll();
     }
 
+    // Free Integer + Stepper Controls for Drawers (No Upper Limit)
     function changeKitchenDrawers(delta) {
-      state.kDrawers = Math.min(12, Math.max(5, state.kDrawers + delta));
-      document.getElementById('k-drawer-count').textContent = state.kDrawers;
+      state.kDrawers = Math.max(5, state.kDrawers + delta);
+      document.getElementById('k-drawer-input').value = state.kDrawers;
+      updateAll();
+    }
+
+    function onKitchenDrawerTyped(rawVal) {
+      const parsed = parseInt(rawVal, 10);
+      state.kDrawers = isNaN(parsed) ? 5 : Math.max(5, parsed);
+      updateAll();
+    }
+
+    function normalizeKitchenDrawers() {
+      const inp = document.getElementById('k-drawer-input');
+      const parsed = parseInt(inp.value, 10);
+      state.kDrawers = isNaN(parsed) ? 5 : Math.max(5, parsed);
+      inp.value = state.kDrawers;
       updateAll();
     }
 
     function changeWardrobeDrawers(delta) {
-      state.wDrawers = Math.min(8, Math.max(2, state.wDrawers + delta));
-      document.getElementById('w-drawer-count').textContent = state.wDrawers;
+      state.wDrawers = Math.max(2, state.wDrawers + delta);
+      document.getElementById('w-drawer-input').value = state.wDrawers;
+      updateAll();
+    }
+
+    function onWardrobeDrawerTyped(rawVal) {
+      const parsed = parseInt(rawVal, 10);
+      state.wDrawers = isNaN(parsed) ? 2 : Math.max(2, parsed);
+      updateAll();
+    }
+
+    function normalizeWardrobeDrawers() {
+      const inp = document.getElementById('w-drawer-input');
+      const parsed = parseInt(inp.value, 10);
+      state.wDrawers = isNaN(parsed) ? 2 : Math.max(2, parsed);
+      inp.value = state.wDrawers;
       updateAll();
     }
 
@@ -1602,38 +1733,6 @@
       document.querySelectorAll('.swatch-dot').forEach(d => d.classList.remove('active'));
       btnEl.classList.add('active');
       renderVisuals();
-    }
-
-    function handlePlanSelect(e) {
-      const file = e.target.files[0];
-      const status = document.getElementById('file-status');
-      if (!file) {
-        state.attachedPlanName = '';
-        status.textContent = '';
-        updateAll();
-        return;
-      }
-      const allowed = ['image/jpeg', 'image/png', 'application/pdf'];
-      if (!allowed.includes(file.type)) {
-        state.attachedPlanName = '';
-        e.target.value = '';
-        status.style.color = '#B91C1C';
-        status.textContent = 'Please select only a JPG, PNG, or PDF floor plan.';
-        updateAll();
-        return;
-      }
-      if (file.size > 10 * 1024 * 1024) {
-        state.attachedPlanName = '';
-        e.target.value = '';
-        status.style.color = '#B91C1C';
-        status.textContent = 'File exceeds 10 MB limit. Please pick a smaller image or PDF.';
-        updateAll();
-        return;
-      }
-      state.attachedPlanName = file.name;
-      status.style.color = '#1E6B45';
-      status.textContent = '✓ Ready to attach in WhatsApp: ' + file.name;
-      updateAll();
     }
 
     function computeKitchenMetrics() {
@@ -1677,15 +1776,17 @@
       document.getElementById('w-width-val').textContent = width + ' ft';
       document.getElementById('w-height-val').textContent = height + ' ft';
 
-      const sqft = width * height;
+      const singleSqft = width * height;
+      const totalSqft = singleSqft * state.wQty;
       const hw = HW_CONFIG[state.hw];
       const effSqftRate = BASE_RATES[state.finish] + BOARD_UPLIFTS[state.board] + hw.hingeSqft;
-      const cabAndHinge = sqft * effSqftRate;
+      const cabAndHinge = singleSqft * effSqftRate;
       const extraDrawers = Math.max(0, state.wDrawers - 2);
       const drawerAddon = (2 * hw.upgIncluded) + (extraDrawers * hw.extraDrawer);
-      const total = cabAndHinge + drawerAddon;
+      const singleTotal = cabAndHinge + drawerAddon;
+      const total = singleTotal * state.wQty;
 
-      return { width, height, sqft, total };
+      return { width, height, singleSqft, totalSqft, qty: state.wQty, total };
     }
 
     function updateAdvisor() {
@@ -1703,6 +1804,147 @@
       }
     }
 
+    function buildLayoutMiniSVG(k, x, y, w, h) {
+      const stroke = '#1C1C1A';
+      const fill = state.swatchLower;
+      let shape = '';
+      if (state.kLayout === 'straight') {
+        shape = `<rect x="${x + 10}" y="${y + h * 0.42}" width="${w - 20}" height="${h * 0.22}" rx="2" fill="${fill}" stroke="${stroke}" stroke-width="1.3"/>`;
+      } else if (state.kLayout === 'lshape') {
+        shape = `<path d="M${x + 12} ${y + 14} H${x + w - 12} V${y + 28} H${x + 28} V${y + h - 10} H${x + 12} Z" fill="${fill}" stroke="${stroke}" stroke-width="1.3"/>`;
+      } else if (state.kLayout === 'parallel') {
+        shape = `
+          <rect x="${x + 12}" y="${y + 16}" width="${w - 24}" height="12" rx="1.5" fill="${fill}" stroke="${stroke}" stroke-width="1.3"/>
+          <rect x="${x + 12}" y="${y + h - 24}" width="${w - 24}" height="12" rx="1.5" fill="${fill}" stroke="${stroke}" stroke-width="1.3"/>
+        `;
+      } else {
+        shape = `<path d="M${x + 12} ${y + 14} H${x + w - 12} V${y + h - 10} H${x + w - 26} V${y + 28} H${x + 26} V${y + h - 10} H${x + 12} Z" fill="${fill}" stroke="${stroke}" stroke-width="1.3"/>`;
+      }
+      return `
+        <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="6" fill="#FAF8F5" stroke="#E2DBD0"/>
+        <text x="${x + w / 2}" y="${y + 10}" text-anchor="middle" font-size="7.5" font-weight="700" fill="#1C1C1A">${state.kLayout.toUpperCase()} PLAN</text>
+        ${shape}
+      `;
+    }
+
+    function buildKitchenElevationGroup(k, startX, boxW, compact) {
+      // Proportional width scaling based on running ft (8 ft to 28 ft)
+      const scaleFactor = Math.min(1, Math.max(0.68, k.effRun / 20));
+      const actualW = Math.round(boxW * scaleFactor);
+      const x = startX + Math.round((boxW - actualW) / 2);
+
+      const loftH = state.hasLoft ? 20 : 0;
+      const baseTopY = state.hasLoft ? 56 : 44;
+      const overheadH = 32;
+      const gapH = 28;
+      const counterY = baseTopY + overheadH + gapH;
+      const baseH = 54;
+
+      const loftSVG = state.hasLoft
+        ? `<rect x="${x}" y="${baseTopY - 22}" width="${actualW}" height="20" rx="2" fill="${state.swatchUpper}" stroke="#1C1C1A" stroke-width="1.2"/>
+           <line x1="${x + actualW * 0.33}" y1="${baseTopY - 22}" x2="${x + actualW * 0.33}" y2="${baseTopY - 2}" stroke="#1C1C1A" stroke-width="0.9"/>
+           <line x1="${x + actualW * 0.66}" y1="${baseTopY - 22}" x2="${x + actualW * 0.66}" y2="${baseTopY - 2}" stroke="#1C1C1A" stroke-width="0.9"/>`
+        : '';
+
+      // Render 5 base tandem drawers (3 in left stack + 2 in middle stack = 5) plus extra slots when kDrawers > 5
+      const stack1W = Math.round(actualW * 0.34);
+      const stack2W = Math.round(actualW * 0.34);
+      const leftSlots = Math.min(5, Math.ceil(state.kDrawers / 2));
+      const midSlots = Math.min(5, Math.floor(state.kDrawers / 2));
+
+      let drawerLines = '';
+      for (let i = 1; i < leftSlots; i++) {
+        const ly = counterY + 5 + Math.round((baseH / leftSlots) * i);
+        drawerLines += `<line x1="${x}" y1="${ly}" x2="${x + stack1W}" y2="${ly}" stroke="#1C1C1A" stroke-width="1"/>`;
+      }
+      for (let j = 1; j < midSlots; j++) {
+        const my = counterY + 5 + Math.round((baseH / midSlots) * j);
+        drawerLines += `<line x1="${x + stack1W}" y1="${my}" x2="${x + stack1W + stack2W}" y2="${my}" stroke="#1C1C1A" stroke-width="1"/>`;
+      }
+
+      const glossLine = state.finish !== 'laminate'
+        ? `<line x1="${x + 8}" y1="${baseTopY + 5}" x2="${x + 28}" y2="${baseTopY + overheadH - 5}" stroke="#FFFFFF" stroke-width="2" opacity="0.55"/>`
+        : '';
+
+      return `
+        ${loftSVG}
+        <rect x="${x}" y="${baseTopY}" width="${actualW}" height="${overheadH}" rx="2" fill="${state.swatchUpper}" stroke="#1C1C1A" stroke-width="1.4"/>
+        <line x1="${x + actualW * 0.25}" y1="${baseTopY}" x2="${x + actualW * 0.25}" y2="${baseTopY + overheadH}" stroke="#1C1C1A" stroke-width="0.9"/>
+        <line x1="${x + actualW * 0.5}" y1="${baseTopY}" x2="${x + actualW * 0.5}" y2="${baseTopY + overheadH}" stroke="#1C1C1A" stroke-width="0.9"/>
+        <line x1="${x + actualW * 0.75}" y1="${baseTopY}" x2="${x + actualW * 0.75}" y2="${baseTopY + overheadH}" stroke="#1C1C1A" stroke-width="0.9"/>
+        ${glossLine}
+
+        <!-- 2.0 ft Excluded Gap -->
+        <rect x="${x}" y="${baseTopY + overheadH}" width="${actualW}" height="${gapH}" fill="#ECF7F1" stroke="#B7DEC9" stroke-dasharray="3 2"/>
+        <text x="${x + actualW / 2}" y="${baseTopY + overheadH + 17}" text-anchor="middle" font-size="${compact ? '7.2' : '8.5'}" font-weight="700" fill="#1E6B45">
+          ${compact ? '2ft Gap = 0 sq.ft' : '2.0 ft Empty Wall Gap = 0 sq.ft Charged'}
+        </text>
+
+        <!-- Countertop -->
+        <rect x="${x - 3}" y="${counterY}" width="${actualW + 6}" height="5" fill="#1C1C1A"/>
+
+        <!-- 2.75 ft Base with 5+ Tandem Drawers -->
+        <rect x="${x}" y="${counterY + 5}" width="${actualW}" height="${baseH}" rx="2" fill="${state.swatchLower}" stroke="#1C1C1A" stroke-width="1.4"/>
+        <line x1="${x + stack1W}" y1="${counterY + 5}" x2="${x + stack1W}" y2="${counterY + 5 + baseH}" stroke="#1C1C1A" stroke-width="1.1"/>
+        <line x1="${x + stack1W + stack2W}" y1="${counterY + 5}" x2="${x + stack1W + stack2W}" y2="${counterY + 5 + baseH}" stroke="#1C1C1A" stroke-width="1.1"/>
+        ${drawerLines}
+        <text x="${x + actualW / 2}" y="${counterY + 5 + baseH + 13}" text-anchor="middle" font-size="8" font-weight="700" fill="#1C1C1A">
+          ${state.kDrawers} Tandems • ${k.effRun}×${k.verticalHt}ft (${k.sqft} sq.ft)
+        </text>
+      `;
+    }
+
+    function buildWardrobeElevationGroup(w, startX, boxW, compact) {
+      // Proportional width (4..14 ft) and height (7..10 ft) scaling
+      const wScale = Math.min(1, Math.max(0.56, w.width / 11));
+      const hScale = Math.min(1, Math.max(0.76, w.height / 10));
+      const actualW = Math.round(boxW * wScale);
+      const actualH = Math.round(134 * hScale);
+      const x = startX + Math.round((boxW - actualW) / 2);
+      const y = 42 + (134 - actualH);
+
+      // Door panels scale with wardrobe width (2, 3, or 4 panels)
+      const panels = w.width <= 5 ? 2 : (w.width <= 8 ? 3 : 4);
+      let doorLines = '';
+      for (let p = 1; p < panels; p++) {
+        const px = x + Math.round((actualW / panels) * p);
+        doorLines += `<line x1="${px}" y1="${y}" x2="${px}" y2="${y + actualH}" stroke="#1C1C1A" stroke-width="1.2"/>`;
+      }
+
+      // Drawers visual stack at bottom
+      const visDrawers = Math.min(6, state.wDrawers);
+      const dCols = visDrawers >= 4 ? 2 : 1;
+      const dRows = Math.ceil(visDrawers / dCols);
+      let drawerBoxes = '';
+      for (let i = 0; i < visDrawers; i++) {
+        const c = i % dCols;
+        const r = Math.floor(i / dCols);
+        const dw = Math.round((actualW - 14) / dCols);
+        const dx = x + 6 + c * (dw + 2);
+        const dy = y + actualH - 12 - r * 11;
+        if (dy > y + 28) {
+          drawerBoxes += `<rect x="${dx}" y="${dy}" width="${dw}" height="9" rx="1.5" fill="${state.swatchLower}" stroke="#1C1C1A" stroke-width="0.9"/>`;
+        }
+      }
+
+      const qtyBadge = w.qty > 1
+        ? `<rect x="${x + actualW - 38}" y="${y - 12}" width="38" height="14" rx="4" fill="#1C1C1A"/>
+           <text x="${x + actualW - 19}" y="${y - 2.5}" text-anchor="middle" font-size="8" font-weight="700" fill="#C8973A">×${w.qty} Units</text>`
+        : '';
+
+      return `
+        ${qtyBadge}
+        <rect x="${x}" y="${y}" width="${actualW}" height="${actualH}" rx="3" fill="${state.swatchUpper}" opacity="0.32" stroke="#1C1C1A" stroke-width="1.6"/>
+        ${doorLines}
+        <line x1="${x + 8}" y1="${y + 18}" x2="${x + actualW - 8}" y2="${y + 18}" stroke="#C8973A" stroke-width="2.6"/>
+        <text x="${x + actualW / 2}" y="${y + 30}" text-anchor="middle" font-size="7.5" font-weight="700" fill="#1C1C1A">Hanging Rod + Shelves</text>
+        ${drawerBoxes}
+        <text x="${x + actualW / 2}" y="${y + actualH + 13}" text-anchor="middle" font-size="8" font-weight="700" fill="#1C1C1A">
+          ${w.width}×${w.height}ft (${w.singleSqft} sq.ft${w.qty > 1 ? ' ×' + w.qty : ''}) • ${state.wDrawers} Drawers
+        </text>
+      `;
+    }
+
     function renderVisuals() {
       const stage = document.getElementById('svg-stage');
 
@@ -1714,7 +1956,7 @@
             
             <rect x="20" y="42" width="192" height="156" rx="8" fill="#ECF7F1" stroke="#B7DEC9"/>
             <text x="32" y="62" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1E6B45">✓ THE MODULAR MAKERS</text>
-            <rect x="34" y="76" width="164" height="34" rx="4" fill="${state.swatchUpper}" opacity="0.3" stroke="#1C1C1A" stroke-width="1.5"/>
+            <rect x="34" y="76" width="164" height="34" rx="4" fill="${state.swatchUpper}" opacity="0.35" stroke="#1C1C1A" stroke-width="1.5"/>
             <line x1="34" y1="76" x2="198" y2="76" stroke="#1C1C1A" stroke-width="3"/>
             <line x1="34" y1="110" x2="198" y2="110" stroke="#1C1C1A" stroke-width="3"/>
             <text x="42" y="97" font-family="DM Sans, sans-serif" font-size="9.5" font-weight="700" fill="#1C1C1A">200°C Hot-Melt 2mm PVC Seal</text>
@@ -1739,141 +1981,142 @@
 
       const k = computeKitchenMetrics();
       const w = computeWardrobeMetrics();
-      const glossHighlight = state.finish !== 'laminate' ? '<line x1="92" y1="78" x2="145" y2="108" stroke="#FFFFFF" stroke-width="2" opacity="0.55"/>' : '';
 
-      if (state.visTab === 'elevation' && state.mode !== 'wardrobe') {
-        const loftSVG = state.hasLoft
-          ? `<rect x="82" y="34" width="236" height="24" rx="2" fill="${state.swatchUpper}" stroke="#1C1C1A" stroke-width="1.3"/>
-             <line x1="160" y1="34" x2="160" y2="58" stroke="#1C1C1A" stroke-width="1"/>
-             <line x1="240" y1="34" x2="240" y2="58" stroke="#1C1C1A" stroke-width="1"/>
-             <text x="326" y="49" font-size="8.5" font-weight="700" fill="#A97B24">+2.0 ft Loft</text>`
-          : `<text x="200" y="50" text-anchor="middle" font-size="8.5" fill="#8C867B">(Optional +2 ft Ceiling Loft Off)</text>`;
-
-        const baseLabel = state.kType === 'semi'
-          ? 'Semi-Modular: Shutters + Drawers on Civil Marble'
-          : 'Fully Modular: Full Factory Ply/HDHMR Carcass';
-
-        stage.innerHTML = `
-          <svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
-            <rect x="6" y="6" width="428" height="208" rx="10" fill="#FFFFFF" stroke="#E2DBD0"/>
-            <text x="20" y="23" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#1C1C1A">FRONT ELEVATION • ${k.verticalHt} FT CHARGED (${k.sqft} SQ.FT)</text>
-            
-            <!-- Loft -->
-            ${loftSVG}
-
-            <!-- Standard 2 ft Overhead Cabinets -->
-            <rect x="82" y="60" width="236" height="36" rx="2" fill="${state.swatchUpper}" stroke="#1C1C1A" stroke-width="1.5"/>
-            <line x1="141" y1="60" x2="141" y2="96" stroke="#1C1C1A" stroke-width="1"/>
-            <line x1="200" y1="60" x2="200" y2="96" stroke="#1C1C1A" stroke-width="1"/>
-            <line x1="259" y1="60" x2="259" y2="96" stroke="#1C1C1A" stroke-width="1"/>
-            ${glossHighlight}
-            <text x="326" y="81" font-size="8.5" font-weight="700" fill="#1C1C1A">2.0 ft Overhead</text>
-
-            <!-- 2 ft Empty Backsplash Gap (0 sq.ft charged) -->
-            <rect x="82" y="96" width="236" height="34" fill="#ECF7F1" stroke="#B7DEC9" stroke-dasharray="3 2"/>
-            <text x="200" y="116" text-anchor="middle" font-size="9" font-weight="700" fill="#1E6B45">2.0 ft Empty Wall / Dado Gap = 0 sq.ft Charged</text>
-            <text x="326" y="116" font-size="8.5" font-weight="700" fill="#1E6B45">Excluded</text>
-
-            <!-- Countertop Line -->
-            <rect x="78" y="130" width="244" height="5" fill="#1C1C1A"/>
-
-            <!-- 2.75 ft Base Cabinets -->
-            <rect x="82" y="135" width="236" height="52" rx="2" fill="${state.swatchLower}" stroke="#1C1C1A" stroke-width="1.5"/>
-            <line x1="150" y1="135" x2="150" y2="187" stroke="#1C1C1A" stroke-width="1"/>
-            <line x1="230" y1="135" x2="230" y2="187" stroke="#1C1C1A" stroke-width="1"/>
-            <!-- Tandem Drawer Lines -->
-            <line x1="150" y1="152" x2="230" y2="152" stroke="#1C1C1A" stroke-width="1"/>
-            <line x1="150" y1="169" x2="230" y2="169" stroke="#1C1C1A" stroke-width="1"/>
-            <text x="326" y="164" font-size="8.5" font-weight="700" fill="#1C1C1A">2.75 ft Base</text>
-
-            <text x="220" y="205" text-anchor="middle" font-size="9.5" font-weight="600" fill="#5E5D58">${baseLabel}</text>
-          </svg>
-        `;
-        return;
-      }
-
-      if (state.mode === 'wardrobe') {
-        const drawerCount = state.wDrawers;
-        let drawerRects = '';
-        for (let i = 0; i < drawerCount; i++) {
-          const col = i % 2;
-          const row = Math.floor(i / 2);
-          const x = 135 + col * 85;
-          const y = 138 + row * 12;
-          if (y < 185) {
-            drawerRects += `<rect x="${x}" y="${y}" width="80" height="10" rx="2" fill="${state.swatchLower}" stroke="#1C1C1A" stroke-width="1"/>`;
-          }
+      // TAB 1: FRONT ELEVATION (Supports Kitchen, Wardrobe, AND Combined Both!)
+      if (state.visTab === 'elevation') {
+        if (state.mode === 'kitchen') {
+          const kGroup = buildKitchenElevationGroup(k, 18, 285, false);
+          const miniMap = buildLayoutMiniSVG(k, 316, 46, 106, 92);
+          stage.innerHTML = `
+            <svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="428" height="208" rx="10" fill="#FFFFFF" stroke="#E2DBD0"/>
+              <text x="20" y="23" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#1C1C1A">
+                ${state.kType === 'fully' ? 'FULLY MODULAR' : 'SEMI-MODULAR'} ELEVATION • ${k.sqft} SQ.FT
+              </text>
+              ${kGroup}
+              ${miniMap}
+              <text x="369" y="154" text-anchor="middle" font-size="8" font-weight="600" fill="#5E5D58">
+                ${state.hasLoft ? '6.75 ft w/ Loft' : '4.75 ft Std Ht'}
+              </text>
+            </svg>
+          `;
+        } else if (state.mode === 'wardrobe') {
+          const wGroup = buildWardrobeElevationGroup(w, 60, 320, false);
+          stage.innerHTML = `
+            <svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="428" height="208" rx="10" fill="#FFFFFF" stroke="#E2DBD0"/>
+              <text x="20" y="23" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#1C1C1A">
+                WARDROBE ELEVATION (${state.wStyle.toUpperCase()}) • TOTAL ${w.totalSqft} SQ.FT
+              </text>
+              ${wGroup}
+            </svg>
+          `;
+        } else {
+          // Combined Kitchen + Wardrobe Composite Elevation
+          const kGroup = buildKitchenElevationGroup(k, 16, 215, true);
+          const wGroup = buildWardrobeElevationGroup(w, 245, 180, true);
+          stage.innerHTML = `
+            <svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="6" width="428" height="208" rx="10" fill="#FFFFFF" stroke="#E2DBD0"/>
+              <text x="20" y="22" font-family="DM Sans, sans-serif" font-size="9.8" font-weight="700" fill="#1C1C1A">
+                PACKAGE PREVIEW • KITCHEN (${k.sqft} SQ.FT) + WARDROBE (${w.totalSqft} SQ.FT)
+              </text>
+              <line x1="238" y1="32" x2="238" y2="202" stroke="#E2DBD0" stroke-dasharray="3 3"/>
+              ${kGroup}
+              ${wGroup}
+            </svg>
+          `;
         }
+        return;
+      }
+
+      // TAB 2: TOP LAYOUT PLAN
+      if (state.mode === 'wardrobe') {
+        const wPlanW = Math.min(280, Math.max(120, w.width * 22));
+        const px = Math.round((440 - wPlanW) / 2);
+        const doorArcs = state.wStyle === 'hinged'
+          ? `<path d="M${px} 102 Q${px + 35} 135 ${px + 65} 102" fill="none" stroke="#C8973A" stroke-width="1.5" stroke-dasharray="3 2"/>
+             <path d="M${px + wPlanW - 65} 102 Q${px + wPlanW - 35} 135 ${px + wPlanW} 102" fill="none" stroke="#C8973A" stroke-width="1.5" stroke-dasharray="3 2"/>
+             <text x="220" y="148" text-anchor="middle" font-size="9" font-weight="600" fill="#A97B24">Hinged Door Swing Clearance (~24 in)</text>`
+          : `<line x1="${px + 10}" y1="106" x2="${px + wPlanW - 10}" y2="106" stroke="#C8973A" stroke-width="2.5"/>
+             <text x="220" y="142" text-anchor="middle" font-size="9" font-weight="600" fill="#1E6B45">Zero-Swing Sliding Track (Ideal for Tight Aisles)</text>`;
+
         stage.innerHTML = `
           <svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
             <rect x="6" y="6" width="428" height="208" rx="10" fill="#FFFFFF" stroke="#E2DBD0"/>
-            <text x="20" y="26" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1C1C1A">WARDROBE DESIGN (${state.wStyle.toUpperCase()}) • ${w.sqft} SQ.FT</text>
-            
-            <rect x="125" y="42" width="190" height="148" rx="4" fill="${state.swatchUpper}" opacity="0.28" stroke="#1C1C1A" stroke-width="2"/>
-            <line x1="220" y1="42" x2="220" y2="190" stroke="#1C1C1A" stroke-width="1.5"/>
-            <line x1="135" y1="64" x2="210" y2="64" stroke="#C8973A" stroke-width="3"/>
-            <text x="142" y="82" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" fill="#1C1C1A">Hanging Zone</text>
-            <line x1="228" y1="74" x2="306" y2="74" stroke="#1C1C1A" stroke-width="1.2"/>
-            <line x1="228" y1="104" x2="306" y2="104" stroke="#1C1C1A" stroke-width="1.2"/>
-            <text x="236" y="92" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" fill="#1C1C1A">Shelves</text>
-            ${drawerRects}
-            <text x="145" y="132" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#1C1C1A">${drawerCount} Soft-Close Drawers</text>
-            
-            <text x="220" y="206" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1C1C1A">Width: ${w.width} ft</text>
-            <text x="330" y="120" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#A97B24">Height: ${w.height} ft</text>
+            <text x="20" y="25" font-family="DM Sans, sans-serif" font-size="10.5" font-weight="700" fill="#1C1C1A">TOP-DOWN WARDROBE PLAN • ${w.qty} UNIT${w.qty > 1 ? 'S' : ''} (${w.totalSqft} SQ.FT)</text>
+            <rect x="${px}" y="62" width="${wPlanW}" height="40" rx="3" fill="${state.swatchUpper}" opacity="0.45" stroke="#1C1C1A" stroke-width="2"/>
+            <text x="220" y="86" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1C1C1A">24" Deep Carcass (${w.width} ft Wide)</text>
+            ${doorArcs}
+            <text x="220" y="198" text-anchor="middle" font-size="9.5" fill="#5E5D58">Includes ${state.wDrawers} Soft-Close Drawers + 1 Hanging Rod per unit</text>
           </svg>
         `;
         return;
       }
 
-      // Top-Down Kitchen Blueprint SVG
+      // Kitchen / Both Top-Down Blueprint SVG (Proportional to Wall Lengths)
       let layoutSVG = '';
       if (state.kLayout === 'straight') {
+        const lenA = Math.min(320, Math.max(150, k.wA * 18));
+        const sx = Math.round((440 - lenA) / 2);
         layoutSVG = `
-          <rect x="70" y="68" width="300" height="54" rx="4" fill="${state.swatchLower}" opacity="0.45" stroke="#1C1C1A" stroke-width="2"/>
-          <rect x="82" y="76" width="76" height="38" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
-          <text x="120" y="98" text-anchor="middle" font-size="9" font-weight="700" fill="#0369A1">SINK (BWP)</text>
-          <rect x="275" y="76" width="82" height="38" rx="3" fill="#FEF3C7" stroke="#D97706"/>
-          <text x="316" y="98" text-anchor="middle" font-size="9" font-weight="700" fill="#92400E">HOB ZONE</text>
+          <rect x="${sx}" y="68" width="${lenA}" height="52" rx="4" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
+          <rect x="${sx + 10}" y="76" width="66" height="36" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
+          <text x="${sx + 43}" y="97" text-anchor="middle" font-size="8.5" font-weight="700" fill="#0369A1">SINK (BWP)</text>
+          <rect x="${sx + lenA - 76}" y="76" width="66" height="36" rx="3" fill="#FEF3C7" stroke="#D97706"/>
+          <text x="${sx + lenA - 43}" y="97" text-anchor="middle" font-size="8.5" font-weight="700" fill="#92400E">HOB ZONE</text>
           <text x="220" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#1C1C1A">Wall A: ${k.wA} ft</text>
         `;
       } else if (state.kLayout === 'lshape') {
+        const lenA = Math.min(265, Math.max(145, k.wA * 15));
+        const lenB = Math.min(126, Math.max(70, k.wB * 9));
         layoutSVG = `
-          <path d="M90 56 H340 V104 H142 V176 H90 Z" fill="${state.swatchLower}" opacity="0.45" stroke="#1C1C1A" stroke-width="2"/>
-          <rect x="155" y="64" width="76" height="32" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
-          <text x="193" y="83" text-anchor="middle" font-size="9" font-weight="700" fill="#0369A1">SINK (BWP)</text>
-          <rect x="255" y="64" width="74" height="32" rx="3" fill="#FEF3C7" stroke="#D97706"/>
-          <text x="292" y="83" text-anchor="middle" font-size="9" font-weight="700" fill="#92400E">HOB ZONE</text>
-          <text x="215" y="46" text-anchor="middle" font-size="11" font-weight="700" fill="#1C1C1A">Wall A: ${k.wA} ft</text>
-          <text x="48" y="122" text-anchor="middle" font-size="11" font-weight="700" fill="#A97B24">Wall B: ${k.wB} ft</text>
+          <path d="M90 54 H${90 + lenA} V100 H138 V${54 + lenB} H90 Z" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
+          <rect x="148" y="61" width="64" height="31" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
+          <text x="180" y="80" text-anchor="middle" font-size="8.5" font-weight="700" fill="#0369A1">SINK (BWP)</text>
+          <rect x="${90 + lenA - 68}" y="61" width="60" height="31" rx="3" fill="#FEF3C7" stroke="#D97706"/>
+          <text x="${90 + lenA - 38}" y="80" text-anchor="middle" font-size="8.5" font-weight="700" fill="#92400E">HOB</text>
+          <text x="${90 + lenA / 2}" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#1C1C1A">Wall A: ${k.wA} ft</text>
+          <text x="48" y="${54 + lenB / 2}" text-anchor="middle" font-size="11" font-weight="700" fill="#A97B24">B: ${k.wB} ft</text>
         `;
       } else if (state.kLayout === 'parallel') {
+        const lenA = Math.min(280, Math.max(150, k.wA * 16));
+        const lenB = Math.min(280, Math.max(140, k.wB * 16));
         layoutSVG = `
-          <rect x="90" y="54" width="260" height="42" rx="4" fill="${state.swatchLower}" opacity="0.45" stroke="#1C1C1A" stroke-width="2"/>
-          <rect x="110" y="60" width="80" height="30" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
-          <text x="150" y="78" text-anchor="middle" font-size="9" font-weight="700" fill="#0369A1">SINK (BWP)</text>
-          <rect x="90" y="132" width="260" height="42" rx="4" fill="${state.swatchLower}" opacity="0.45" stroke="#1C1C1A" stroke-width="2"/>
-          <rect x="240" y="138" width="86" height="30" rx="3" fill="#FEF3C7" stroke="#D97706"/>
-          <text x="283" y="156" text-anchor="middle" font-size="9" font-weight="700" fill="#92400E">HOB ZONE</text>
+          <rect x="85" y="54" width="${lenA}" height="40" rx="4" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
+          <rect x="98" y="60" width="72" height="28" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
+          <text x="134" y="77" text-anchor="middle" font-size="8.5" font-weight="700" fill="#0369A1">SINK (BWP)</text>
+          <rect x="85" y="130" width="${lenB}" height="40" rx="4" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
+          <rect x="${85 + lenB - 82}" y="136" width="72" height="28" rx="3" fill="#FEF3C7" stroke="#D97706"/>
+          <text x="${85 + lenB - 46}" y="153" text-anchor="middle" font-size="8.5" font-weight="700" fill="#92400E">HOB ZONE</text>
           <text x="220" y="45" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1C1C1A">Wall A: ${k.wA} ft</text>
-          <text x="220" y="190" text-anchor="middle" font-size="10.5" font-weight="700" fill="#A97B24">Wall B: ${k.wB} ft</text>
+          <text x="220" y="186" text-anchor="middle" font-size="10.5" font-weight="700" fill="#A97B24">Wall B: ${k.wB} ft</text>
         `;
       } else {
+        const lenA = Math.min(260, Math.max(170, k.wA * 15));
+        const lenB = Math.min(118, Math.max(72, k.wB * 8.5));
+        const lenC = Math.min(118, Math.max(72, k.wC * 8.5));
+        const x0 = Math.round((440 - lenA) / 2);
         layoutSVG = `
-          <path d="M95 56 H345 V172 H295 V100 H145 V172 H95 Z" fill="${state.swatchLower}" opacity="0.45" stroke="#1C1C1A" stroke-width="2"/>
-          <rect x="180" y="63" width="80" height="30" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
-          <text x="220" y="81" text-anchor="middle" font-size="9" font-weight="700" fill="#0369A1">SINK (BWP)</text>
-          <text x="220" y="46" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1C1C1A">Main Wall A: ${k.wA} ft</text>
-          <text x="50" y="120" text-anchor="middle" font-size="10" font-weight="700" fill="#A97B24">B: ${k.wB} ft</text>
-          <text x="388" y="120" text-anchor="middle" font-size="10" font-weight="700" fill="#A97B24">C: ${k.wC} ft</text>
+          <path d="M${x0} 54 H${x0 + lenA} V${54 + lenC} H${x0 + lenA - 46} V96 H${x0 + 46} V${54 + lenB} H${x0} Z" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
+          <rect x="${x0 + lenA / 2 - 36}" y="60" width="72" height="28" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
+          <text x="${x0 + lenA / 2}" y="77" text-anchor="middle" font-size="8.5" font-weight="700" fill="#0369A1">SINK (BWP)</text>
+          <text x="220" y="44" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1C1C1A">Main Wall A: ${k.wA} ft</text>
+          <text x="${x0 - 26}" y="${54 + lenB / 2}" text-anchor="middle" font-size="10" font-weight="700" fill="#A97B24">B: ${k.wB}ft</text>
+          <text x="${x0 + lenA + 26}" y="${54 + lenC / 2}" text-anchor="middle" font-size="10" font-weight="700" fill="#A97B24">C: ${k.wC}ft</text>
         `;
       }
 
-      const totalDisplaySqft = state.mode === 'both' ? `${k.sqft} + ${w.sqft} sq.ft` : `${k.sqft} sq.ft`;
+      const extraNote = state.mode === 'both'
+        ? ` + ${w.qty} Wardrobe${w.qty > 1 ? 's' : ''} (${w.totalSqft} sq.ft)`
+        : '';
+
       stage.innerHTML = `
         <svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
           <rect x="6" y="6" width="428" height="208" rx="10" fill="#FFFFFF" stroke="#E2DBD0"/>
-          <text x="20" y="25" font-family="DM Sans, sans-serif" font-size="10.5" font-weight="700" fill="#1C1C1A">TOP-DOWN BLUEPRINT • CHARGED AREA: ${totalDisplaySqft}</text>
+          <text x="20" y="25" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#1C1C1A">
+            TOP-DOWN PLAN • KITCHEN ${k.sqft} SQ.FT${extraNote}
+          </text>
           ${layoutSVG}
           <text x="220" y="205" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9.5" fill="#5E5D58">
             ${k.verticalHt} ft Furniture Height (2 ft Backsplash Excluded) • ${state.kDrawers} Tandems + 1 BPO + 1 Cutlery
@@ -1882,10 +2125,8 @@
       `;
     }
 
-    let latestSnapshot = { title: '', range: '' };
-
     function pinCurrentSpec() {
-      state.pinnedSpec = { ...latestSnapshot };
+      state.pinnedSpec = { title: latestSnapshot.title, range: latestSnapshot.range };
       const box = document.getElementById('pinned-box');
       box.classList.remove('hidden');
       document.getElementById('pinned-details').textContent = `${state.pinnedSpec.title} ➔ ${state.pinnedSpec.range}`;
@@ -1894,6 +2135,55 @@
     function clearPin() {
       state.pinnedSpec = null;
       document.getElementById('pinned-box').classList.add('hidden');
+    }
+
+    function clearPhoneError() {
+      document.getElementById('cust-phone').classList.remove('input-error');
+      document.getElementById('phone-error').classList.add('hidden');
+    }
+
+    function getCleanIndianPhone(raw) {
+      let digits = (raw || '').replace(/\D/g, '');
+      if (digits.length === 12 && digits.startsWith('91')) digits = digits.slice(2);
+      if (digits.length === 11 && digits.startsWith('0')) digits = digits.slice(1);
+      return /^[6-9]\d{9}$/.test(digits) ? digits : '';
+    }
+
+    function submitToWhatsApp() {
+      const phoneInput = document.getElementById('cust-phone');
+      const validPhone = getCleanIndianPhone(phoneInput.value);
+
+      if (!validPhone) {
+        phoneInput.classList.add('input-error');
+        document.getElementById('phone-error').classList.remove('hidden');
+        phoneInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        phoneInput.focus();
+        return;
+      }
+
+      // Push conversion event to Google Tag Manager
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'estimator_whatsapp_submit',
+        estimator_mode: state.mode,
+        estimator_finish: state.finish,
+        estimator_board: state.board,
+        estimator_hardware: state.hw,
+        estimator_range: latestSnapshot.range
+      });
+
+      const waUrl = `https://wa.me/918302366262?text=${encodeURIComponent(latestSnapshot.waMessage)}`;
+      window.open(waUrl, '_blank', 'noopener');
+    }
+
+    function copyEstimateForFamily() {
+      const btn = document.getElementById('copy-family-btn');
+      navigator.clipboard.writeText(latestSnapshot.summaryText).then(() => {
+        btn.textContent = 'Copied! Ready to paste in family chat ✓';
+        setTimeout(() => {
+          btn.textContent = 'Copy Estimate Summary to Share with Family';
+        }, 2800);
+      });
     }
 
     function updateAll() {
@@ -1909,16 +2199,21 @@
       let shortTitle = '';
 
       const custName = document.getElementById('cust-name').value.trim();
+      const validPhone = getCleanIndianPhone(document.getElementById('cust-phone').value);
+      const homeType = document.getElementById('home-type').value;
       const locality = document.getElementById('locality').value.trim() || 'Not specified';
+      const hasPlan = document.getElementById('has-plan-check').checked;
       const kTypeLabel = state.kType === 'fully' ? 'Fully Modular' : 'Semi-Modular';
 
-      if (custName) waLines.push(`*Name / Home:* ${custName}`);
+      if (custName) waLines.push(`*Name:* ${custName}`);
+      if (validPhone) waLines.push(`*Mobile:* +91 ${validPhone}`);
+      waLines.push(`*Home Type:* ${homeType}`);
       waLines.push(`*Location:* ${locality}`);
 
       if (state.mode === 'kitchen') {
         totalExact = k.total;
         shortTitle = `${kTypeLabel} Kitchen (${k.sqft} sq.ft, ${FINISH_LABELS[state.finish]})`;
-        areaSummary = `Approx. ${k.sqft} sq.ft ${kTypeLabel} Kitchen • 2 ft Backsplash Excluded`;
+        areaSummary = `Approx. ${k.sqft} sq.ft ${kTypeLabel} Kitchen • 2 ft Backsplash Gap Excluded`;
         breakdownHTML = `
           <div class="spec-line"><span>Structure &amp; Layout</span><span>${kTypeLabel} • ${state.kLayout.toUpperCase()} (~${k.sqft} sq.ft)</span></div>
           <div class="spec-line"><span>Vertical Height</span><span>${k.verticalHt} ft (${state.hasLoft ? 'With +2 ft Loft' : 'Standard 2 ft Overhead'})</span></div>
@@ -1930,42 +2225,39 @@
         waLines.push(`*Inclusions:* ${state.kDrawers} Tandem Drawers + 1 BPO + 1 Cutlery Tray`);
       } else if (state.mode === 'wardrobe') {
         totalExact = w.total;
-        shortTitle = `Wardrobe (${w.sqft} sq.ft, ${FINISH_LABELS[state.finish]})`;
-        areaSummary = `Approx. ${w.sqft} sq.ft Modular Wardrobe (${w.width}×${w.height} ft) • Incl. GST`;
+        shortTitle = `${w.qty} Wardrobe${w.qty > 1 ? 's' : ''} (${w.totalSqft} sq.ft, ${FINISH_LABELS[state.finish]})`;
+        areaSummary = `${w.qty} Wardrobe${w.qty > 1 ? 's' : ''} (${w.width}×${w.height} ft = ${w.totalSqft} sq.ft total) • Incl. GST`;
         breakdownHTML = `
-          <div class="spec-line"><span>Wardrobe Size</span><span>${w.width} ft × ${w.height} ft (${w.sqft} sq.ft, ${state.wStyle})</span></div>
+          <div class="spec-line"><span>Wardrobe Size</span><span>${w.qty} Unit${w.qty > 1 ? 's' : ''} × ${w.width}×${w.height} ft (${w.totalSqft} sq.ft, ${state.wStyle})</span></div>
           <div class="spec-line"><span>Shutter Finish</span><span>${FINISH_LABELS[state.finish]}</span></div>
           <div class="spec-line"><span>Carcass Core</span><span>${BOARD_LABELS[state.board]}</span></div>
-          <div class="spec-line"><span>Hardware &amp; Drawers</span><span>${HW_CONFIG[state.hw].shortName} (${state.wDrawers} Drawers + 1 Hanging Rod)</span></div>
+          <div class="spec-line"><span>Hardware &amp; Drawers</span><span>${HW_CONFIG[state.hw].shortName} (${state.wDrawers} Drawers + 1 Rod / unit)</span></div>
         `;
-        waLines.push(`*Scope:* Modular Wardrobe (${state.wStyle}, ${w.width}×${w.height} ft = ${w.sqft} sq.ft)`);
-        waLines.push(`*Inclusions:* ${state.wDrawers} Soft-Close Drawers + 1 Hanging Rod`);
+        waLines.push(`*Scope:* ${w.qty} Modular Wardrobe${w.qty > 1 ? 's' : ''} (${state.wStyle}, ${w.width}×${w.height} ft = ${w.totalSqft} sq.ft total)`);
+        waLines.push(`*Inclusions:* ${state.wDrawers} Soft-Close Drawers + 1 Hanging Rod per wardrobe`);
       } else {
         totalExact = k.total + w.total;
-        shortTitle = `${kTypeLabel} Kitchen + Wardrobe (${k.sqft + w.sqft} sq.ft)`;
-        areaSummary = `${kTypeLabel} Kitchen (~${k.sqft} sq.ft) + Wardrobe (${w.sqft} sq.ft) Package`;
+        shortTitle = `${kTypeLabel} Kitchen + ${w.qty} Wardrobe${w.qty > 1 ? 's' : ''} (${k.sqft + w.totalSqft} sq.ft)`;
+        areaSummary = `${kTypeLabel} Kitchen (~${k.sqft} sq.ft) + ${w.qty} Wardrobe${w.qty > 1 ? 's' : ''} (${w.totalSqft} sq.ft) Package`;
         breakdownHTML = `
           <div class="spec-line"><span>Kitchen (${kTypeLabel})</span><span>${state.kLayout.toUpperCase()} (~${k.sqft} sq.ft) • ${state.kDrawers} Tandems + BPO + Cutlery</span></div>
-          <div class="spec-line"><span>Wardrobe (${state.wStyle})</span><span>${w.width}×${w.height} ft (${w.sqft} sq.ft) • ${state.wDrawers} Drawers + 1 Rod</span></div>
+          <div class="spec-line"><span>Wardrobe (${state.wStyle})</span><span>${w.qty} Unit${w.qty > 1 ? 's' : ''} × ${w.width}×${w.height} ft (${w.totalSqft} sq.ft) • ${state.wDrawers} Drawers + Rod</span></div>
           <div class="spec-line"><span>Finish &amp; Core</span><span>${FINISH_LABELS[state.finish]} | ${BOARD_LABELS[state.board]}</span></div>
           <div class="spec-line"><span>Hardware Brand</span><span>${HW_CONFIG[state.hw].shortName}</span></div>
         `;
-        waLines.push(`*Scope:* ${kTypeLabel} Kitchen + Wardrobe Package`);
+        waLines.push(`*Scope:* ${kTypeLabel} Kitchen + ${w.qty} Wardrobe${w.qty > 1 ? 's' : ''} Package`);
         waLines.push(`*Kitchen:* ${state.kLayout.toUpperCase()}, ~${k.sqft} sq.ft (${k.verticalHt} ft ht), ${state.kDrawers} Tandems + 1 BPO + 1 Cutlery`);
-        waLines.push(`*Wardrobe:* ${state.wStyle}, ${w.width}×${w.height} ft (${w.sqft} sq.ft), ${state.wDrawers} Drawers + 1 Rod`);
+        waLines.push(`*Wardrobe:* ${w.qty} Unit${w.qty > 1 ? 's' : ''}, ${state.wStyle}, ${w.width}×${w.height} ft (${w.totalSqft} sq.ft total), ${state.wDrawers} Drawers + 1 Rod each`);
       }
 
       const lowBand = Math.round((totalExact * 0.95) / 1000) * 1000;
       const highBand = Math.round((totalExact * 1.05) / 1000) * 1000;
       const rangeText = `${formatINR(lowBand)} – ${formatINR(highBand)}`;
-      latestSnapshot = { title: shortTitle, range: rangeText };
 
-      // City-agnostic traditional retail showroom benchmark (~56% higher than factory-direct)
       const retailBenchmark = Math.round((totalExact * 1.56) / 1000) * 1000;
       const savingsAmt = retailBenchmark - totalExact;
       const savingsPct = Math.round((savingsAmt / retailBenchmark) * 100);
 
-      // Update Durability Shield Meter
       const shieldPct = state.board === 'bwp' ? 100 : (state.board === 'merino' ? 92 : 82);
       document.getElementById('shield-score').textContent = shieldPct + '%';
       document.getElementById('shield-bar').style.width = shieldPct + '%';
@@ -1982,16 +2274,19 @@
       waLines.push(`*Carcass Core:* ${BOARD_LABELS[state.board]}`);
       waLines.push(`*Hardware Tier:* ${HW_CONFIG[state.hw].shortName}`);
       waLines.push(`*Configurator Estimate:* ${rangeText}`);
-      if (state.attachedPlanName) {
-        waLines.push(`*Floor Plan:* Ready to attach (${state.attachedPlanName})`);
+      if (hasPlan) {
+        waLines.push(`*Floor Plan / Sketch:* Available — I will attach it right here in chat.`);
       }
 
-      const fullMsg = `Namaste The Modular Makers! I configured an estimate on your website:\n\n${waLines.join('\n')}\n\nPlease share the next steps for a workshop visit or free laser site measurement.`;
-      document.getElementById('wa-share-btn').href = `https://wa.me/918302366262?text=${encodeURIComponent(fullMsg)}`;
+      latestSnapshot = {
+        title: shortTitle,
+        range: rangeText,
+        waMessage: `Namaste The Modular Makers! I configured an estimate on your website:\n\n${waLines.join('\n')}\n\nPlease share the next steps for a workshop visit or free laser site measurement.`,
+        summaryText: `The Modular Makers — Factory-Direct Estimate\n• Selection: ${shortTitle}\n• Finish & Core: ${FINISH_LABELS[state.finish]} | ${BOARD_LABELS[state.board]}\n• Hardware: ${HW_CONFIG[state.hw].shortName}\n• Estimated Investment: ${rangeText} (Incl. GST & Installation)\n• Workshop: Sanganer, Jaipur | Direct / WhatsApp: +91 83023 66262\n• Configure online: https://www.themodularmakers.com/estimate.html`
+      };
     }
 
     // Initialize on load
-    updateFinishBadges();
     updateAll();
   </script>
 </body>
