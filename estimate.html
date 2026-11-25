@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Interactive Modular Kitchen & Wardrobe Studio | The Modular Makers</title>
-  <meta name="description" content="Design your modular kitchen or wardrobe, preview live colors & elevations, understand core materials, and get an honest factory-direct estimate." />
+  <meta name="description" content="Select your kitchen or wardrobe layout, core board, and hardware, preview indicative finish themes from 500+ real shades, and get a transparent factory-direct estimate." />
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <!-- Google Tag Manager -->
@@ -128,7 +128,7 @@
     .hero {
       background: linear-gradient(180deg, var(--charcoal) 0%, #262623 100%);
       color: #fff;
-      padding: 34px 20px 42px;
+      padding: 32px 20px 38px;
       text-align: center;
       border-bottom: 3px solid var(--gold);
     }
@@ -146,15 +146,15 @@
       margin-bottom: 12px;
     }
     .hero h1 {
-      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+      font-size: clamp(1.65rem, 3.5vw, 2.45rem);
       margin-bottom: 10px;
       line-height: 1.2;
     }
     .hero p {
-      max-width: 740px;
+      max-width: 700px;
       margin: 0 auto;
       color: #D4D0C8;
-      font-size: 0.98rem;
+      font-size: 0.97rem;
     }
 
     .container {
@@ -677,11 +677,16 @@
       height: auto;
     }
 
-    /* Live Color Swatch Bar */
+    /* Live Indicative Colour Swatch Bar */
     .swatch-bar {
-      padding: 10px 14px;
+      padding: 11px 14px;
       background: #fff;
       border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .swatch-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -689,9 +694,9 @@
       flex-wrap: wrap;
     }
     .swatch-label {
-      font-size: 0.78rem;
+      font-size: 0.79rem;
       font-weight: 700;
-      color: var(--text-muted);
+      color: var(--charcoal);
     }
     .swatches {
       display: flex;
@@ -711,6 +716,11 @@
     .swatch-dot.active {
       box-shadow: 0 0 0 2px var(--charcoal);
       transform: scale(1.12);
+    }
+    .swatch-note {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      line-height: 1.4;
     }
 
     /* Advisor Box */
@@ -986,8 +996,8 @@
 
   <section class="hero">
     <div class="hero-badge">Interactive Kitchen &amp; Wardrobe Studio</div>
-    <h1>Preview Colors, Measure Honestly, Price Direct.</h1>
-    <p>See exact Indian cabinet geometry (with the 2 ft empty backsplash gap excluded from billing), test shutter shades live, and get a transparent factory-direct estimate.</p>
+    <h1>Honest Measurements. Direct Factory Quotes.</h1>
+    <p>Select your layout, core board, and hardware, preview indicative finish themes from 500+ real shades, and see a clear turnkey range.</p>
   </section>
 
   <main class="container">
@@ -1189,7 +1199,7 @@
           </div>
         </div>
 
-        <!-- STEP 2: SHUTTER FINISH (NO PER-SQ.FT MARKUPS DISPLAYED) -->
+        <!-- STEP 2: SHUTTER FINISH (CATALOGUE DEPTH WITHOUT EXPOSED RATES) -->
         <div class="step-card">
           <div class="step-header">
             <span class="step-num">2</span>
@@ -1200,7 +1210,7 @@
             <div class="option-card active" data-finish="laminate" onclick="setFinish('laminate')">
               <div>
                 <div class="opt-title">Matte / Textured Laminate (1mm Branded)</div>
-                <div class="opt-desc">Scratch-resistant everyday durability sealed with machine hot-melt PVC edge-banding.</div>
+                <div class="opt-desc">Scratch-resistant everyday durability across 500+ solid, woodgrain, and stone textures, sealed with machine hot-melt PVC edge-banding.</div>
               </div>
               <span class="opt-tag">Everyday Matte</span>
             </div>
@@ -1208,7 +1218,7 @@
             <div class="option-card" data-finish="acrylic" onclick="setFinish('acrylic')">
               <div>
                 <div class="opt-title">High-Gloss / Anti-Fingerprint Matte Acrylic</div>
-                <div class="opt-desc">Mirror-like contemporary sheen pressed on calibrated core with seamless edges.</div>
+                <div class="opt-desc">Mirror-like contemporary sheen in 100+ European shades pressed on calibrated core with seamless edges.</div>
               </div>
               <span class="opt-tag">Modern High-Gloss</span>
             </div>
@@ -1216,7 +1226,7 @@
             <div class="option-card" data-finish="pu" onclick="setFinish('pu')">
               <div>
                 <div class="opt-title">Italian PU Paint / Fluted Profile Glass</div>
-                <div class="opt-desc">Multi-coat spray-finished luxury shutters, CNC profiles, and anodized glass frames.</div>
+                <div class="opt-desc">Custom-matched to any RAL / Asian Paints shade in multi-coat spray finish, CNC profiles, and fluted glass.</div>
               </div>
               <span class="opt-tag">Signature Luxury</span>
             </div>
@@ -1365,7 +1375,7 @@
 
       <!-- RIGHT COLUMN: STICKY VISUALS & QUOTE SUMMARY -->
       <div class="sticky-panel">
-        <!-- 3-Tab Interactive Visual Stage + Live Color Swatches -->
+        <!-- 3-Tab Interactive Visual Stage + Indicative Colour Swatches -->
         <div class="visual-card">
           <div class="vis-tabs">
             <button type="button" class="vis-tab active" id="tab-elevation" onclick="setVisualTab('elevation')">Front Elevation</button>
@@ -1374,14 +1384,19 @@
           </div>
           <div class="svg-stage" id="svg-stage"></div>
           <div class="swatch-bar">
-            <span class="swatch-label" id="swatch-name">Shade: Sage &amp; Warm Oak</span>
-            <div class="swatches">
-              <button type="button" class="swatch-dot active" style="background:#5E716A;" title="Sage & Warm Oak" onclick="setSwatch('#5E716A', '#D6B88D', 'Sage & Warm Oak', this)"></button>
-              <button type="button" class="swatch-dot" style="background:#F3EFE6;" title="Ivory & Matte Charcoal" onclick="setSwatch('#F3EFE6', '#2D2D2A', 'Ivory & Matte Charcoal', this)"></button>
-              <button type="button" class="swatch-dot" style="background:#D8CBB8;" title="Cashmere Beige" onclick="setSwatch('#D8CBB8', '#A68E6E', 'Cashmere Beige', this)"></button>
-              <button type="button" class="swatch-dot" style="background:#1E3A5F;" title="Midnight Navy & Brass" onclick="setSwatch('#1E3A5F', '#C8973A', 'Midnight Navy & Brass', this)"></button>
-              <button type="button" class="swatch-dot" style="background:#FFFFFF;" title="Arctic Gloss White" onclick="setSwatch('#FFFFFF', '#CBD5E1', 'Arctic Gloss White', this)"></button>
-              <button type="button" class="swatch-dot" style="background:#5C4033;" title="Fluted Walnut" onclick="setSwatch('#5C4033', '#8B6B4A', 'Fluted Walnut', this)"></button>
+            <div class="swatch-top">
+              <span class="swatch-label" id="swatch-name">Indicative Theme: Sage &amp; Warm Oak</span>
+              <div class="swatches">
+                <button type="button" class="swatch-dot active" style="background:#5E716A;" title="Sage & Warm Oak" onclick="setSwatch('#5E716A', '#D6B88D', 'Sage & Warm Oak', this)"></button>
+                <button type="button" class="swatch-dot" style="background:#F3EFE6;" title="Ivory & Matte Charcoal" onclick="setSwatch('#F3EFE6', '#2D2D2A', 'Ivory & Matte Charcoal', this)"></button>
+                <button type="button" class="swatch-dot" style="background:#D8CBB8;" title="Cashmere Beige" onclick="setSwatch('#D8CBB8', '#A68E6E', 'Cashmere Beige', this)"></button>
+                <button type="button" class="swatch-dot" style="background:#1E3A5F;" title="Midnight Navy & Brass" onclick="setSwatch('#1E3A5F', '#C8973A', 'Midnight Navy & Brass', this)"></button>
+                <button type="button" class="swatch-dot" style="background:#FFFFFF;" title="Arctic Gloss White" onclick="setSwatch('#FFFFFF', '#CBD5E1', 'Arctic Gloss White', this)"></button>
+                <button type="button" class="swatch-dot" style="background:#5C4033;" title="Fluted Walnut" onclick="setSwatch('#5C4033', '#8B6B4A', 'Fluted Walnut', this)"></button>
+              </div>
+            </div>
+            <div class="swatch-note">
+              Indicative preview colours only — explore 500+ physical Merino, Greenlam, Royale Touche &amp; PU shade cards at our workshop or during your home visit.
             </div>
           </div>
         </div>
@@ -1954,7 +1969,7 @@
       state.swatchUpper = upperHex;
       state.swatchLower = lowerHex;
       state.swatchName = name;
-      document.getElementById('swatch-name').textContent = 'Shade: ' + name;
+      document.getElementById('swatch-name').textContent = 'Indicative Theme: ' + name;
       document.querySelectorAll('.swatch-dot').forEach(d => d.classList.remove('active'));
       btnEl.classList.add('active');
       renderVisuals();
@@ -2520,7 +2535,7 @@
       document.getElementById('savings-pill').textContent = `Estimated ${formatINR(savingsAmt)} (${savingsPct}%) lower than traditional retail showrooms`;
       document.getElementById('spec-breakdown').innerHTML = breakdownHTML;
 
-      waLines.push(`*Shutter Finish:* ${FINISH_LABELS[state.finish]} (${state.swatchName})`);
+      waLines.push(`*Shutter Finish:* ${FINISH_LABELS[state.finish]} (Indicative Theme: ${state.swatchName})`);
       waLines.push(`*Carcass Core:* ${BOARD_LABELS[state.board]}`);
       waLines.push(`*Hardware Tier:* ${HW_CONFIG[state.hw].shortName}`);
       waLines.push(`*Configurator Estimate:* ${rangeText}`);
