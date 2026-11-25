@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive Modular Kitchen & Wardrobe Cost Estimator | The Modular Makers, Jaipur</title>
-  <meta name="description" content="Calculate an honest factory-direct estimate for your modular kitchen or wardrobe in Jaipur. Explore Action Tesa HDHMR, Merino Marine, IS:710 BWP ply, and soft-close hardware options." />
+  <title>Interactive Modular Kitchen & Wardrobe Studio | The Modular Makers</title>
+  <meta name="description" content="Design your modular kitchen or wardrobe, explore live color & elevation previews, understand core materials, and get an honest factory-direct estimate." />
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <!-- Google Tag Manager -->
@@ -23,12 +23,12 @@
   <style>
     :root {
       --charcoal: #1C1C1A;
-      --charcoal-soft: #2B2B28;
+      --charcoal-soft: #2A2A27;
       --cream: #FAF8F5;
-      --cream-dark: #F1ECE3;
+      --cream-dark: #F0EBE1;
       --card-bg: #FFFFFF;
       --gold: #C8973A;
-      --gold-dark: #A97B24;
+      --gold-dark: #A67821;
       --gold-tint: #FBF6EC;
       --text-main: #1C1C1A;
       --text-muted: #5E5D58;
@@ -65,7 +65,7 @@
       border-bottom: 1px solid rgba(200, 151, 58, 0.3);
     }
     .nav-wrap {
-      max-width: 1220px;
+      max-width: 1240px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -127,7 +127,7 @@
     .hero {
       background: linear-gradient(180deg, var(--charcoal) 0%, #262623 100%);
       color: #fff;
-      padding: 36px 20px 44px;
+      padding: 34px 20px 42px;
       text-align: center;
       border-bottom: 3px solid var(--gold);
     }
@@ -150,21 +150,110 @@
       line-height: 1.2;
     }
     .hero p {
-      max-width: 720px;
+      max-width: 740px;
       margin: 0 auto;
       color: #D4D0C8;
       font-size: 0.98rem;
     }
 
-    /* Main Split Layout */
     .container {
-      max-width: 1220px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 28px 20px 60px;
+      padding: 26px 20px 60px;
     }
+
+    /* Interactive 15-Second Match Quiz Bar */
+    .quiz-banner {
+      background: #fff;
+      border: 1.5px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+    .quiz-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .quiz-toggle-btn {
+      background: var(--charcoal);
+      color: var(--gold);
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .quiz-body {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px dashed var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 820px) {
+      .quiz-body { grid-template-columns: 1fr; }
+    }
+    .quiz-q {
+      background: var(--cream);
+      padding: 12px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+    }
+    .quiz-q-title {
+      font-size: 0.83rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--charcoal);
+    }
+    .quiz-opts {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .quiz-opt-btn {
+      text-align: left;
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 7px 10px;
+      border-radius: 7px;
+      font-family: inherit;
+      font-size: 0.81rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .quiz-opt-btn.selected {
+      background: var(--gold-tint);
+      border-color: var(--gold);
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+    .persona-result {
+      grid-column: 1 / -1;
+      background: var(--green-bg);
+      border: 1px solid #B7DEC9;
+      color: #154E32;
+      padding: 11px 14px;
+      border-radius: 8px;
+      font-size: 0.86rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* Main Split Layout */
     .config-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.12fr 0.88fr;
       gap: 28px;
       align-items: start;
     }
@@ -206,7 +295,7 @@
       color: var(--charcoal);
     }
 
-    /* Pill / Segment Controls */
+    /* Mode Tabs */
     .mode-tabs {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -234,6 +323,55 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     }
 
+    /* Semi vs Fully Modular Cards */
+    .build-type-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 560px) {
+      .build-type-grid { grid-template-columns: 1fr; }
+    }
+    .type-card {
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      cursor: pointer;
+      background: #fff;
+      transition: all 0.15s;
+    }
+    .type-card:hover { border-color: var(--gold); }
+    .type-card.active {
+      border-color: var(--gold);
+      background: var(--gold-tint);
+    }
+    .type-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 4px;
+    }
+    .type-pill {
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 99px;
+      background: var(--cream-dark);
+      color: var(--charcoal);
+      font-weight: 700;
+    }
+    .type-card.active .type-pill {
+      background: var(--charcoal);
+      color: var(--gold);
+    }
+    .type-card p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
     .pill-row {
       display: flex;
       flex-wrap: wrap;
@@ -243,10 +381,10 @@
     .pill-btn {
       border: 1px solid var(--border);
       background: #fff;
-      padding: 8px 14px;
+      padding: 8px 13px;
       border-radius: 8px;
       font-family: inherit;
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       font-weight: 600;
       color: var(--text-main);
       cursor: pointer;
@@ -261,9 +399,7 @@
     }
 
     /* Sliders */
-    .slider-group {
-      margin-bottom: 14px;
-    }
+    .slider-group { margin-bottom: 14px; }
     .slider-label {
       display: flex;
       justify-content: space-between;
@@ -282,30 +418,19 @@
       height: 6px;
     }
 
-    .checkbox-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 12px;
+    .gap-callout {
       background: var(--cream);
-      border: 1px solid var(--border);
+      border: 1px dashed #C8BFA8;
       border-radius: 8px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      cursor: pointer;
-      margin-top: 8px;
+      padding: 9px 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 6px;
     }
-    .checkbox-row input {
-      width: 17px;
-      height: 17px;
-      accent-color: var(--charcoal);
-    }
+    .gap-callout strong { color: var(--green); }
 
     /* Option Radio Cards */
-    .option-stack {
-      display: grid;
-      gap: 10px;
-    }
+    .option-stack { display: grid; gap: 10px; }
     .option-card {
       border: 1.5px solid var(--border);
       border-radius: 10px;
@@ -327,10 +452,6 @@
       font-weight: 700;
       font-size: 0.94rem;
       color: var(--charcoal);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
     }
     .opt-desc {
       font-size: 0.82rem;
@@ -338,7 +459,7 @@
       margin-top: 3px;
     }
     .opt-tag {
-      font-size: 0.78rem;
+      font-size: 0.77rem;
       font-weight: 700;
       padding: 3px 9px;
       border-radius: 6px;
@@ -399,7 +520,7 @@
       text-align: center;
     }
 
-    /* File Upload & Select */
+    /* File Upload & Inputs */
     .form-grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -415,7 +536,7 @@
       font-weight: 600;
       margin-bottom: 5px;
     }
-    select, input[type="text"] {
+    input[type="text"] {
       width: 100%;
       padding: 10px 12px;
       border: 1px solid var(--border);
@@ -456,20 +577,20 @@
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .vis-tabs {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       background: var(--cream-dark);
       border-bottom: 1px solid var(--border);
     }
     .vis-tab {
       border: none;
       background: transparent;
-      padding: 11px 10px;
+      padding: 10px 6px;
       font-family: inherit;
-      font-size: 0.83rem;
+      font-size: 0.79rem;
       font-weight: 700;
       color: var(--text-muted);
       cursor: pointer;
@@ -480,17 +601,53 @@
       border-bottom: 2.5px solid var(--gold);
     }
     .svg-stage {
-      padding: 16px;
+      padding: 14px 16px 10px;
       background: #FCFBF9;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 235px;
+      min-height: 230px;
     }
     .svg-stage svg {
       width: 100%;
-      max-width: 440px;
+      max-width: 450px;
       height: auto;
+    }
+
+    /* Live Color Swatch Bar */
+    .swatch-bar {
+      padding: 10px 14px;
+      background: #fff;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .swatch-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .swatches {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .swatch-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 1px #BDB5A7;
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+    .swatch-dot:hover { transform: scale(1.12); }
+    .swatch-dot.active {
+      box-shadow: 0 0 0 2px var(--charcoal);
+      transform: scale(1.12);
     }
 
     /* Advisor Box */
@@ -498,17 +655,14 @@
       background: var(--gold-tint);
       border-left: 4px solid var(--gold);
       border-radius: 8px;
-      padding: 13px 15px;
-      margin-bottom: 18px;
-      font-size: 0.86rem;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      font-size: 0.85rem;
     }
     .advisor-title {
       font-weight: 700;
       color: var(--charcoal);
-      margin-bottom: 3px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      margin-bottom: 2px;
     }
 
     /* Quote Summary Card */
@@ -516,17 +670,36 @@
       background: var(--charcoal);
       color: #fff;
       border-radius: var(--radius);
-      padding: 24px;
+      padding: 22px;
       box-shadow: 0 14px 34px rgba(28, 28, 26, 0.18);
       border: 1px solid rgba(200, 151, 58, 0.35);
     }
+    .quote-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
     .quote-kicker {
-      font-size: 0.76rem;
+      font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--gold);
       font-weight: 700;
     }
+    .pin-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(200, 151, 58, 0.45);
+      color: #F5EFE6;
+      font-family: inherit;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .pin-btn:hover { background: rgba(200, 151, 58, 0.25); }
+
     .quote-range {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.75rem, 3vw, 2.25rem);
@@ -537,27 +710,79 @@
     .quote-sub {
       font-size: 0.8rem;
       color: #CFCBC2;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .savings-pill {
       display: inline-block;
       background: rgba(30, 107, 69, 0.28);
       border: 1px solid #3D996B;
       color: #8CE0B5;
-      font-size: 0.8rem;
+      font-size: 0.79rem;
       font-weight: 600;
       padding: 5px 10px;
       border-radius: 7px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
+
+    /* Gamified Meters */
+    .meters-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .meter-box {
+      background: rgba(255,255,255,0.06);
+      padding: 9px 10px;
+      border-radius: 8px;
+    }
+    .meter-head {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.73rem;
+      color: #CFCBC2;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .meter-track {
+      height: 6px;
+      background: rgba(255,255,255,0.14);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .meter-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 99px;
+      transition: width 0.3s ease;
+    }
+    .meter-fill.green { background: #34D399; }
+
+    /* Pinned Comparison Box */
+    .pinned-box {
+      background: rgba(200, 151, 58, 0.14);
+      border: 1px solid rgba(200, 151, 58, 0.45);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 14px;
+      font-size: 0.79rem;
+    }
+    .pinned-head {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+
     .spec-breakdown {
       border-top: 1px solid rgba(255,255,255,0.12);
       border-bottom: 1px solid rgba(255,255,255,0.12);
-      padding: 12px 0;
-      margin-bottom: 16px;
-      font-size: 0.83rem;
+      padding: 11px 0;
+      margin-bottom: 15px;
+      font-size: 0.82rem;
       display: grid;
-      gap: 7px;
+      gap: 6px;
     }
     .spec-line {
       display: flex;
@@ -587,15 +812,15 @@
     .wa-btn:hover { background: #20BD5A; transform: translateY(-1px); }
 
     .warranty-strip {
-      margin-top: 14px;
-      font-size: 0.77rem;
+      margin-top: 13px;
+      font-size: 0.76rem;
       color: #D4D0C8;
       text-align: center;
       line-height: 1.45;
     }
     .disclaimer-note {
-      margin-top: 10px;
-      font-size: 0.74rem;
+      margin-top: 9px;
+      font-size: 0.73rem;
       color: #9E998E;
       line-height: 1.4;
     }
@@ -608,7 +833,7 @@
     }
     .edu-header {
       text-align: center;
-      max-width: 700px;
+      max-width: 720px;
       margin: 0 auto 28px;
     }
     .edu-header h2 { font-size: 1.8rem; margin-bottom: 8px; }
@@ -665,32 +890,74 @@
         <img src="favicon.png" alt="The Modular Makers Logo" />
         <div>
           <span class="brand-title">The Modular Makers</span>
-          <span class="brand-sub">Sanganer Factory • Jaipur</span>
+          <span class="brand-sub">Factory-Direct Modular Studio</span>
         </div>
       </a>
       <div class="nav-actions">
         <a href="index.html" class="nav-link">Home</a>
         <a href="index.html#pricing" class="nav-link">Rates</a>
-        <a href="https://wa.me/918302366262?text=Hi%20The%20Modular%20Makers%2C%20I%20would%20like%20to%20book%20a%20Sanganer%20factory%20visit." target="_blank" rel="noopener" class="nav-cta">Book Factory Visit</a>
+        <a href="https://wa.me/918302366262?text=Hi%20The%20Modular%20Makers%2C%20I%20would%20like%20to%20book%20a%20factory%20consultation." target="_blank" rel="noopener" class="nav-cta">Book Consultation</a>
       </div>
     </div>
   </header>
 
   <section class="hero">
-    <div class="hero-badge">Factory-Direct Transparent Configurator</div>
-    <h1>Build Your Spec. Understand Every Material.</h1>
-    <p>Configure your modular kitchen or wardrobe with honest inclusions—wet-zone BWP marine ply, soft-close hardware, and machine edge-banding—at direct Sanganer workshop prices.</p>
+    <div class="hero-badge">Interactive Kitchen &amp; Wardrobe Studio</div>
+    <h1>Preview Colors, Measure Honestly, Price Direct.</h1>
+    <p>See exact Indian cabinet geometry (with the 2 ft empty backsplash gap excluded from billing), test shutter shades live, and get a transparent factory-direct estimate.</p>
   </section>
 
   <main class="container">
+    <!-- 15-SECOND KITCHEN MATCH QUIZ -->
+    <div class="quiz-banner">
+      <div class="quiz-top">
+        <div>
+          <strong style="font-size: 0.96rem; color: var(--charcoal);">Not sure where to start? Take the 15-Second Kitchen Match</strong>
+          <span style="display: block; font-size: 0.81rem; color: var(--text-muted);">3 quick taps auto-configure the right Semi/Fully Modular structure, board grade, and hardware for your home.</span>
+        </div>
+        <button type="button" class="quiz-toggle-btn" id="quiz-toggle-btn" onclick="toggleQuiz()">Start 15-Sec Match ▾</button>
+      </div>
+
+      <div class="quiz-body hidden" id="quiz-body">
+        <div class="quiz-q">
+          <div class="quiz-q-title">1. Current Kitchen Platform</div>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt-btn" onclick="answerQuiz(1, 'semi', this)">Granite / Marble partitions already built</button>
+            <button type="button" class="quiz-opt-btn" onclick="answerQuiz(1, 'fully', this)">Bare shell — need full factory boxes</button>
+          </div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="quiz-q-title">2. Daily Cooking &amp; Water Exposure</div>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt-btn" onclick="answerQuiz(2, 'hybrid', this)">Normal daily cooking (wet-zone BWP suffices)</button>
+            <button type="button" class="quiz-opt-btn" onclick="answerQuiz(2, 'marine', this)">Heavy Indian tadka &amp; frequent wet washing</button>
+          </div>
+        </div>
+
+        <div class="quiz-q">
+          <div class="quiz-q-title">3. Aesthetic &amp; Hardware Feel</div>
+          <div class="quiz-opts">
+            <button type="button" class="quiz-opt-btn" onclick="answerQuiz(3, 'value', this)">Smart, durable everyday matte finish</button>
+            <button type="button" class="quiz-opt-btn" onclick="answerQuiz(3, 'gloss', this)">Sleek high-gloss + German/Austrian glide</button>
+          </div>
+        </div>
+
+        <div class="persona-result hidden" id="persona-result">
+          <span id="persona-text"></span>
+          <button type="button" class="quiz-toggle-btn" onclick="toggleQuiz()">Done ✓</button>
+        </div>
+      </div>
+    </div>
+
     <div class="config-grid">
       <!-- LEFT COLUMN: INTERACTIVE INPUTS -->
       <div>
-        <!-- STEP 1: SPACE & DIMENSIONS -->
+        <!-- STEP 1: SPACE, SEMI/FULLY MODULAR & DIMENSIONS -->
         <div class="step-card">
           <div class="step-header">
             <span class="step-num">1</span>
-            <h2 class="step-title">Choose Space &amp; Dimensions</h2>
+            <h2 class="step-title">Choose Space, Structure &amp; Dimensions</h2>
           </div>
 
           <div class="mode-tabs" role="tablist">
@@ -699,8 +966,26 @@
             <button type="button" class="mode-btn" data-mode="both" onclick="setMode('both')">Kitchen + Wardrobe</button>
           </div>
 
-          <!-- KITCHEN DIMENSIONS -->
+          <!-- KITCHEN SECTION -->
           <div id="kitchen-dim-section">
+            <label class="field-label">Kitchen Construction Type</label>
+            <div class="build-type-grid">
+              <div class="type-card active" id="ktype-semi" onclick="setKitchenType('semi')">
+                <div class="type-card-head">
+                  <span>Semi-Modular</span>
+                  <span class="type-pill">Base Spec</span>
+                </div>
+                <p>For kitchens with existing granite/marble civil partitions below counter; factory builds shutters, drawers &amp; overhead boxes.</p>
+              </div>
+              <div class="type-card" id="ktype-fully" onclick="setKitchenType('fully')">
+                <div class="type-card-head">
+                  <span>Fully Modular</span>
+                  <span class="type-pill">Full Carcass</span>
+                </div>
+                <p>100% factory-fabricated ply/HDHMR carcass boxes below the counter as well as overhead for precision alignment.</p>
+              </div>
+            </div>
+
             <label class="field-label">Kitchen Layout</label>
             <div class="pill-row" id="k-layout-pills">
               <button type="button" class="pill-btn" data-layout="straight" onclick="setKitchenLayout('straight')">Straight</button>
@@ -710,10 +995,10 @@
             </div>
 
             <label class="field-label">Quick Size Presets</label>
-            <div class="pill-row" id="k-preset-pills">
-              <button type="button" class="pill-btn" onclick="applyKitchenPreset('compact')">Compact (~65 sq.ft)</button>
-              <button type="button" class="pill-btn active" onclick="applyKitchenPreset('standard')">Standard 10×8 ft (~85 sq.ft)</button>
-              <button type="button" class="pill-btn" onclick="applyKitchenPreset('spacious')">Spacious 12×10 ft (~110 sq.ft)</button>
+            <div class="pill-row">
+              <button type="button" class="pill-btn" onclick="applyKitchenPreset('compact')">Compact (8×6 ft)</button>
+              <button type="button" class="pill-btn active" onclick="applyKitchenPreset('standard')">Standard (10×8 ft)</button>
+              <button type="button" class="pill-btn" onclick="applyKitchenPreset('spacious')">Spacious (12×10 ft)</button>
             </div>
 
             <div class="slider-group">
@@ -740,13 +1025,17 @@
               <input type="range" id="k-wallC" min="5" max="14" step="1" value="8" oninput="updateAll()" />
             </div>
 
-            <label class="checkbox-row">
-              <input type="checkbox" id="k-loft" checked onchange="updateAll()" />
-              <span>Include Overhead Loft Cabinets (up to ceiling height)</span>
-            </label>
+            <label class="field-label" style="margin-top: 8px;">Overhead Cabinet Height</label>
+            <div class="pill-row" style="margin-bottom: 6px;">
+              <button type="button" class="pill-btn active" id="loft-no" onclick="setLoft(false)">Standard 2 ft Overhead (4.75 ft Furniture Ht)</button>
+              <button type="button" class="pill-btn" id="loft-yes" onclick="setLoft(true)">Full Height to Ceiling (+2 ft Loft = 6.75 ft)</button>
+            </div>
+            <div class="gap-callout">
+              <strong>Fair Measurement Promise:</strong> The 2 ft empty wall/backsplash space between your counter and overhead cabinets is <strong>excluded (0 sq.ft charged)</strong>.
+            </div>
           </div>
 
-          <!-- WARDROBE DIMENSIONS -->
+          <!-- WARDROBE SECTION -->
           <div id="wardrobe-dim-section" class="hidden" style="margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border);">
             <label class="field-label">Wardrobe Shutter Style &amp; Size</label>
             <div class="pill-row">
@@ -770,7 +1059,7 @@
 
             <div class="slider-group">
               <div class="slider-label">
-                <span>Wardrobe Height (Including Loft if Floor-to-Ceiling)</span>
+                <span>Wardrobe Height</span>
                 <span class="slider-val" id="w-height-val">8 ft</span>
               </div>
               <input type="range" id="w-height" min="7" max="10" step="1" value="8" oninput="updateAll()" />
@@ -789,34 +1078,34 @@
             <div class="option-card active" data-finish="laminate" onclick="setFinish('laminate')">
               <div>
                 <div class="opt-title">Matte / Textured Laminate (1mm Branded)</div>
-                <div class="opt-desc">Scratch-resistant, easy-to-clean everyday durability with machine hot-melt PVC edge-banding.</div>
+                <div class="opt-desc">Scratch-resistant everyday durability sealed with machine hot-melt PVC edge-banding.</div>
               </div>
-              <span class="opt-tag">₹1,200 / sq.ft</span>
+              <span class="opt-tag" id="tag-laminate">₹1,200 / sq.ft</span>
             </div>
 
             <div class="option-card" data-finish="acrylic" onclick="setFinish('acrylic')">
               <div>
                 <div class="opt-title">High-Gloss / Anti-Fingerprint Matte Acrylic</div>
-                <div class="opt-desc">Mirror-like contemporary sheen pressed on calibrated HDHMR/marine core with seamless edges.</div>
+                <div class="opt-desc">Mirror-like contemporary sheen pressed on calibrated core with seamless edges.</div>
               </div>
-              <span class="opt-tag">₹1,650 / sq.ft</span>
+              <span class="opt-tag" id="tag-acrylic">₹1,650 / sq.ft</span>
             </div>
 
             <div class="option-card" data-finish="pu" onclick="setFinish('pu')">
               <div>
                 <div class="opt-title">Italian PU Paint / Fluted Profile Glass</div>
-                <div class="opt-desc">Multi-coat spray-finished luxury shutters, CNC-grooved profiles, and anodized aluminium glass frames.</div>
+                <div class="opt-desc">Multi-coat spray-finished luxury shutters, CNC profiles, and anodized glass frames.</div>
               </div>
-              <span class="opt-tag">₹2,400 / sq.ft</span>
+              <span class="opt-tag" id="tag-pu">₹2,400 / sq.ft</span>
             </div>
           </div>
         </div>
 
-        <!-- STEP 3: CARCASS CORE MATERIAL -->
+        <!-- STEP 3: CARCASS CORE MATERIAL (NO MARKUP NUMBERS SHOWN) -->
         <div class="step-card">
           <div class="step-header">
             <span class="step-num">3</span>
-            <h2 class="step-title">Select Carcass Core Board</h2>
+            <h2 class="step-title">Select Core Board Grade</h2>
           </div>
 
           <div class="option-stack" id="board-options">
@@ -831,22 +1120,22 @@
             <div class="option-card" data-board="merino" onclick="setBoard('merino')">
               <div>
                 <div class="opt-title">Full Merino Marine Board</div>
-                <div class="opt-desc">High-density, moisture-resistant Merino Marine structural board used uniformly across all cabinets.</div>
+                <div class="opt-desc">High-density, moisture-resistant Merino Marine structural board uniformly across all cabinets.</div>
               </div>
-              <span class="opt-tag">+₹100 / sq.ft</span>
+              <span class="opt-tag">Marine Upgrade</span>
             </div>
 
             <div class="option-card" data-board="bwp" onclick="setBoard('bwp')">
               <div>
                 <div class="opt-title">Full IS:710 BWP Marine Plywood</div>
-                <div class="opt-desc">100% boiling-waterproof calibrated marine hardwood plywood throughout every upper and base box.</div>
+                <div class="opt-desc">100% boiling-waterproof calibrated marine hardwood plywood throughout every cabinet box.</div>
               </div>
-              <span class="opt-tag">+₹200 / sq.ft</span>
+              <span class="opt-tag">Full BWP Upgrade</span>
             </div>
           </div>
         </div>
 
-        <!-- STEP 4: HARDWARE BRAND & DRAWERS (NO PER-UNIT RATES SHOWN) -->
+        <!-- STEP 4: HARDWARE BRAND & DRAWERS (ZERO PER-UNIT NUMBERS SHOWN) -->
         <div class="step-card">
           <div class="step-header">
             <span class="step-num">4</span>
@@ -887,7 +1176,7 @@
           <div class="stepper-row" id="k-drawer-stepper">
             <div>
               <div style="font-weight: 700; font-size: 0.9rem;">Total Kitchen Tandem Drawers</div>
-              <div style="font-size: 0.78rem; color: var(--text-muted);">5 tandem drawers included in base; add more if needed</div>
+              <div style="font-size: 0.78rem; color: var(--text-muted);">5 tandem drawers included in base; adjust as needed</div>
             </div>
             <div class="stepper-controls">
               <button type="button" class="step-btn" onclick="changeKitchenDrawers(-1)">−</button>
@@ -909,30 +1198,20 @@
           </div>
         </div>
 
-        <!-- STEP 5: LOCALITY & CLIENT-SIDE FLOOR PLAN -->
+        <!-- STEP 5: CITY/LOCALITY & CLIENT-SIDE FLOOR PLAN -->
         <div class="step-card">
           <div class="step-header">
             <span class="step-num">5</span>
-            <h2 class="step-title">Jaipur Locality &amp; Optional Floor Plan</h2>
+            <h2 class="step-title">Location &amp; Optional Floor Plan</h2>
           </div>
 
           <div class="form-grid-2">
             <div>
-              <label class="field-label" for="locality">Project Locality in Jaipur</label>
-              <select id="locality" onchange="updateAll()">
-                <option value="Vaishali Nagar">Vaishali Nagar</option>
-                <option value="Mansarovar / New Atish Market">Mansarovar / New Atish Market</option>
-                <option value="Jagatpura">Jagatpura</option>
-                <option value="Malviya Nagar">Malviya Nagar</option>
-                <option value="Tonk Road / Sitapura">Tonk Road / Sitapura</option>
-                <option value="C-Scheme / Civil Lines">C-Scheme / Civil Lines</option>
-                <option value="Ajmer Road / Mahapura">Ajmer Road / Mahapura</option>
-                <option value="Sanganer / Pratap Nagar">Sanganer / Pratap Nagar</option>
-                <option value="Other Jaipur Locality">Other Jaipur Locality</option>
-              </select>
+              <label class="field-label" for="locality">City &amp; Locality</label>
+              <input type="text" id="locality" value="Jaipur" placeholder="e.g., Vaishali Nagar, Jaipur" oninput="updateAll()" />
             </div>
             <div>
-              <label class="field-label" for="cust-name">Your Name / Flat Type (Optional)</label>
+              <label class="field-label" for="cust-name">Your Name / Home Type (Optional)</label>
               <input type="text" id="cust-name" placeholder="e.g., Rahul — 3BHK Flat" oninput="updateAll()" />
             </div>
           </div>
@@ -949,28 +1228,70 @@
 
       <!-- RIGHT COLUMN: STICKY VISUALS & QUOTE SUMMARY -->
       <div class="sticky-panel">
-        <!-- Interactive SVG Blueprint & Material Cutaway -->
+        <!-- 3-Tab Interactive Visual Stage + Live Color Swatches -->
         <div class="visual-card">
           <div class="vis-tabs">
-            <button type="button" class="vis-tab active" id="tab-blueprint" onclick="setVisualTab('blueprint')">Live Layout Blueprint</button>
-            <button type="button" class="vis-tab" id="tab-cutaway" onclick="setVisualTab('cutaway')">Material &amp; Edge Cutaway</button>
+            <button type="button" class="vis-tab active" id="tab-elevation" onclick="setVisualTab('elevation')">Front Elevation</button>
+            <button type="button" class="vis-tab" id="tab-blueprint" onclick="setVisualTab('blueprint')">Top Layout</button>
+            <button type="button" class="vis-tab" id="tab-cutaway" onclick="setVisualTab('cutaway')">Edge &amp; Core</button>
           </div>
           <div class="svg-stage" id="svg-stage"></div>
+          <div class="swatch-bar">
+            <span class="swatch-label" id="swatch-name">Shade: Sage &amp; Warm Oak</span>
+            <div class="swatches">
+              <button type="button" class="swatch-dot active" style="background:#5E716A;" title="Sage & Warm Oak" onclick="setSwatch('#5E716A', '#D6B88D', 'Sage & Warm Oak', this)"></button>
+              <button type="button" class="swatch-dot" style="background:#F3EFE6;" title="Ivory & Matte Charcoal" onclick="setSwatch('#F3EFE6', '#2D2D2A', 'Ivory & Matte Charcoal', this)"></button>
+              <button type="button" class="swatch-dot" style="background:#D8CBB8;" title="Cashmere Beige" onclick="setSwatch('#D8CBB8', '#A68E6E', 'Cashmere Beige', this)"></button>
+              <button type="button" class="swatch-dot" style="background:#1E3A5F;" title="Midnight Navy & Brass" onclick="setSwatch('#1E3A5F', '#C8973A', 'Midnight Navy & Brass', this)"></button>
+              <button type="button" class="swatch-dot" style="background:#FFFFFF;" title="Arctic Gloss White" onclick="setSwatch('#FFFFFF', '#CBD5E1', 'Arctic Gloss White', this)"></button>
+              <button type="button" class="swatch-dot" style="background:#5C4033;" title="Fluted Walnut" onclick="setSwatch('#5C4033', '#8B6B4A', 'Fluted Walnut', this)"></button>
+            </div>
+          </div>
         </div>
 
         <!-- Rule-Based Smart Factory Advisor -->
         <div class="advisor-box">
           <div class="advisor-title">Smart Factory Advisor</div>
-          <div id="advisor-text">Your base quote includes IS:710 BWP Marine Ply in wet sink areas and Action Tesa HDHMR/BWR for dry cabinets—preventing water swelling while keeping costs lean.</div>
+          <div id="advisor-text">Semi-Modular uses your existing granite/marble partitions below counter while building wet sink shutters and overhead cabinets with BWP protection.</div>
         </div>
 
         <!-- Final Estimate Range Card -->
         <div class="quote-card">
-          <div class="quote-kicker">Estimated Factory-Direct Investment</div>
-          <div class="quote-range" id="quote-range">₹97,000 – ₹1,07,000</div>
-          <div class="quote-sub" id="quote-area-summary">Approx. 85 sq.ft Modular Kitchen • Incl. GST &amp; Installation</div>
+          <div class="quote-top-row">
+            <span class="quote-kicker">Estimated Factory-Direct Investment</span>
+            <button type="button" class="pin-btn" onclick="pinCurrentSpec()">Pin Spec A to Compare</button>
+          </div>
+          <div class="quote-range" id="quote-range">₹87,000 – ₹96,000</div>
+          <div class="quote-sub" id="quote-area-summary">Approx. 76 sq.ft Semi-Modular Kitchen • 2 ft Backsplash Gap Excluded</div>
 
-          <div class="savings-pill" id="savings-pill">Estimated ₹58,000 (36%) lower than Jaipur retail showrooms</div>
+          <div class="savings-pill" id="savings-pill">Estimated ₹51,000 (36%) lower than traditional retail showrooms</div>
+
+          <!-- Gamified Progress Meters -->
+          <div class="meters-grid">
+            <div class="meter-box">
+              <div class="meter-head">
+                <span>Moisture &amp; Core Shield</span>
+                <span id="shield-score">82%</span>
+              </div>
+              <div class="meter-track"><div class="meter-fill green" id="shield-bar" style="width: 82%;"></div></div>
+            </div>
+            <div class="meter-box">
+              <div class="meter-head">
+                <span>Retail Markup Saved</span>
+                <span id="markup-score">36%</span>
+              </div>
+              <div class="meter-track"><div class="meter-fill" id="markup-bar" style="width: 72%;"></div></div>
+            </div>
+          </div>
+
+          <!-- Pinned Spec Comparison Box -->
+          <div class="pinned-box hidden" id="pinned-box">
+            <div class="pinned-head">
+              <span id="pinned-label">Pinned Spec A</span>
+              <button type="button" style="background:none;border:none;color:#CFCBC2;cursor:pointer;font-size:0.75rem;" onclick="clearPin()">Clear ✕</button>
+            </div>
+            <div id="pinned-details" style="color:#F5EFE6;"></div>
+          </div>
 
           <div class="spec-breakdown" id="spec-breakdown"></div>
 
@@ -992,7 +1313,7 @@
     <section class="edu-section">
       <div class="edu-header">
         <h2>Inspect Every Layer Before You Decide</h2>
-        <p style="color: var(--text-muted); font-size: 0.94rem;">Visit our Sanganer manufacturing unit to examine physical cut-sections of our boards, edge-banding, and hardware side by side.</p>
+        <p style="color: var(--text-muted); font-size: 0.94rem;">Visit our manufacturing workshop to examine physical cut-sections of our boards, edge-banding, and hardware side by side.</p>
       </div>
 
       <div class="edu-grid">
@@ -1010,7 +1331,7 @@
           <ul class="edu-list">
             <li><strong>Hot-Melt PVC Edge-Banding:</strong> Industrial 200°C PUR/EVA bonding seals all 4 board edges—steam and water cannot seep in near sinks or hobs.</li>
             <li><strong>Precision Panel Saw &amp; CNC:</strong> Exact millimeter squareness with concealed minifix/dowel joinery and zero exposed screw heads.</li>
-            <li><strong>Clean 3-Day Installation:</strong> Manufactured at Sanganer; assembled quietly at your flat without weeks of dust.</li>
+            <li><strong>Clean 3-Day Installation:</strong> Manufactured in-house; assembled quietly at your home without weeks of dust.</li>
           </ul>
         </div>
 
@@ -1019,7 +1340,7 @@
           <ul class="edu-list">
             <li><strong>Modular Kitchen Base:</strong> Soft-close hinges on all shutters, 5 soft-close tandem drawers, 1 Bottle Pull-Out (BPO), and 1 cutlery tray.</li>
             <li><strong>Modular Wardrobe Base:</strong> Soft-close hinges, 2 smooth-glide drawers, 1 heavy-duty hanging rod, and adjustable internal shelves.</li>
-            <li><strong>Zero Showroom Markup:</strong> Direct factory billing from Sanganer, Jaipur.</li>
+            <li><strong>Transparent Area Math:</strong> The 2 ft empty wall gap between kitchen counter and wall cabinets is never billed.</li>
           </ul>
         </div>
       </div>
@@ -1032,8 +1353,9 @@
   </footer>
 
   <script>
-    // Silent Backend Pricing Configuration (Never display per-unit hardware numbers in UI)
+    // Silent Backend Pricing Configuration (No per-unit hardware numbers or markup add-ons exposed in UI)
     const BASE_RATES = { laminate: 1200, acrylic: 1650, pu: 2400 };
+    const TYPE_UPLIFT = { semi: 0, fully: 400 };
     const BOARD_UPLIFTS = { hybrid: 0, merino: 100, bwp: 200 };
     const HW_CONFIG = {
       ozone: {
@@ -1069,20 +1391,63 @@
     };
 
     let state = {
-      mode: 'kitchen', // 'kitchen' | 'wardrobe' | 'both'
+      mode: 'kitchen',      // 'kitchen' | 'wardrobe' | 'both'
+      kType: 'semi',        // 'semi' | 'fully'
       kLayout: 'lshape',
+      hasLoft: false,       // false = 4.75 ft (2.75 base + 2.0 overhead); true = 6.75 ft (+2.0 loft)
       wStyle: 'hinged',
       finish: 'laminate',
       board: 'hybrid',
       hw: 'ozone',
       kDrawers: 5,
       wDrawers: 2,
-      visTab: 'blueprint',
-      attachedPlanName: ''
+      visTab: 'elevation',
+      swatchUpper: '#5E716A',
+      swatchLower: '#D6B88D',
+      swatchName: 'Sage & Warm Oak',
+      attachedPlanName: '',
+      pinnedSpec: null
     };
+
+    let quizAnswers = { 1: null, 2: null, 3: null };
 
     function formatINR(num) {
       return '₹' + Math.round(num).toLocaleString('en-IN');
+    }
+
+    function toggleQuiz() {
+      const body = document.getElementById('quiz-body');
+      const btn = document.getElementById('quiz-toggle-btn');
+      const isHidden = body.classList.toggle('hidden');
+      btn.textContent = isHidden ? 'Start 15-Sec Match ▾' : 'Hide Match Quiz ▴';
+    }
+
+    function answerQuiz(step, val, btnEl) {
+      quizAnswers[step] = val;
+      btnEl.parentElement.querySelectorAll('.quiz-opt-btn').forEach(b => b.classList.remove('selected'));
+      btnEl.classList.add('selected');
+
+      if (quizAnswers[1] && quizAnswers[2] && quizAnswers[3]) {
+        setMode('kitchen');
+        setKitchenType(quizAnswers[1]);
+        setBoard(quizAnswers[2] === 'marine' ? 'merino' : 'hybrid');
+        if (quizAnswers[3] === 'gloss') {
+          setFinish('acrylic');
+          setHardware('hafele');
+        } else {
+          setFinish('laminate');
+          setHardware('ozone');
+        }
+
+        const personaName = quizAnswers[3] === 'gloss'
+          ? 'The Contemporary Connoisseur'
+          : (quizAnswers[2] === 'marine' ? 'The Zero-Maintenance Chef' : 'The Smart Value Planner');
+
+        const resBox = document.getElementById('persona-result');
+        const resText = document.getElementById('persona-text');
+        resBox.classList.remove('hidden');
+        resText.innerHTML = `<strong>Your Match: ${personaName}</strong> — Auto-configured to ${quizAnswers[1] === 'fully' ? 'Fully Modular' : 'Semi-Modular'}, ${quizAnswers[2] === 'marine' ? 'Merino Marine Board' : 'Smart Hybrid Core'}, and ${quizAnswers[3] === 'gloss' ? 'Acrylic + Hafele/Hettich' : 'Matte Laminate + OEM Soft-Close'}.`;
+      }
     }
 
     function setMode(mode) {
@@ -1122,7 +1487,23 @@
         wStep.classList.remove('hidden');
         banner.innerHTML = '<strong>Included in Package Base:</strong> Kitchen (5 Tandem Drawers + 1 BPO + 1 Cutlery Tray + Soft-Close Hinges) &amp; Wardrobe (2 Drawers + 1 Hanging Rod).';
       }
+      updateFinishBadges();
       updateAll();
+    }
+
+    function setKitchenType(ktype) {
+      state.kType = ktype;
+      document.getElementById('ktype-semi').classList.toggle('active', ktype === 'semi');
+      document.getElementById('ktype-fully').classList.toggle('active', ktype === 'fully');
+      updateFinishBadges();
+      updateAll();
+    }
+
+    function updateFinishBadges() {
+      const uplift = state.mode === 'wardrobe' ? 0 : TYPE_UPLIFT[state.kType];
+      document.getElementById('tag-laminate').textContent = `${formatINR(BASE_RATES.laminate + uplift)} / sq.ft`;
+      document.getElementById('tag-acrylic').textContent = `${formatINR(BASE_RATES.acrylic + uplift)} / sq.ft`;
+      document.getElementById('tag-pu').textContent = `${formatINR(BASE_RATES.pu + uplift)} / sq.ft`;
     }
 
     function setKitchenLayout(layout) {
@@ -1138,20 +1519,21 @@
     function applyKitchenPreset(preset) {
       const wA = document.getElementById('k-wallA');
       const wB = document.getElementById('k-wallB');
-      const wC = document.getElementById('k-wallC');
-      const loft = document.getElementById('k-loft');
-      loft.checked = true;
-
+      setKitchenLayout('lshape');
       if (preset === 'compact') {
-        setKitchenLayout('lshape');
         wA.value = 8; wB.value = 6;
       } else if (preset === 'standard') {
-        setKitchenLayout('lshape');
         wA.value = 10; wB.value = 8;
       } else {
-        setKitchenLayout('lshape');
         wA.value = 12; wB.value = 10;
       }
+      updateAll();
+    }
+
+    function setLoft(hasLoft) {
+      state.hasLoft = hasLoft;
+      document.getElementById('loft-no').classList.toggle('active', !hasLoft);
+      document.getElementById('loft-yes').classList.toggle('active', hasLoft);
       updateAll();
     }
 
@@ -1206,8 +1588,19 @@
 
     function setVisualTab(tab) {
       state.visTab = tab;
+      document.getElementById('tab-elevation').classList.toggle('active', tab === 'elevation');
       document.getElementById('tab-blueprint').classList.toggle('active', tab === 'blueprint');
       document.getElementById('tab-cutaway').classList.toggle('active', tab === 'cutaway');
+      renderVisuals();
+    }
+
+    function setSwatch(upperHex, lowerHex, name, btnEl) {
+      state.swatchUpper = upperHex;
+      state.swatchLower = lowerHex;
+      state.swatchName = name;
+      document.getElementById('swatch-name').textContent = 'Shade: ' + name;
+      document.querySelectorAll('.swatch-dot').forEach(d => d.classList.remove('active'));
+      btnEl.classList.add('active');
       renderVisuals();
     }
 
@@ -1247,34 +1640,35 @@
       const wA = parseInt(document.getElementById('k-wallA').value, 10);
       const wB = parseInt(document.getElementById('k-wallB').value, 10);
       const wC = parseInt(document.getElementById('k-wallC').value, 10);
-      const hasLoft = document.getElementById('k-loft').checked;
 
       document.getElementById('k-wallA-val').textContent = wA + ' ft';
       document.getElementById('k-wallB-val').textContent = wB + ' ft';
       document.getElementById('k-wallC-val').textContent = wC + ' ft';
 
-      let sqft = 85;
+      let effRun = 16;
       if (state.kLayout === 'straight') {
-        sqft = Math.round(wA * (hasLoft ? 6.5 : 5.0));
+        effRun = wA;
       } else if (state.kLayout === 'lshape') {
-        const effRun = Math.max(8, wA + wB - 2);
-        sqft = Math.round(effRun * (hasLoft ? 5.3125 : 4.0));
+        effRun = Math.max(8, wA + wB - 2);
       } else if (state.kLayout === 'parallel') {
-        const effRun = wA + wB;
-        sqft = Math.round(effRun * (hasLoft ? 5.5 : 4.2));
+        effRun = wA + wB;
       } else {
-        const effRun = Math.max(12, wA + wB + wC - 4);
-        sqft = Math.round(effRun * (hasLoft ? 5.2 : 4.0));
+        effRun = Math.max(12, wA + wB + wC - 4);
       }
 
+      // Indian kitchen vertical geometry: 2.75 ft base + 2.0 ft overhead = 4.75 ft (2.0 ft backsplash excluded)
+      // Adding ceiling loft adds +2.0 ft = 6.75 ft
+      const verticalHt = state.hasLoft ? 6.75 : 4.75;
+      const sqft = Math.round(effRun * verticalHt);
+
       const hw = HW_CONFIG[state.hw];
-      const effSqftRate = BASE_RATES[state.finish] + BOARD_UPLIFTS[state.board] + hw.hingeSqft;
+      const effSqftRate = BASE_RATES[state.finish] + TYPE_UPLIFT[state.kType] + BOARD_UPLIFTS[state.board] + hw.hingeSqft;
       const cabAndHinge = sqft * effSqftRate;
       const extraDrawers = Math.max(0, state.kDrawers - 5);
       const drawerAddon = (5 * hw.upgIncluded) + (extraDrawers * hw.extraDrawer);
       const total = cabAndHinge + drawerAddon;
 
-      return { wA, wB, wC, hasLoft, sqft, total };
+      return { wA, wB, wC, effRun, verticalHt, sqft, total };
     }
 
     function computeWardrobeMetrics() {
@@ -1294,35 +1688,33 @@
       return { width, height, sqft, total };
     }
 
-    function updateAdvisor(kData, wData) {
+    function updateAdvisor() {
       const adv = document.getElementById('advisor-text');
       if (state.mode === 'wardrobe' && state.board === 'bwp') {
         adv.textContent = 'Honest factory tip: For dry bedroom wardrobes, our included Action Tesa HDHMR / BWR core gives superior screw-holding strength. You only need Full BWP Marine Ply if this wardrobe shares a damp bathroom wall.';
       } else if (state.mode === 'wardrobe' && state.wStyle === 'sliding') {
-        adv.textContent = 'Sliding wardrobes save aisle space in compact bedrooms. Heavy-duty soft-close sliding track channels will be matched to your exact shutter weight during free laser site measurement.';
-      } else if (state.finish !== 'laminate' && state.hw === 'ozone') {
-        adv.textContent = 'Good to know: High-gloss Acrylic and Italian PU shutters are denser than laminates—upgrading to Hafele/Hettich or Blum hinges gives extra long-term alignment stability.';
-      } else if (state.board === 'hybrid') {
-        adv.textContent = 'Smart value: Your base quote already builds wet sink & base zones in IS:710 BWP Marine Ply while using calibrated HDHMR/BWR for dry upper cabinets—protecting against water swelling without overpaying.';
+        adv.textContent = 'Sliding wardrobes save aisle space in compact bedrooms. Heavy-duty soft-close sliding track channels are matched to your exact shutter weight during free laser site measurement.';
+      } else if (state.kType === 'semi') {
+        adv.textContent = 'Semi-Modular uses your existing granite/marble partitions below counter while building wet sink shutters and overhead cabinets with BWP protection—and never charges for the 2 ft empty backsplash gap.';
       } else if (state.board === 'merino') {
-        adv.textContent = 'Merino Marine Board upgrades every cabinet box uniformly to high-density moisture-resistant structural board—our most popular choice among Jaipur homeowners.';
+        adv.textContent = 'Fully Modular + Merino Marine Board builds every lower and upper cabinet box in uniform high-density moisture-resistant structural board—our most popular choice for new homes.';
       } else {
-        adv.textContent = 'Full IS:710 BWP Marine Plywood gives 100% boiling-waterproof hardwood construction across every cabinet, backed by our 10-Year Structural Carcass Warranty.';
+        adv.textContent = 'Fully Modular builds 100% factory-engineered carcass boxes below the counter as well as overhead, with IS:710 BWP Marine Ply protecting wet sink zones.';
       }
     }
 
     function renderVisuals() {
       const stage = document.getElementById('svg-stage');
+
       if (state.visTab === 'cutaway') {
         stage.innerHTML = `
           <svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
             <rect x="6" y="6" width="428" height="208" rx="10" fill="#FFFFFF" stroke="#E2DBD0"/>
             <text x="20" y="28" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1C1C1A">WHY MACHINE EDGE-BANDING &amp; CORE SELECTION MATTER</text>
             
-            <!-- Left Box: Factory Machine -->
             <rect x="20" y="42" width="192" height="156" rx="8" fill="#ECF7F1" stroke="#B7DEC9"/>
             <text x="32" y="62" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1E6B45">✓ THE MODULAR MAKERS</text>
-            <rect x="34" y="76" width="164" height="34" rx="4" fill="#C8973A" opacity="0.25" stroke="#C8973A" stroke-width="1.5"/>
+            <rect x="34" y="76" width="164" height="34" rx="4" fill="${state.swatchUpper}" opacity="0.3" stroke="#1C1C1A" stroke-width="1.5"/>
             <line x1="34" y1="76" x2="198" y2="76" stroke="#1C1C1A" stroke-width="3"/>
             <line x1="34" y1="110" x2="198" y2="110" stroke="#1C1C1A" stroke-width="3"/>
             <text x="42" y="97" font-family="DM Sans, sans-serif" font-size="9.5" font-weight="700" fill="#1C1C1A">200°C Hot-Melt 2mm PVC Seal</text>
@@ -1331,7 +1723,6 @@
             <text x="32" y="164" font-family="DM Sans, sans-serif" font-size="9.5" fill="#154E32">• CNC dowel/minifix joinery</text>
             <text x="32" y="181" font-family="DM Sans, sans-serif" font-size="9.5" fill="#154E32">• 10-Yr Structural Warranty</text>
 
-            <!-- Right Box: Local Carpenter -->
             <rect x="228" y="42" width="192" height="156" rx="8" fill="#FEF2F2" stroke="#FECACA"/>
             <text x="240" y="62" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#991B1B">✕ SITE CARPENTER WORK</text>
             <rect x="242" y="76" width="164" height="34" rx="4" fill="#E5E7EB" stroke="#9CA3AF" stroke-dasharray="4 2"/>
@@ -1348,40 +1739,86 @@
 
       const k = computeKitchenMetrics();
       const w = computeWardrobeMetrics();
+      const glossHighlight = state.finish !== 'laminate' ? '<line x1="92" y1="78" x2="145" y2="108" stroke="#FFFFFF" stroke-width="2" opacity="0.55"/>' : '';
+
+      if (state.visTab === 'elevation' && state.mode !== 'wardrobe') {
+        const loftSVG = state.hasLoft
+          ? `<rect x="82" y="34" width="236" height="24" rx="2" fill="${state.swatchUpper}" stroke="#1C1C1A" stroke-width="1.3"/>
+             <line x1="160" y1="34" x2="160" y2="58" stroke="#1C1C1A" stroke-width="1"/>
+             <line x1="240" y1="34" x2="240" y2="58" stroke="#1C1C1A" stroke-width="1"/>
+             <text x="326" y="49" font-size="8.5" font-weight="700" fill="#A97B24">+2.0 ft Loft</text>`
+          : `<text x="200" y="50" text-anchor="middle" font-size="8.5" fill="#8C867B">(Optional +2 ft Ceiling Loft Off)</text>`;
+
+        const baseLabel = state.kType === 'semi'
+          ? 'Semi-Modular: Shutters + Drawers on Civil Marble'
+          : 'Fully Modular: Full Factory Ply/HDHMR Carcass';
+
+        stage.innerHTML = `
+          <svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="428" height="208" rx="10" fill="#FFFFFF" stroke="#E2DBD0"/>
+            <text x="20" y="23" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="#1C1C1A">FRONT ELEVATION • ${k.verticalHt} FT CHARGED (${k.sqft} SQ.FT)</text>
+            
+            <!-- Loft -->
+            ${loftSVG}
+
+            <!-- Standard 2 ft Overhead Cabinets -->
+            <rect x="82" y="60" width="236" height="36" rx="2" fill="${state.swatchUpper}" stroke="#1C1C1A" stroke-width="1.5"/>
+            <line x1="141" y1="60" x2="141" y2="96" stroke="#1C1C1A" stroke-width="1"/>
+            <line x1="200" y1="60" x2="200" y2="96" stroke="#1C1C1A" stroke-width="1"/>
+            <line x1="259" y1="60" x2="259" y2="96" stroke="#1C1C1A" stroke-width="1"/>
+            ${glossHighlight}
+            <text x="326" y="81" font-size="8.5" font-weight="700" fill="#1C1C1A">2.0 ft Overhead</text>
+
+            <!-- 2 ft Empty Backsplash Gap (0 sq.ft charged) -->
+            <rect x="82" y="96" width="236" height="34" fill="#ECF7F1" stroke="#B7DEC9" stroke-dasharray="3 2"/>
+            <text x="200" y="116" text-anchor="middle" font-size="9" font-weight="700" fill="#1E6B45">2.0 ft Empty Wall / Dado Gap = 0 sq.ft Charged</text>
+            <text x="326" y="116" font-size="8.5" font-weight="700" fill="#1E6B45">Excluded</text>
+
+            <!-- Countertop Line -->
+            <rect x="78" y="130" width="244" height="5" fill="#1C1C1A"/>
+
+            <!-- 2.75 ft Base Cabinets -->
+            <rect x="82" y="135" width="236" height="52" rx="2" fill="${state.swatchLower}" stroke="#1C1C1A" stroke-width="1.5"/>
+            <line x1="150" y1="135" x2="150" y2="187" stroke="#1C1C1A" stroke-width="1"/>
+            <line x1="230" y1="135" x2="230" y2="187" stroke="#1C1C1A" stroke-width="1"/>
+            <!-- Tandem Drawer Lines -->
+            <line x1="150" y1="152" x2="230" y2="152" stroke="#1C1C1A" stroke-width="1"/>
+            <line x1="150" y1="169" x2="230" y2="169" stroke="#1C1C1A" stroke-width="1"/>
+            <text x="326" y="164" font-size="8.5" font-weight="700" fill="#1C1C1A">2.75 ft Base</text>
+
+            <text x="220" y="205" text-anchor="middle" font-size="9.5" font-weight="600" fill="#5E5D58">${baseLabel}</text>
+          </svg>
+        `;
+        return;
+      }
 
       if (state.mode === 'wardrobe') {
         const drawerCount = state.wDrawers;
         let drawerRects = '';
-        const rows = Math.min(4, Math.ceil(drawerCount / 2));
         for (let i = 0; i < drawerCount; i++) {
           const col = i % 2;
           const row = Math.floor(i / 2);
           const x = 135 + col * 85;
           const y = 138 + row * 12;
           if (y < 185) {
-            drawerRects += `<rect x="${x}" y="${y}" width="80" height="10" rx="2" fill="#C8973A" opacity="0.35" stroke="#1C1C1A" stroke-width="1"/>`;
+            drawerRects += `<rect x="${x}" y="${y}" width="80" height="10" rx="2" fill="${state.swatchLower}" stroke="#1C1C1A" stroke-width="1"/>`;
           }
         }
         stage.innerHTML = `
           <svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
             <rect x="6" y="6" width="428" height="208" rx="10" fill="#FFFFFF" stroke="#E2DBD0"/>
-            <text x="20" y="26" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1C1C1A">WARDROBE ELEVATION (${state.wStyle.toUpperCase()}) • ${w.sqft} SQ.FT</text>
+            <text x="20" y="26" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1C1C1A">WARDROBE DESIGN (${state.wStyle.toUpperCase()}) • ${w.sqft} SQ.FT</text>
             
-            <!-- Wardrobe Frame -->
-            <rect x="125" y="42" width="190" height="148" rx="4" fill="#FAF8F5" stroke="#1C1C1A" stroke-width="2"/>
+            <rect x="125" y="42" width="190" height="148" rx="4" fill="${state.swatchUpper}" opacity="0.28" stroke="#1C1C1A" stroke-width="2"/>
             <line x1="220" y1="42" x2="220" y2="190" stroke="#1C1C1A" stroke-width="1.5"/>
-            <!-- Hanging Rod Left -->
             <line x1="135" y1="64" x2="210" y2="64" stroke="#C8973A" stroke-width="3"/>
-            <text x="142" y="82" font-family="DM Sans, sans-serif" font-size="9" fill="#5E5D58">Hanging Zone</text>
-            <!-- Shelves Right -->
+            <text x="142" y="82" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" fill="#1C1C1A">Hanging Zone</text>
             <line x1="228" y1="74" x2="306" y2="74" stroke="#1C1C1A" stroke-width="1.2"/>
             <line x1="228" y1="104" x2="306" y2="104" stroke="#1C1C1A" stroke-width="1.2"/>
-            <text x="236" y="92" font-family="DM Sans, sans-serif" font-size="9" fill="#5E5D58">Shelves</text>
-            <!-- Dynamic Drawers -->
+            <text x="236" y="92" font-family="DM Sans, sans-serif" font-size="9" font-weight="600" fill="#1C1C1A">Shelves</text>
             ${drawerRects}
             <text x="145" y="132" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" fill="#1C1C1A">${drawerCount} Soft-Close Drawers</text>
             
-            <!-- Dimension Labels -->
             <text x="220" y="206" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#1C1C1A">Width: ${w.width} ft</text>
             <text x="330" y="120" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" fill="#A97B24">Height: ${w.height} ft</text>
           </svg>
@@ -1389,11 +1826,11 @@
         return;
       }
 
-      // Kitchen Blueprint SVG (also shown as primary visual in 'both' mode)
+      // Top-Down Kitchen Blueprint SVG
       let layoutSVG = '';
       if (state.kLayout === 'straight') {
         layoutSVG = `
-          <rect x="70" y="68" width="300" height="54" rx="4" fill="#FBF6EC" stroke="#1C1C1A" stroke-width="2"/>
+          <rect x="70" y="68" width="300" height="54" rx="4" fill="${state.swatchLower}" opacity="0.45" stroke="#1C1C1A" stroke-width="2"/>
           <rect x="82" y="76" width="76" height="38" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
           <text x="120" y="98" text-anchor="middle" font-size="9" font-weight="700" fill="#0369A1">SINK (BWP)</text>
           <rect x="275" y="76" width="82" height="38" rx="3" fill="#FEF3C7" stroke="#D97706"/>
@@ -1402,7 +1839,7 @@
         `;
       } else if (state.kLayout === 'lshape') {
         layoutSVG = `
-          <path d="M90 56 H340 V104 H142 V176 H90 Z" fill="#FBF6EC" stroke="#1C1C1A" stroke-width="2"/>
+          <path d="M90 56 H340 V104 H142 V176 H90 Z" fill="${state.swatchLower}" opacity="0.45" stroke="#1C1C1A" stroke-width="2"/>
           <rect x="155" y="64" width="76" height="32" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
           <text x="193" y="83" text-anchor="middle" font-size="9" font-weight="700" fill="#0369A1">SINK (BWP)</text>
           <rect x="255" y="64" width="74" height="32" rx="3" fill="#FEF3C7" stroke="#D97706"/>
@@ -1412,10 +1849,10 @@
         `;
       } else if (state.kLayout === 'parallel') {
         layoutSVG = `
-          <rect x="90" y="54" width="260" height="42" rx="4" fill="#FBF6EC" stroke="#1C1C1A" stroke-width="2"/>
+          <rect x="90" y="54" width="260" height="42" rx="4" fill="${state.swatchLower}" opacity="0.45" stroke="#1C1C1A" stroke-width="2"/>
           <rect x="110" y="60" width="80" height="30" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
           <text x="150" y="78" text-anchor="middle" font-size="9" font-weight="700" fill="#0369A1">SINK (BWP)</text>
-          <rect x="90" y="132" width="260" height="42" rx="4" fill="#FBF6EC" stroke="#1C1C1A" stroke-width="2"/>
+          <rect x="90" y="132" width="260" height="42" rx="4" fill="${state.swatchLower}" opacity="0.45" stroke="#1C1C1A" stroke-width="2"/>
           <rect x="240" y="138" width="86" height="30" rx="3" fill="#FEF3C7" stroke="#D97706"/>
           <text x="283" y="156" text-anchor="middle" font-size="9" font-weight="700" fill="#92400E">HOB ZONE</text>
           <text x="220" y="45" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1C1C1A">Wall A: ${k.wA} ft</text>
@@ -1423,7 +1860,7 @@
         `;
       } else {
         layoutSVG = `
-          <path d="M95 56 H345 V172 H295 V100 H145 V172 H95 Z" fill="#FBF6EC" stroke="#1C1C1A" stroke-width="2"/>
+          <path d="M95 56 H345 V172 H295 V100 H145 V172 H95 Z" fill="${state.swatchLower}" opacity="0.45" stroke="#1C1C1A" stroke-width="2"/>
           <rect x="180" y="63" width="80" height="30" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
           <text x="220" y="81" text-anchor="middle" font-size="9" font-weight="700" fill="#0369A1">SINK (BWP)</text>
           <text x="220" y="46" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1C1C1A">Main Wall A: ${k.wA} ft</text>
@@ -1436,45 +1873,64 @@
       stage.innerHTML = `
         <svg viewBox="0 0 440 220" xmlns="http://www.w3.org/2000/svg">
           <rect x="6" y="6" width="428" height="208" rx="10" fill="#FFFFFF" stroke="#E2DBD0"/>
-          <text x="20" y="25" font-family="DM Sans, sans-serif" font-size="10.5" font-weight="700" fill="#1C1C1A">TOP-DOWN BLUEPRINT • EST. AREA: ${totalDisplaySqft}</text>
+          <text x="20" y="25" font-family="DM Sans, sans-serif" font-size="10.5" font-weight="700" fill="#1C1C1A">TOP-DOWN BLUEPRINT • CHARGED AREA: ${totalDisplaySqft}</text>
           ${layoutSVG}
           <text x="220" y="205" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9.5" fill="#5E5D58">
-            ${k.hasLoft ? 'Base + Wall + Overhead Loft Cabinets' : 'Base + Wall Cabinets (No Loft)'} • ${state.kDrawers} Tandem Drawers + 1 BPO + 1 Cutlery
+            ${k.verticalHt} ft Furniture Height (2 ft Backsplash Excluded) • ${state.kDrawers} Tandems + 1 BPO + 1 Cutlery
           </text>
         </svg>
       `;
     }
 
+    let latestSnapshot = { title: '', range: '' };
+
+    function pinCurrentSpec() {
+      state.pinnedSpec = { ...latestSnapshot };
+      const box = document.getElementById('pinned-box');
+      box.classList.remove('hidden');
+      document.getElementById('pinned-details').textContent = `${state.pinnedSpec.title} ➔ ${state.pinnedSpec.range}`;
+    }
+
+    function clearPin() {
+      state.pinnedSpec = null;
+      document.getElementById('pinned-box').classList.add('hidden');
+    }
+
     function updateAll() {
       const k = computeKitchenMetrics();
       const w = computeWardrobeMetrics();
-      updateAdvisor(k, w);
+      updateAdvisor();
       renderVisuals();
 
       let totalExact = 0;
       let areaSummary = '';
       let breakdownHTML = '';
       let waLines = [];
+      let shortTitle = '';
 
       const custName = document.getElementById('cust-name').value.trim();
-      const locality = document.getElementById('locality').value;
+      const locality = document.getElementById('locality').value.trim() || 'Not specified';
+      const kTypeLabel = state.kType === 'fully' ? 'Fully Modular' : 'Semi-Modular';
 
-      if (custName) waLines.push(`*Name / Project:* ${custName}`);
-      waLines.push(`*Locality:* ${locality}, Jaipur`);
+      if (custName) waLines.push(`*Name / Home:* ${custName}`);
+      waLines.push(`*Location:* ${locality}`);
 
       if (state.mode === 'kitchen') {
         totalExact = k.total;
-        areaSummary = `Approx. ${k.sqft} sq.ft Modular Kitchen • Incl. GST & Installation`;
+        shortTitle = `${kTypeLabel} Kitchen (${k.sqft} sq.ft, ${FINISH_LABELS[state.finish]})`;
+        areaSummary = `Approx. ${k.sqft} sq.ft ${kTypeLabel} Kitchen • 2 ft Backsplash Excluded`;
         breakdownHTML = `
-          <div class="spec-line"><span>Layout &amp; Area</span><span>${state.kLayout.toUpperCase()} (~${k.sqft} sq.ft${k.hasLoft ? ' + Loft' : ''})</span></div>
+          <div class="spec-line"><span>Structure &amp; Layout</span><span>${kTypeLabel} • ${state.kLayout.toUpperCase()} (~${k.sqft} sq.ft)</span></div>
+          <div class="spec-line"><span>Vertical Height</span><span>${k.verticalHt} ft (${state.hasLoft ? 'With +2 ft Loft' : 'Standard 2 ft Overhead'})</span></div>
           <div class="spec-line"><span>Shutter Finish</span><span>${FINISH_LABELS[state.finish]}</span></div>
           <div class="spec-line"><span>Carcass Core</span><span>${BOARD_LABELS[state.board]}</span></div>
           <div class="spec-line"><span>Hardware &amp; Drawers</span><span>${HW_CONFIG[state.hw].shortName} (${state.kDrawers} Tandems + 1 BPO + 1 Cutlery)</span></div>
         `;
-        waLines.push(`*Scope:* Modular Kitchen (${state.kLayout.toUpperCase()}, ~${k.sqft} sq.ft${k.hasLoft ? ' with Loft' : ''})`);
-        waLines.push(`*Drawers & Inclusions:* ${state.kDrawers} Tandem Drawers + 1 BPO + 1 Cutlery Tray`);
+        waLines.push(`*Scope:* ${kTypeLabel} Kitchen (${state.kLayout.toUpperCase()}, ~${k.sqft} sq.ft, ${k.verticalHt} ft height)`);
+        waLines.push(`*Inclusions:* ${state.kDrawers} Tandem Drawers + 1 BPO + 1 Cutlery Tray`);
       } else if (state.mode === 'wardrobe') {
         totalExact = w.total;
+        shortTitle = `Wardrobe (${w.sqft} sq.ft, ${FINISH_LABELS[state.finish]})`;
         areaSummary = `Approx. ${w.sqft} sq.ft Modular Wardrobe (${w.width}×${w.height} ft) • Incl. GST`;
         breakdownHTML = `
           <div class="spec-line"><span>Wardrobe Size</span><span>${w.width} ft × ${w.height} ft (${w.sqft} sq.ft, ${state.wStyle})</span></div>
@@ -1486,33 +1942,43 @@
         waLines.push(`*Inclusions:* ${state.wDrawers} Soft-Close Drawers + 1 Hanging Rod`);
       } else {
         totalExact = k.total + w.total;
-        areaSummary = `Kitchen (~${k.sqft} sq.ft) + Wardrobe (${w.sqft} sq.ft) Package`;
+        shortTitle = `${kTypeLabel} Kitchen + Wardrobe (${k.sqft + w.sqft} sq.ft)`;
+        areaSummary = `${kTypeLabel} Kitchen (~${k.sqft} sq.ft) + Wardrobe (${w.sqft} sq.ft) Package`;
         breakdownHTML = `
-          <div class="spec-line"><span>Kitchen (${state.kLayout.toUpperCase()})</span><span>~${k.sqft} sq.ft • ${state.kDrawers} Tandems + 1 BPO + 1 Cutlery</span></div>
+          <div class="spec-line"><span>Kitchen (${kTypeLabel})</span><span>${state.kLayout.toUpperCase()} (~${k.sqft} sq.ft) • ${state.kDrawers} Tandems + BPO + Cutlery</span></div>
           <div class="spec-line"><span>Wardrobe (${state.wStyle})</span><span>${w.width}×${w.height} ft (${w.sqft} sq.ft) • ${state.wDrawers} Drawers + 1 Rod</span></div>
           <div class="spec-line"><span>Finish &amp; Core</span><span>${FINISH_LABELS[state.finish]} | ${BOARD_LABELS[state.board]}</span></div>
           <div class="spec-line"><span>Hardware Brand</span><span>${HW_CONFIG[state.hw].shortName}</span></div>
         `;
-        waLines.push(`*Scope:* Kitchen + Wardrobe Package`);
-        waLines.push(`*Kitchen:* ${state.kLayout.toUpperCase()}, ~${k.sqft} sq.ft, ${state.kDrawers} Tandems + 1 BPO + 1 Cutlery`);
+        waLines.push(`*Scope:* ${kTypeLabel} Kitchen + Wardrobe Package`);
+        waLines.push(`*Kitchen:* ${state.kLayout.toUpperCase()}, ~${k.sqft} sq.ft (${k.verticalHt} ft ht), ${state.kDrawers} Tandems + 1 BPO + 1 Cutlery`);
         waLines.push(`*Wardrobe:* ${state.wStyle}, ${w.width}×${w.height} ft (${w.sqft} sq.ft), ${state.wDrawers} Drawers + 1 Rod`);
       }
 
       const lowBand = Math.round((totalExact * 0.95) / 1000) * 1000;
       const highBand = Math.round((totalExact * 1.05) / 1000) * 1000;
       const rangeText = `${formatINR(lowBand)} – ${formatINR(highBand)}`;
+      latestSnapshot = { title: shortTitle, range: rangeText };
 
-      // Conservative Jaipur showroom benchmark (~55% higher than factory-direct)
-      const retailBenchmark = Math.round((totalExact * 1.55) / 1000) * 1000;
+      // City-agnostic traditional retail showroom benchmark (~56% higher than factory-direct)
+      const retailBenchmark = Math.round((totalExact * 1.56) / 1000) * 1000;
       const savingsAmt = retailBenchmark - totalExact;
       const savingsPct = Math.round((savingsAmt / retailBenchmark) * 100);
 
+      // Update Durability Shield Meter
+      const shieldPct = state.board === 'bwp' ? 100 : (state.board === 'merino' ? 92 : 82);
+      document.getElementById('shield-score').textContent = shieldPct + '%';
+      document.getElementById('shield-bar').style.width = shieldPct + '%';
+
+      document.getElementById('markup-score').textContent = savingsPct + '%';
+      document.getElementById('markup-bar').style.width = Math.min(95, savingsPct * 2) + '%';
+
       document.getElementById('quote-range').textContent = rangeText;
       document.getElementById('quote-area-summary').textContent = areaSummary;
-      document.getElementById('savings-pill').textContent = `Estimated ${formatINR(savingsAmt)} (${savingsPct}%) lower than Jaipur retail showrooms`;
+      document.getElementById('savings-pill').textContent = `Estimated ${formatINR(savingsAmt)} (${savingsPct}%) lower than traditional retail showrooms`;
       document.getElementById('spec-breakdown').innerHTML = breakdownHTML;
 
-      waLines.push(`*Shutter Finish:* ${FINISH_LABELS[state.finish]}`);
+      waLines.push(`*Shutter Finish:* ${FINISH_LABELS[state.finish]} (${state.swatchName})`);
       waLines.push(`*Carcass Core:* ${BOARD_LABELS[state.board]}`);
       waLines.push(`*Hardware Tier:* ${HW_CONFIG[state.hw].shortName}`);
       waLines.push(`*Configurator Estimate:* ${rangeText}`);
@@ -1520,11 +1986,12 @@
         waLines.push(`*Floor Plan:* Ready to attach (${state.attachedPlanName})`);
       }
 
-      const fullMsg = `Namaste The Modular Makers! I configured an estimate on your website:\n\n${waLines.join('\n')}\n\nPlease share the next steps for a Sanganer factory visit or free laser site measurement.`;
+      const fullMsg = `Namaste The Modular Makers! I configured an estimate on your website:\n\n${waLines.join('\n')}\n\nPlease share the next steps for a workshop visit or free laser site measurement.`;
       document.getElementById('wa-share-btn').href = `https://wa.me/918302366262?text=${encodeURIComponent(fullMsg)}`;
     }
 
     // Initialize on load
+    updateFinishBadges();
     updateAll();
   </script>
 </body>
