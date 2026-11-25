@@ -1052,7 +1052,7 @@
                 <span>Main Wall A Length (Sink &amp; Hob Run)</span>
                 <span class="slider-val" id="k-wallA-val">10 ft</span>
               </div>
-              <input type="range" id="k-wallA" min="6" max="18" step="1" value="10" oninput="onKitchenSliderInput()" />
+              <input type="range" id="k-wallA" min="1" max="18" step="1" value="10" oninput="onKitchenSliderInput()" />
             </div>
 
             <div class="slider-group" id="k-wallB-wrap">
@@ -1060,7 +1060,7 @@
                 <span>Second Wall B Length</span>
                 <span class="slider-val" id="k-wallB-val">8 ft</span>
               </div>
-              <input type="range" id="k-wallB" min="5" max="16" step="1" value="8" oninput="onKitchenSliderInput()" />
+              <input type="range" id="k-wallB" min="1" max="16" step="1" value="8" oninput="onKitchenSliderInput()" />
             </div>
 
             <div class="slider-group hidden" id="k-wallC-wrap">
@@ -1068,7 +1068,7 @@
                 <span>Third Wall C Length (U-Shape Return)</span>
                 <span class="slider-val" id="k-wallC-val">8 ft</span>
               </div>
-              <input type="range" id="k-wallC" min="5" max="14" step="1" value="8" oninput="onKitchenSliderInput()" />
+              <input type="range" id="k-wallC" min="1" max="14" step="1" value="8" oninput="onKitchenSliderInput()" />
             </div>
 
             <label class="field-label" style="margin-top: 8px;">Overhead Cabinet Height</label>
@@ -1103,25 +1103,25 @@
 
             <label class="field-label">Wardrobe Quick Size Presets (Per Unit)</label>
             <div class="pill-row" id="w-preset-pills">
-              <button type="button" class="pill-btn" data-wpreset="compact" onclick="applyWardrobePreset('compact', 5, 7)">Compact (5×7 ft)</button>
-              <button type="button" class="pill-btn active" data-wpreset="standard" onclick="applyWardrobePreset('standard', 7, 8)">Standard (7×8 ft)</button>
-              <button type="button" class="pill-btn" data-wpreset="full" onclick="applyWardrobePreset('full', 9, 9)">Full Height (9×9 ft)</button>
+              <button type="button" class="pill-btn active" data-wpreset="single" onclick="applyWardrobePreset('single', 3, 7)">Single Module (3×7 ft)</button>
+              <button type="button" class="pill-btn" data-wpreset="double" onclick="applyWardrobePreset('double', 6, 7)">Double Module (6×7 ft)</button>
+              <button type="button" class="pill-btn" data-wpreset="full" onclick="applyWardrobePreset('full', 9, 8)">Full-Wall (9×8 ft)</button>
             </div>
 
             <div class="slider-group">
               <div class="slider-label">
-                <span>Wardrobe Width (Per Unit)</span>
-                <span class="slider-val" id="w-width-val">7 ft</span>
+                <span>Wardrobe Width (Per Unit — +1 Drawer Included per 1.5 ft)</span>
+                <span class="slider-val" id="w-width-val">3 ft</span>
               </div>
-              <input type="range" id="w-width" min="4" max="14" step="1" value="7" oninput="onWardrobeSliderInput()" />
+              <input type="range" id="w-width" min="1" max="15" step="0.5" value="3" oninput="onWardrobeSliderInput()" />
             </div>
 
             <div class="slider-group">
               <div class="slider-label">
                 <span>Wardrobe Height</span>
-                <span class="slider-val" id="w-height-val">8 ft</span>
+                <span class="slider-val" id="w-height-val">7 ft</span>
               </div>
-              <input type="range" id="w-height" min="7" max="10" step="1" value="8" oninput="onWardrobeSliderInput()" />
+              <input type="range" id="w-height" min="1" max="11" step="1" value="7" oninput="onWardrobeSliderInput()" />
             </div>
           </div>
         </div>
@@ -1247,7 +1247,7 @@
           <div class="stepper-row hidden" id="w-drawer-stepper">
             <div>
               <div style="font-weight: 700; font-size: 0.9rem;">Soft-Close Drawers (Per Wardrobe)</div>
-              <div style="font-size: 0.78rem; color: var(--text-muted);">2 drawers + 1 hanging rod included per wardrobe</div>
+              <div id="w-drawer-subtext" style="font-size: 0.78rem; color: var(--text-muted);">2 drawers + 1 hanging rod included for 3 ft width</div>
             </div>
             <div class="stepper-controls">
               <button type="button" class="step-btn" onclick="changeWardrobeDrawers(-1)">−</button>
@@ -1282,8 +1282,9 @@
               <select id="home-type" onchange="updateAll()">
                 <option value="2BHK Apartment">2BHK Apartment</option>
                 <option value="3BHK Apartment" selected>3BHK Apartment</option>
-                <option value="4BHK / Villa">4BHK / Independent Villa</option>
+                <option value="4BHK / Independent Villa">4BHK / Independent Villa</option>
                 <option value="Kitchen / Wardrobe Renovation">Kitchen / Wardrobe Renovation</option>
+                <option value="Others">Others</option>
               </select>
             </div>
             <div>
@@ -1344,9 +1345,9 @@
             <div class="meter-box">
               <div class="meter-head">
                 <span>Moisture &amp; Core Shield</span>
-                <span id="shield-score">82%</span>
+                <span id="shield-score">90%</span>
               </div>
-              <div class="meter-track"><div class="meter-fill green" id="shield-bar" style="width: 82%;"></div></div>
+              <div class="meter-track"><div class="meter-fill green" id="shield-bar" style="width: 90%;"></div></div>
             </div>
             <div class="meter-box">
               <div class="meter-head">
@@ -1417,7 +1418,7 @@
           <h3>3. What Is Included in Base Rate</h3>
           <ul class="edu-list">
             <li><strong>Modular Kitchen Base:</strong> Soft-close hinges on all shutters, 5 soft-close tandem drawers, 1 Bottle Pull-Out (BPO), and 1 cutlery tray.</li>
-            <li><strong>Modular Wardrobe Base:</strong> Soft-close hinges, 2 smooth-glide drawers, 1 heavy-duty hanging rod, and adjustable internal shelves.</li>
+            <li><strong>Modular Wardrobe Base:</strong> A 3×7 ft module includes 2 drawers + 1 hanging rod, automatically adding 1 extra drawer for every +1.5 ft width.</li>
             <li><strong>Transparent Area Math:</strong> The 2 ft empty wall gap between kitchen counter and wall cabinets is never billed.</li>
           </ul>
         </div>
@@ -1434,6 +1435,7 @@
     // Silent Backend Pricing Configuration (Zero per-unit hardware numbers or markup add-ons exposed in UI)
     const BASE_RATES = { laminate: 1200, acrylic: 1650, pu: 2400 };
     const TYPE_UPLIFT = { semi: 0, fully: 400 };
+    const W_STYLE_UPLIFT = { hinged: 0, sliding: 100 };
     const BOARD_UPLIFTS = { hybrid: 0, merino: 100, bwp: 200 };
     const HW_CONFIG = {
       ozone: {
@@ -1487,11 +1489,38 @@
       pinnedSpec: null
     };
 
+    let prevWardrobeInc = 2;
     let quizAnswers = { 1: null, 2: null, 3: null };
     let latestSnapshot = { title: '', range: '', summaryText: '', waMessage: '' };
 
     function formatINR(num) {
       return '₹' + Math.round(num).toLocaleString('en-IN');
+    }
+
+    // 3x7 ft base includes 2 drawers; every +1.5 ft width adds +1 included drawer automatically
+    function getWardrobeIncludedDrawers(width) {
+      if (width >= 3.0) {
+        return 2 + Math.floor((width - 3.0 + 1e-6) / 1.5);
+      }
+      if (width >= 1.5) return 1;
+      return 0;
+    }
+
+    function syncWardrobeDrawersForWidth(width) {
+      const newInc = getWardrobeIncludedDrawers(width);
+      const inp = document.getElementById('w-drawer-input');
+      inp.min = newInc;
+
+      if (state.wDrawers === prevWardrobeInc || state.wDrawers < newInc) {
+        state.wDrawers = newInc;
+        inp.value = newInc;
+      }
+      prevWardrobeInc = newInc;
+
+      const sub = document.getElementById('w-drawer-subtext');
+      if (sub) {
+        sub.textContent = `${newInc} drawer${newInc === 1 ? '' : 's'} + 1 hanging rod included for ${width} ft width`;
+      }
     }
 
     function toggleQuiz() {
@@ -1540,6 +1569,8 @@
       const kStep = document.getElementById('k-drawer-stepper');
       const wStep = document.getElementById('w-drawer-stepper');
       const banner = document.getElementById('hw-inclusion-banner');
+      const wWidth = parseFloat(document.getElementById('w-width').value);
+      const wInc = getWardrobeIncludedDrawers(wWidth);
 
       if (mode === 'kitchen') {
         kDim.classList.remove('hidden');
@@ -1556,7 +1587,7 @@
         wDim.style.paddingTop = '0';
         kStep.classList.add('hidden');
         wStep.classList.remove('hidden');
-        banner.innerHTML = '<strong>Already Included in Your Base Wardrobe Price:</strong> Soft-close hinges + <strong>2 Smooth-Glide Drawers</strong> + <strong>1 Heavy-Duty Hanging Rod</strong> (per wardrobe).';
+        banner.innerHTML = `<strong>Already Included in Your Base Wardrobe Price:</strong> Soft-close hinges + <strong>${wInc} Smooth-Glide Drawer${wInc === 1 ? '' : 's'}</strong> (scales +1 per 1.5 ft width) + <strong>1 Hanging Rod</strong> per unit.`;
       } else {
         kDim.classList.remove('hidden');
         wDim.classList.remove('hidden');
@@ -1564,7 +1595,7 @@
         wDim.style.paddingTop = '14px';
         kStep.classList.remove('hidden');
         wStep.classList.remove('hidden');
-        banner.innerHTML = '<strong>Included in Package Base:</strong> Kitchen (5 Tandem Drawers + 1 BPO + 1 Cutlery Tray + Soft-Close Hinges) &amp; Wardrobe (2 Drawers + 1 Hanging Rod per unit).';
+        banner.innerHTML = `<strong>Included in Package Base:</strong> Kitchen (5 Tandem Drawers + 1 BPO + 1 Cutlery Tray) &amp; Wardrobe (${wInc} Drawer${wInc === 1 ? '' : 's'} + 1 Hanging Rod per unit).`;
       }
       updateAll();
     }
@@ -1643,13 +1674,18 @@
     function applyWardrobePreset(presetKey, w, h) {
       document.getElementById('w-width').value = w;
       document.getElementById('w-height').value = h;
+      syncWardrobeDrawersForWidth(w);
       highlightWardrobePreset(presetKey);
-      updateAll();
+      if (state.mode !== 'kitchen') setMode(state.mode);
+      else updateAll();
     }
 
     function onWardrobeSliderInput() {
+      const w = parseFloat(document.getElementById('w-width').value);
+      syncWardrobeDrawersForWidth(w);
       highlightWardrobePreset(null);
-      updateAll();
+      if (state.mode !== 'kitchen') setMode(state.mode);
+      else updateAll();
     }
 
     function setFinish(fin) {
@@ -1698,21 +1734,27 @@
     }
 
     function changeWardrobeDrawers(delta) {
-      state.wDrawers = Math.max(2, state.wDrawers + delta);
+      const w = parseFloat(document.getElementById('w-width').value);
+      const minInc = getWardrobeIncludedDrawers(w);
+      state.wDrawers = Math.max(minInc, state.wDrawers + delta);
       document.getElementById('w-drawer-input').value = state.wDrawers;
       updateAll();
     }
 
     function onWardrobeDrawerTyped(rawVal) {
+      const w = parseFloat(document.getElementById('w-width').value);
+      const minInc = getWardrobeIncludedDrawers(w);
       const parsed = parseInt(rawVal, 10);
-      state.wDrawers = isNaN(parsed) ? 2 : Math.max(2, parsed);
+      state.wDrawers = isNaN(parsed) ? minInc : Math.max(minInc, parsed);
       updateAll();
     }
 
     function normalizeWardrobeDrawers() {
+      const w = parseFloat(document.getElementById('w-width').value);
+      const minInc = getWardrobeIncludedDrawers(w);
       const inp = document.getElementById('w-drawer-input');
       const parsed = parseInt(inp.value, 10);
-      state.wDrawers = isNaN(parsed) ? 2 : Math.max(2, parsed);
+      state.wDrawers = isNaN(parsed) ? minInc : Math.max(minInc, parsed);
       inp.value = state.wDrawers;
       updateAll();
     }
@@ -1748,17 +1790,17 @@
       if (state.kLayout === 'straight') {
         effRun = wA;
       } else if (state.kLayout === 'lshape') {
-        effRun = Math.max(8, wA + wB - 2);
+        effRun = (wA + wB > 3) ? (wA + wB - 2) : Math.max(1, wA + wB - 1);
       } else if (state.kLayout === 'parallel') {
         effRun = wA + wB;
       } else {
-        effRun = Math.max(12, wA + wB + wC - 4);
+        effRun = (wA + wB + wC > 6) ? (wA + wB + wC - 4) : Math.max(2, wA + wB + wC - 2);
       }
 
       // Indian kitchen vertical geometry: 2.75 ft base + 2.0 ft overhead = 4.75 ft (2.0 ft backsplash excluded)
       // Adding ceiling loft adds +2.0 ft = 6.75 ft
       const verticalHt = state.hasLoft ? 6.75 : 4.75;
-      const sqft = Math.round(effRun * verticalHt);
+      const sqft = Math.max(5, Math.round(effRun * verticalHt));
 
       const hw = HW_CONFIG[state.hw];
       const effSqftRate = BASE_RATES[state.finish] + TYPE_UPLIFT[state.kType] + BOARD_UPLIFTS[state.board] + hw.hingeSqft;
@@ -1771,22 +1813,25 @@
     }
 
     function computeWardrobeMetrics() {
-      const width = parseInt(document.getElementById('w-width').value, 10);
+      const width = parseFloat(document.getElementById('w-width').value);
       const height = parseInt(document.getElementById('w-height').value, 10);
       document.getElementById('w-width-val').textContent = width + ' ft';
       document.getElementById('w-height-val').textContent = height + ' ft';
 
-      const singleSqft = width * height;
-      const totalSqft = singleSqft * state.wQty;
+      const singleSqft = Math.round(width * height * 10) / 10;
+      const totalSqft = Math.round(singleSqft * state.wQty * 10) / 10;
+      const incDrawers = getWardrobeIncludedDrawers(width);
+      const activeDrawers = Math.max(incDrawers, state.wDrawers);
+      const extraDrawers = Math.max(0, activeDrawers - incDrawers);
+
       const hw = HW_CONFIG[state.hw];
-      const effSqftRate = BASE_RATES[state.finish] + BOARD_UPLIFTS[state.board] + hw.hingeSqft;
+      const effSqftRate = BASE_RATES[state.finish] + W_STYLE_UPLIFT[state.wStyle] + BOARD_UPLIFTS[state.board] + hw.hingeSqft;
       const cabAndHinge = singleSqft * effSqftRate;
-      const extraDrawers = Math.max(0, state.wDrawers - 2);
-      const drawerAddon = (2 * hw.upgIncluded) + (extraDrawers * hw.extraDrawer);
+      const drawerAddon = (incDrawers * hw.upgIncluded) + (extraDrawers * hw.extraDrawer);
       const singleTotal = cabAndHinge + drawerAddon;
       const total = singleTotal * state.wQty;
 
-      return { width, height, singleSqft, totalSqft, qty: state.wQty, total };
+      return { width, height, singleSqft, totalSqft, incDrawers, activeDrawers, qty: state.wQty, total };
     }
 
     function updateAdvisor() {
@@ -1794,11 +1839,13 @@
       if (state.mode === 'wardrobe' && state.board === 'bwp') {
         adv.textContent = 'Honest factory tip: For dry bedroom wardrobes, our included Action Tesa HDHMR / BWR core gives superior screw-holding strength. You only need Full BWP Marine Ply if this wardrobe shares a damp bathroom wall.';
       } else if (state.mode === 'wardrobe' && state.wStyle === 'sliding') {
-        adv.textContent = 'Sliding wardrobes save aisle space in compact bedrooms. Heavy-duty soft-close sliding track channels are matched to your exact shutter weight during free laser site measurement.';
+        adv.textContent = 'Sliding wardrobes save aisle space in compact bedrooms and include heavy-duty soft-close sliding track channels matched to shutter weight at site measurement.';
+      } else if (state.mode === 'wardrobe') {
+        adv.textContent = 'Every 3×7 ft wardrobe base module includes 2 soft-close drawers + 1 hanging rod, and automatically adds +1 extra included drawer for every +1.5 ft of width.';
       } else if (state.kType === 'semi') {
         adv.textContent = 'Semi-Modular uses your existing granite/marble partitions below counter while building wet sink shutters and overhead cabinets with BWP protection—and never charges for the 2 ft empty backsplash gap.';
       } else if (state.board === 'merino') {
-        adv.textContent = 'Fully Modular + Merino Marine Board builds every lower and upper cabinet box in uniform high-density moisture-resistant structural board—our most popular choice for new homes.';
+        adv.textContent = 'Fully Modular + Merino Marine Board builds every lower and upper cabinet box in uniform 100% moisture-resistant structural board—our most popular choice for new homes.';
       } else {
         adv.textContent = 'Fully Modular builds 100% factory-engineered carcass boxes below the counter as well as overhead, with IS:710 BWP Marine Ply protecting wet sink zones.';
       }
@@ -1828,12 +1875,10 @@
     }
 
     function buildKitchenElevationGroup(k, startX, boxW, compact) {
-      // Proportional width scaling based on running ft (8 ft to 28 ft)
-      const scaleFactor = Math.min(1, Math.max(0.68, k.effRun / 20));
+      const scaleFactor = Math.min(1, Math.max(0.62, k.effRun / 20));
       const actualW = Math.round(boxW * scaleFactor);
       const x = startX + Math.round((boxW - actualW) / 2);
 
-      const loftH = state.hasLoft ? 20 : 0;
       const baseTopY = state.hasLoft ? 56 : 44;
       const overheadH = 32;
       const gapH = 28;
@@ -1846,7 +1891,6 @@
            <line x1="${x + actualW * 0.66}" y1="${baseTopY - 22}" x2="${x + actualW * 0.66}" y2="${baseTopY - 2}" stroke="#1C1C1A" stroke-width="0.9"/>`
         : '';
 
-      // Render 5 base tandem drawers (3 in left stack + 2 in middle stack = 5) plus extra slots when kDrawers > 5
       const stack1W = Math.round(actualW * 0.34);
       const stack2W = Math.round(actualW * 0.34);
       const leftSlots = Math.min(5, Math.ceil(state.kDrawers / 2));
@@ -1895,35 +1939,47 @@
     }
 
     function buildWardrobeElevationGroup(w, startX, boxW, compact) {
-      // Proportional width (4..14 ft) and height (7..10 ft) scaling
-      const wScale = Math.min(1, Math.max(0.56, w.width / 11));
-      const hScale = Math.min(1, Math.max(0.76, w.height / 10));
+      // Proportional width (1..15 ft) and height (1..11 ft) scaling
+      const wScale = Math.min(1, Math.max(0.54, w.width / 10));
+      const hScale = Math.min(1, Math.max(0.72, w.height / 10));
       const actualW = Math.round(boxW * wScale);
       const actualH = Math.round(134 * hScale);
       const x = startX + Math.round((boxW - actualW) / 2);
       const y = 42 + (134 - actualH);
 
-      // Door panels scale with wardrobe width (2, 3, or 4 panels)
-      const panels = w.width <= 5 ? 2 : (w.width <= 8 ? 3 : 4);
+      // Upper Hanger Zone (top 54%) vs Lower Side-by-Side Drawer Zone (bottom 46%)
+      const splitY = y + Math.round(actualH * 0.52);
+
+      // Door panels scale with wardrobe width
+      const panels = w.width <= 3.5 ? 2 : (w.width <= 6.5 ? 3 : 4);
       let doorLines = '';
       for (let p = 1; p < panels; p++) {
         const px = x + Math.round((actualW / panels) * p);
-        doorLines += `<line x1="${px}" y1="${y}" x2="${px}" y2="${y + actualH}" stroke="#1C1C1A" stroke-width="1.2"/>`;
+        doorLines += `<line x1="${px}" y1="${y}" x2="${px}" y2="${splitY}" stroke="#1C1C1A" stroke-width="1.1"/>`;
       }
 
-      // Drawers visual stack at bottom
-      const visDrawers = Math.min(6, state.wDrawers);
-      const dCols = visDrawers >= 4 ? 2 : 1;
-      const dRows = Math.ceil(visDrawers / dCols);
+      // Side-by-side drawer boxes positioned cleanly right below the complete hanger section
+      const dCount = w.activeDrawers;
+      const cols = Math.min(4, Math.max(1, dCount));
+      const rows = Math.min(3, Math.ceil(dCount / cols));
+      const drawerAreaH = (y + actualH) - splitY - 8;
+      const cellW = Math.floor((actualW - 10 - (cols - 1) * 3) / cols);
+      const cellH = Math.min(16, Math.max(9, Math.floor((drawerAreaH - (rows - 1) * 3) / rows)));
+
       let drawerBoxes = '';
-      for (let i = 0; i < visDrawers; i++) {
-        const c = i % dCols;
-        const r = Math.floor(i / dCols);
-        const dw = Math.round((actualW - 14) / dCols);
-        const dx = x + 6 + c * (dw + 2);
-        const dy = y + actualH - 12 - r * 11;
-        if (dy > y + 28) {
-          drawerBoxes += `<rect x="${dx}" y="${dy}" width="${dw}" height="9" rx="1.5" fill="${state.swatchLower}" stroke="#1C1C1A" stroke-width="0.9"/>`;
+      let drawn = 0;
+      for (let r = 0; r < rows && drawn < dCount; r++) {
+        const itemsInRow = Math.min(cols, dCount - drawn);
+        const rowTotalW = itemsInRow * cellW + (itemsInRow - 1) * 3;
+        const rowStartX = x + Math.round((actualW - rowTotalW) / 2);
+        const dy = splitY + 4 + r * (cellH + 3);
+        for (let c = 0; c < itemsInRow; c++) {
+          const dx = rowStartX + c * (cellW + 3);
+          drawerBoxes += `
+            <rect x="${dx}" y="${dy}" width="${cellW}" height="${cellH}" rx="1.5" fill="${state.swatchLower}" stroke="#1C1C1A" stroke-width="0.9"/>
+            <line x1="${dx + cellW * 0.35}" y1="${dy + cellH / 2}" x2="${dx + cellW * 0.65}" y2="${dy + cellH / 2}" stroke="#1C1C1A" stroke-width="1.1"/>
+          `;
+          drawn++;
         }
       }
 
@@ -1936,11 +1992,15 @@
         ${qtyBadge}
         <rect x="${x}" y="${y}" width="${actualW}" height="${actualH}" rx="3" fill="${state.swatchUpper}" opacity="0.32" stroke="#1C1C1A" stroke-width="1.6"/>
         ${doorLines}
-        <line x1="${x + 8}" y1="${y + 18}" x2="${x + actualW - 8}" y2="${y + 18}" stroke="#C8973A" stroke-width="2.6"/>
-        <text x="${x + actualW / 2}" y="${y + 30}" text-anchor="middle" font-size="7.5" font-weight="700" fill="#1C1C1A">Hanging Rod + Shelves</text>
+        <!-- Full-width Hanger Rod Section -->
+        <line x1="${x + 7}" y1="${y + 15}" x2="${x + actualW - 7}" y2="${y + 15}" stroke="#C8973A" stroke-width="2.6"/>
+        <text x="${x + actualW / 2}" y="${y + 27}" text-anchor="middle" font-size="7.5" font-weight="700" fill="#1C1C1A">Full Hanger Zone</text>
+        <!-- Divider Shelf Below Hanger Section -->
+        <line x1="${x}" y1="${splitY}" x2="${x + actualW}" y2="${splitY}" stroke="#1C1C1A" stroke-width="1.3"/>
+        <!-- Side-by-Side Drawers Directly Below Hanger Section -->
         ${drawerBoxes}
         <text x="${x + actualW / 2}" y="${y + actualH + 13}" text-anchor="middle" font-size="8" font-weight="700" fill="#1C1C1A">
-          ${w.width}×${w.height}ft (${w.singleSqft} sq.ft${w.qty > 1 ? ' ×' + w.qty : ''}) • ${state.wDrawers} Drawers
+          ${w.width}×${w.height}ft (${w.singleSqft} sq.ft${w.qty > 1 ? ' ×' + w.qty : ''}) • ${w.activeDrawers} Drawer${w.activeDrawers === 1 ? '' : 's'}
         </text>
       `;
     }
@@ -1982,7 +2042,7 @@
       const k = computeKitchenMetrics();
       const w = computeWardrobeMetrics();
 
-      // TAB 1: FRONT ELEVATION (Supports Kitchen, Wardrobe, AND Combined Both!)
+      // TAB 1: FRONT ELEVATION
       if (state.visTab === 'elevation') {
         if (state.mode === 'kitchen') {
           const kGroup = buildKitchenElevationGroup(k, 18, 285, false);
@@ -2048,59 +2108,67 @@
             <rect x="${px}" y="62" width="${wPlanW}" height="40" rx="3" fill="${state.swatchUpper}" opacity="0.45" stroke="#1C1C1A" stroke-width="2"/>
             <text x="220" y="86" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1C1C1A">24" Deep Carcass (${w.width} ft Wide)</text>
             ${doorArcs}
-            <text x="220" y="198" text-anchor="middle" font-size="9.5" fill="#5E5D58">Includes ${state.wDrawers} Soft-Close Drawers + 1 Hanging Rod per unit</text>
+            <text x="220" y="198" text-anchor="middle" font-size="9.5" fill="#5E5D58">Includes ${w.activeDrawers} Soft-Close Drawers + 1 Hanging Rod per unit</text>
           </svg>
         `;
         return;
       }
 
-      // Kitchen / Both Top-Down Blueprint SVG (Proportional to Wall Lengths)
+      // Kitchen / Both Top-Down Blueprint SVG (Corner Sink + Non-Overlapping Hob Zone)
       let layoutSVG = '';
       if (state.kLayout === 'straight') {
-        const lenA = Math.min(320, Math.max(150, k.wA * 18));
+        const lenA = Math.min(320, Math.max(175, k.wA * 18));
         const sx = Math.round((440 - lenA) / 2);
         layoutSVG = `
           <rect x="${sx}" y="68" width="${lenA}" height="52" rx="4" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
-          <rect x="${sx + 10}" y="76" width="66" height="36" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
-          <text x="${sx + 43}" y="97" text-anchor="middle" font-size="8.5" font-weight="700" fill="#0369A1">SINK (BWP)</text>
-          <rect x="${sx + lenA - 76}" y="76" width="66" height="36" rx="3" fill="#FEF3C7" stroke="#D97706"/>
-          <text x="${sx + lenA - 43}" y="97" text-anchor="middle" font-size="8.5" font-weight="700" fill="#92400E">HOB ZONE</text>
+          <rect x="${sx + 8}" y="75" width="60" height="38" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
+          <text x="${sx + 38}" y="97" text-anchor="middle" font-size="8" font-weight="700" fill="#0369A1">SINK (BWP)</text>
+          <rect x="${sx + lenA - 68}" y="75" width="60" height="38" rx="3" fill="#FEF3C7" stroke="#D97706"/>
+          <text x="${sx + lenA - 38}" y="97" text-anchor="middle" font-size="8" font-weight="700" fill="#92400E">HOB ZONE</text>
           <text x="220" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#1C1C1A">Wall A: ${k.wA} ft</text>
         `;
       } else if (state.kLayout === 'lshape') {
-        const lenA = Math.min(265, Math.max(145, k.wA * 15));
-        const lenB = Math.min(126, Math.max(70, k.wB * 9));
+        const lenA = Math.min(270, Math.max(180, k.wA * 15));
+        const lenB = Math.min(126, Math.max(88, k.wB * 9));
         layoutSVG = `
-          <path d="M90 54 H${90 + lenA} V100 H138 V${54 + lenB} H90 Z" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
-          <rect x="148" y="61" width="64" height="31" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
-          <text x="180" y="80" text-anchor="middle" font-size="8.5" font-weight="700" fill="#0369A1">SINK (BWP)</text>
-          <rect x="${90 + lenA - 68}" y="61" width="60" height="31" rx="3" fill="#FEF3C7" stroke="#D97706"/>
-          <text x="${90 + lenA - 38}" y="80" text-anchor="middle" font-size="8.5" font-weight="700" fill="#92400E">HOB</text>
+          <path d="M90 54 H${90 + lenA} V100 H142 V${54 + lenB} H90 Z" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
+          <!-- Sink positioned cleanly in the L-Shape Corner -->
+          <rect x="94" y="58" width="48" height="38" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
+          <text x="118" y="75" text-anchor="middle" font-size="7.5" font-weight="700" fill="#0369A1">SINK</text>
+          <text x="118" y="85" text-anchor="middle" font-size="7" font-weight="700" fill="#0369A1">(BWP)</text>
+          <!-- Hob separated at far right end of Wall A -->
+          <rect x="${90 + lenA - 64}" y="61" width="58" height="32" rx="3" fill="#FEF3C7" stroke="#D97706"/>
+          <text x="${90 + lenA - 35}" y="80" text-anchor="middle" font-size="8" font-weight="700" fill="#92400E">HOB ZONE</text>
           <text x="${90 + lenA / 2}" y="44" text-anchor="middle" font-size="11" font-weight="700" fill="#1C1C1A">Wall A: ${k.wA} ft</text>
           <text x="48" y="${54 + lenB / 2}" text-anchor="middle" font-size="11" font-weight="700" fill="#A97B24">B: ${k.wB} ft</text>
         `;
       } else if (state.kLayout === 'parallel') {
-        const lenA = Math.min(280, Math.max(150, k.wA * 16));
-        const lenB = Math.min(280, Math.max(140, k.wB * 16));
+        const lenA = Math.min(280, Math.max(170, k.wA * 16));
+        const lenB = Math.min(280, Math.max(170, k.wB * 16));
         layoutSVG = `
           <rect x="85" y="54" width="${lenA}" height="40" rx="4" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
-          <rect x="98" y="60" width="72" height="28" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
-          <text x="134" y="77" text-anchor="middle" font-size="8.5" font-weight="700" fill="#0369A1">SINK (BWP)</text>
+          <rect x="92" y="59" width="66" height="30" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
+          <text x="125" y="77" text-anchor="middle" font-size="8" font-weight="700" fill="#0369A1">SINK (BWP)</text>
           <rect x="85" y="130" width="${lenB}" height="40" rx="4" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
-          <rect x="${85 + lenB - 82}" y="136" width="72" height="28" rx="3" fill="#FEF3C7" stroke="#D97706"/>
-          <text x="${85 + lenB - 46}" y="153" text-anchor="middle" font-size="8.5" font-weight="700" fill="#92400E">HOB ZONE</text>
+          <rect x="${85 + lenB - 74}" y="135" width="66" height="30" rx="3" fill="#FEF3C7" stroke="#D97706"/>
+          <text x="${85 + lenB - 41}" y="153" text-anchor="middle" font-size="8" font-weight="700" fill="#92400E">HOB ZONE</text>
           <text x="220" y="45" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1C1C1A">Wall A: ${k.wA} ft</text>
           <text x="220" y="186" text-anchor="middle" font-size="10.5" font-weight="700" fill="#A97B24">Wall B: ${k.wB} ft</text>
         `;
       } else {
-        const lenA = Math.min(260, Math.max(170, k.wA * 15));
-        const lenB = Math.min(118, Math.max(72, k.wB * 8.5));
-        const lenC = Math.min(118, Math.max(72, k.wC * 8.5));
+        const lenA = Math.min(270, Math.max(195, k.wA * 15));
+        const lenB = Math.min(118, Math.max(84, k.wB * 8.5));
+        const lenC = Math.min(118, Math.max(84, k.wC * 8.5));
         const x0 = Math.round((440 - lenA) / 2);
         layoutSVG = `
-          <path d="M${x0} 54 H${x0 + lenA} V${54 + lenC} H${x0 + lenA - 46} V96 H${x0 + 46} V${54 + lenB} H${x0} Z" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
-          <rect x="${x0 + lenA / 2 - 36}" y="60" width="72" height="28" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
-          <text x="${x0 + lenA / 2}" y="77" text-anchor="middle" font-size="8.5" font-weight="700" fill="#0369A1">SINK (BWP)</text>
+          <path d="M${x0} 54 H${x0 + lenA} V${54 + lenC} H${x0 + lenA - 48} V98 H${x0 + 48} V${54 + lenB} H${x0} Z" fill="${state.swatchLower}" opacity="0.48" stroke="#1C1C1A" stroke-width="2"/>
+          <!-- Sink tucked into Top-Left U-Shape Corner -->
+          <rect x="${x0 + 4}" y="58" width="46" height="36" rx="3" fill="#E0F2FE" stroke="#0284C7"/>
+          <text x="${x0 + 27}" y="74" text-anchor="middle" font-size="7.5" font-weight="700" fill="#0369A1">SINK</text>
+          <text x="${x0 + 27}" y="84" text-anchor="middle" font-size="7" font-weight="700" fill="#0369A1">(BWP)</text>
+          <!-- Hob tucked into Top-Right U-Shape Corner -->
+          <rect x="${x0 + lenA - 52}" y="58" width="48" height="36" rx="3" fill="#FEF3C7" stroke="#D97706"/>
+          <text x="${x0 + lenA - 28}" y="79" text-anchor="middle" font-size="8" font-weight="700" fill="#92400E">HOB</text>
           <text x="220" y="44" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1C1C1A">Main Wall A: ${k.wA} ft</text>
           <text x="${x0 - 26}" y="${54 + lenB / 2}" text-anchor="middle" font-size="10" font-weight="700" fill="#A97B24">B: ${k.wB}ft</text>
           <text x="${x0 + lenA + 26}" y="${54 + lenC / 2}" text-anchor="middle" font-size="10" font-weight="700" fill="#A97B24">C: ${k.wC}ft</text>
@@ -2231,23 +2299,23 @@
           <div class="spec-line"><span>Wardrobe Size</span><span>${w.qty} Unit${w.qty > 1 ? 's' : ''} × ${w.width}×${w.height} ft (${w.totalSqft} sq.ft, ${state.wStyle})</span></div>
           <div class="spec-line"><span>Shutter Finish</span><span>${FINISH_LABELS[state.finish]}</span></div>
           <div class="spec-line"><span>Carcass Core</span><span>${BOARD_LABELS[state.board]}</span></div>
-          <div class="spec-line"><span>Hardware &amp; Drawers</span><span>${HW_CONFIG[state.hw].shortName} (${state.wDrawers} Drawers + 1 Rod / unit)</span></div>
+          <div class="spec-line"><span>Hardware &amp; Drawers</span><span>${HW_CONFIG[state.hw].shortName} (${w.activeDrawers} Drawer${w.activeDrawers === 1 ? '' : 's'} + 1 Rod / unit)</span></div>
         `;
         waLines.push(`*Scope:* ${w.qty} Modular Wardrobe${w.qty > 1 ? 's' : ''} (${state.wStyle}, ${w.width}×${w.height} ft = ${w.totalSqft} sq.ft total)`);
-        waLines.push(`*Inclusions:* ${state.wDrawers} Soft-Close Drawers + 1 Hanging Rod per wardrobe`);
+        waLines.push(`*Inclusions:* ${w.activeDrawers} Soft-Close Drawer${w.activeDrawers === 1 ? '' : 's'} + 1 Hanging Rod per wardrobe`);
       } else {
         totalExact = k.total + w.total;
-        shortTitle = `${kTypeLabel} Kitchen + ${w.qty} Wardrobe${w.qty > 1 ? 's' : ''} (${k.sqft + w.totalSqft} sq.ft)`;
+        shortTitle = `${kTypeLabel} Kitchen + ${w.qty} Wardrobe${w.qty > 1 ? 's' : ''} (${Math.round((k.sqft + w.totalSqft) * 10) / 10} sq.ft)`;
         areaSummary = `${kTypeLabel} Kitchen (~${k.sqft} sq.ft) + ${w.qty} Wardrobe${w.qty > 1 ? 's' : ''} (${w.totalSqft} sq.ft) Package`;
         breakdownHTML = `
           <div class="spec-line"><span>Kitchen (${kTypeLabel})</span><span>${state.kLayout.toUpperCase()} (~${k.sqft} sq.ft) • ${state.kDrawers} Tandems + BPO + Cutlery</span></div>
-          <div class="spec-line"><span>Wardrobe (${state.wStyle})</span><span>${w.qty} Unit${w.qty > 1 ? 's' : ''} × ${w.width}×${w.height} ft (${w.totalSqft} sq.ft) • ${state.wDrawers} Drawers + Rod</span></div>
+          <div class="spec-line"><span>Wardrobe (${state.wStyle})</span><span>${w.qty} Unit${w.qty > 1 ? 's' : ''} × ${w.width}×${w.height} ft (${w.totalSqft} sq.ft) • ${w.activeDrawers} Drawers + Rod</span></div>
           <div class="spec-line"><span>Finish &amp; Core</span><span>${FINISH_LABELS[state.finish]} | ${BOARD_LABELS[state.board]}</span></div>
           <div class="spec-line"><span>Hardware Brand</span><span>${HW_CONFIG[state.hw].shortName}</span></div>
         `;
         waLines.push(`*Scope:* ${kTypeLabel} Kitchen + ${w.qty} Wardrobe${w.qty > 1 ? 's' : ''} Package`);
         waLines.push(`*Kitchen:* ${state.kLayout.toUpperCase()}, ~${k.sqft} sq.ft (${k.verticalHt} ft ht), ${state.kDrawers} Tandems + 1 BPO + 1 Cutlery`);
-        waLines.push(`*Wardrobe:* ${w.qty} Unit${w.qty > 1 ? 's' : ''}, ${state.wStyle}, ${w.width}×${w.height} ft (${w.totalSqft} sq.ft total), ${state.wDrawers} Drawers + 1 Rod each`);
+        waLines.push(`*Wardrobe:* ${w.qty} Unit${w.qty > 1 ? 's' : ''}, ${state.wStyle}, ${w.width}×${w.height} ft (${w.totalSqft} sq.ft total), ${w.activeDrawers} Drawers + 1 Rod each`);
       }
 
       const lowBand = Math.round((totalExact * 0.95) / 1000) * 1000;
@@ -2258,7 +2326,8 @@
       const savingsAmt = retailBenchmark - totalExact;
       const savingsPct = Math.round((savingsAmt / retailBenchmark) * 100);
 
-      const shieldPct = state.board === 'bwp' ? 100 : (state.board === 'merino' ? 92 : 82);
+      // Moisture & Core Shield: 100% for Merino Marine & Full BWP, 90% for Smart Hybrid
+      const shieldPct = (state.board === 'bwp' || state.board === 'merino') ? 100 : 90;
       document.getElementById('shield-score').textContent = shieldPct + '%';
       document.getElementById('shield-bar').style.width = shieldPct + '%';
 
@@ -2287,6 +2356,7 @@
     }
 
     // Initialize on load
+    syncWardrobeDrawersForWidth(3);
     updateAll();
   </script>
 </body>
